@@ -1,38 +1,55 @@
-archetypeDir           = "archetypes"
-author                 = "admin"
-baseUrl                = "http://lyraxvincent.github.io"
-buildDrafts            = false
-relativeURLs           = true
-canonifyUrls           = true
-contentDir             = "content"
-languageCode           = "en-us"
-layoutDir              = "layouts"
-publishDir             = "public"
-theme                  = "hugo-theme-pixyll"
-themesDir              = "../.."
-title                  = "Pixyll"
-enableEmoji            = true
-DefaultContentLanguage = "en"
-#disqusShortname        = ""
+baseURL = "https://lyraxvincent.github.io"
+defaultContentLanguage = "en"
+hasCJKLanguage = true
+languageCode = "en"
+paginate = 5
+theme = "hugo-theme-texify"
+title = "TeXify"
 
-[Languages]
-[Languages.en]
-weight = 1
+disqusShortname = ""
+googleAnalytics = ""
+pygmentsUseClasses = true
 
-[Languages.ru]
-weight = 2
+[author]
+name = "author"
 
-[blackfriday]
-angledQuotes = true
-hrefTargetBlank = true
+[markup]
+  defaultMarkdownHandler = "goldmark"
+  [markup.goldmark]
+    [markup.goldmark.renderer]
+      unsafe = true
 
-[indexes]
-  category = "categories"
-  tag = "tags"
+[[menu.main]]
+  identifier = "post"
+  name = "Post"
+  url = "/"
+  weight = 1
+[[menu.main]]
+  identifier = "archives"
+  name = "Archives"
+  url = "/post/"
+  weight = 2
+[[menu.main]]
+  identifier = "about"
+  name = "About"
+  url = "/about/"
+  weight = 3
 
 [params]
-  mainSections = ["post"]
-  search_engine = true
-  #google_analytics_id = ""
-  twitter_username = "username"
-  paginate = 5
+  customCSS = []
+  dateFormat = "2006-01-02"
+  description = "an example site for hugo theme TeXify"
+  enableFullRSS = true
+  enableHanEmph = true
+  enableMathjax = true
+  favicon = "/favicon.ico"
+  footnote = "Follow me on <a class=link href=https://github.com/queensferryme>GitHub</a>, <a class=link href=https://twitter.com/queensferryme>Twitter</a> or <a class=link href=/index.xml>RSS</a> | <a class=link href=https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh target=_blank rel=noopener>CC BY-NC-SA 4.0</a>"
+  keywords = ["hugo", "latex", "theme"]
+
+# see https://utteranc.es for installation guide
+[params.utterances]
+  enable = false
+  repo = ""
+  issue_term = "pathname"
+  label = "Comment"
+  theme = "github-light"
