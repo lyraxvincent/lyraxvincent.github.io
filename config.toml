@@ -1,4 +1,4 @@
-baseURL = "https://lyraxvincent.github.io"
+baseURL = "https://lyraxvincent.github.io/"
 defaultContentLanguage = "en"
 hasCJKLanguage = true
 languageCode = "en"
