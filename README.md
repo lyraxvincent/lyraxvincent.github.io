@@ -1,23 +1,42 @@
-# Mediumish - Jekyll Theme
+# Jekyll Theme Serial Programmer
 
-[Live Demo](https://wowthemesnet.github.io/mediumish-theme-jekyll/) &nbsp; | &nbsp; [Download](https://github.com/wowthemesnet/mediumish-theme-jekyll/archive/master.zip) &nbsp; | &nbsp; [Documentation](https://bootstrapstarter.com/template-mediumish-bootstrap-jekyll/) &nbsp; | &nbsp; [Buy me a coffee](https://www.wowthemes.net/donate/)
+> A Jekyll theme for serial programmers (-.-)
 
-![mediumish](assets/images/mediumish-jekyll-template.png)
+[Live Demo](https://sharadcodes.github.io/jekyll-theme-serial-programmer/)
 
+## How to install
 
-### Copyright
+1. Download or clone the repo
+   `git clone https://github.com/sharadcodes/jekyll-theme-serial-programmer.git`
+2. Enter the folder
+   `cd jekyll-theme-serial-programmer`
+3. Run
+   `bundle install`
+4. Start Jekyll server
+   `bundle exec jekyll serve`
+5. Access via
+   - localhost or according to your pc configurations.
+6. Change the `_config.yml` & `_data/author.yml` files as you like.
+7. Upload the files on your repository and :sunglasses: enjoy.
 
-Copyright (C) 2019 Sal, https://www.wowthemes.net
+## Alert!
 
-**Mediumish for Jekyll** is designed and developed by [Sal](https://www.wowthemes.net) and it is *free* under MIT license. 
+Don't touch `categories.js` inside `assets/js` folder unless you know what you're doing, it is used for generating links for the particular category pill you click on.
 
-<a href="https://www.wowthemes.net/donate/" target="_blank"><img src="https://www.buymeacoffee.com/assets/img/custom_images/orange_img.png" alt="Buy Me A Coffee" style="height: auto !important;width: auto !important;" ></a>
+# Screenshots
 
-### Contribute
+## PC BLOG PAGE
 
-1. [Fork the repo](https://github.com/wowthemesnet/mediumish-theme-jekyll).
-2. Clone a copy of your fork on your local
-3. Create a branch off of master and give it a meaningful name (e.g. my-new-mediumish-feature).
-4. Make necessary changes, commit, push and open a pull request on GitHub.
+![Blog page](https://raw.githubusercontent.com/sharadcodes/jekyll-theme-serial-programmer/main/screenshots/pc_blog.png)
 
-Thank you!
+## PC POST EXAMPLE
+
+![Post page](https://raw.githubusercontent.com/sharadcodes/jekyll-theme-serial-programmer/main/screenshots/pc_post.png)
+
+## PHONE BLOG PAGE
+
+![Blog page](https://raw.githubusercontent.com/sharadcodes/jekyll-theme-serial-programmer/main/screenshots/mobile_blog.png)
+
+## PHONE POST EXAMPLE
+
+![Post page](https://raw.githubusercontent.com/sharadcodes/jekyll-theme-serial-programmer/main/screenshots/mobile_post.png)
