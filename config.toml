@@ -20,8 +20,8 @@ name = "author"
       unsafe = true
 
 [[menu.main]]
-  identifier = "post"
-  name = "Post"
+  identifier = "blog"
+  name = "Blog"
   url = "/"
   weight = 1
 [[menu.main]]
