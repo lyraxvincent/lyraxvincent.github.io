@@ -1,4 +1,4 @@
-theme = "hugo-sugoi"
+theme = "yinyang"
 baseURL = "https://lyraxvincent.github.io/"
 languageCode = "en-us"
 title = "My New Hugo Site"
