@@ -29,9 +29,9 @@ data
 ```
 
 
-<table>
+<table border="1" class="dataframe">
   <thead>
-    <tr style="text-align: right;">
+    <tr>
       <th></th>
       <th>absorbance0</th>
       <th>absorbance1</th>
