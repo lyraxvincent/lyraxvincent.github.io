@@ -1,7 +1,7 @@
 <!doctype html><html lang=en-us>
 <head>
 <meta charset=utf-8>
-<title>Feature Engineering: deriving statistical features using pandas aggregate function - My New Hugo Site</title>
+<title>Feature Engineering: deriving statistical features using pandas aggregate function - Vincent N.</title>
 <meta name=description content>
 <meta name=viewport content="width=device-width,initial-scale=1">
 <link href="//fonts.googleapis.com/css?family=Raleway:400,300,600" rel=stylesheet type=text/css>
@@ -50,12 +50,12 @@ Sugoi</span></a></li>
 <p>Many times when dealing with anonymized or machine-generated datasets, you find yourself out of ideas to come up
 with new features because it is unclear of what the dataset variables at hand represent. Take for example the
 following dataframe:</p>
-<pre tabindex=0><code>import pandas as pd
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-python data-lang=python><span style=color:#f92672>import</span> pandas <span style=color:#66d9ef>as</span> pd
 
-df = pd.read_csv(&quot;../datasets/Updated_Test.csv&quot;)
-data = df[df.columns[2:13]].head(10)
+df <span style=color:#f92672>=</span> pd<span style=color:#f92672>.</span>read_csv(<span style=color:#e6db74>&#34;../datasets/Updated_Test.csv&#34;</span>)
+data <span style=color:#f92672>=</span> df[df<span style=color:#f92672>.</span>columns[<span style=color:#ae81ff>2</span>:<span style=color:#ae81ff>13</span>]]<span style=color:#f92672>.</span>head(<span style=color:#ae81ff>10</span>)
 data
-</code></pre>
+</code></pre></div>
 <p>This data is most probably machine generated, that is true because what we&rsquo;re seeing here is 10 rows of blood spectroscopy readings. (There are well over 150 absorbance columns but since our focus is on generating features let&rsquo;s just work with these 11 columns.)<br>
 We can use pandas aggregate function to map various statistical measures such as mean, median, variance etc of our data to come up with more features that can aid in improving our machine learning model performance when using this data in modeling a possible solution to the problem at hand. The modeling bit aside, for now let&rsquo;s dive straight to designing our extra features.<br>
 The various statistical measures we&rsquo;re going to aggregate are:</p>
