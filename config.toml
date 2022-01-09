@@ -1,7 +1,7 @@
 theme = "hugo-sugoi"
 baseURL = "https://lyraxvincent.github.io/"
 languageCode = "en-us"
-title = "My New Hugo Site"
+title = "Vincent N."
 summaryLength = 20
 paginate = 5
 # Google Analytics ID, Uncomment below line to enable
@@ -12,9 +12,9 @@ paginate = 5
 
 [params]
 favicon = "images/favicon.png"
-herotitle = "An Ultra Minimal theme!"
-herolink = "https://github.com/aanupam23/hugo-sugoi"
-herolinktext = "Check Now"
+herotitle = "Welcome to my blog!"
+herolink = "https://lyraxvincent.github.io/about/"
+herolinktext = "View my current CV"
 contact = "Send me a message and I will get back as soon as possible."
 
 
