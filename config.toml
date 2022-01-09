@@ -1,4 +1,4 @@
-baseURL = "https://lyraxvincent.github.io/"
+baseURL = "https://hugo-theme-texify.qufy.me"
 defaultContentLanguage = "en"
 hasCJKLanguage = true
 languageCode = "en"
@@ -20,8 +20,8 @@ name = "author"
       unsafe = true
 
 [[menu.main]]
-  identifier = "blog"
-  name = "Blog"
+  identifier = "post"
+  name = "Post"
   url = "/"
   weight = 1
 [[menu.main]]
