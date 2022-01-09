@@ -1,5 +1,5 @@
 theme = "hugo-sugoi"
-baseURL = "http://lyraxvincent.github.io/"
+baseURL = "https://lyraxvincent.github.io/"
 languageCode = "en-us"
 title = "My New Hugo Site"
 summaryLength = 20
