@@ -31,7 +31,7 @@ data
 
 <table border="1" class="dataframe">
   <thead>
-    <tr>
+    <tr style="text-align: right;">
       <th></th>
       <th>absorbance0</th>
       <th>absorbance1</th>
@@ -226,7 +226,7 @@ print("\n\nDataframe after adding aggregate features:\n\n"); display(data.head(3
     Dataframe before adding aggregate features:
     
     
-
+<p>
 
 <table border="1" class="dataframe">
   <thead>
@@ -291,7 +291,7 @@ print("\n\nDataframe after adding aggregate features:\n\n"); display(data.head(3
   </tbody>
 </table>
 
-
+</p>
     
     
     Dataframe after adding aggregate features:
