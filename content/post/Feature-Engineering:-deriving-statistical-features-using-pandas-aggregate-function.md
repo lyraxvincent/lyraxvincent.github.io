@@ -19,7 +19,7 @@ with new features because it is unclear of what the dataset variables at hand re
 following dataframe:
 
 
-```python
+```
 import pandas as pd
 
 df = pd.read_csv("../datasets/Updated_Test.csv")
@@ -27,10 +27,6 @@ data = df[df.columns[2:13]].head(10)
 data
 ```
 
-
-
-
-<div>
 
 <table border="1" class="dataframe">
   <thead>
@@ -192,7 +188,6 @@ data
     </tr>
   </tbody>
 </table>
-</div>
 
 
 
@@ -214,7 +209,7 @@ The various statistical measures we're going to aggregate are:
 Let's quickly wrap them all up in a loop:
 
 
-```python
+```
 # To avoid including an aggregated feature to calculations of another aggregated feature
 # we create a list of features
 features = data.columns.to_list()
@@ -231,9 +226,6 @@ print("\n\nDataframe after adding aggregate features:\n\n"); display(data.head(3
     
     
 
-
-
-<div>
 
 <table border="1" class="dataframe">
   <thead>
@@ -297,7 +289,6 @@ print("\n\nDataframe after adding aggregate features:\n\n"); display(data.head(3
     </tr>
   </tbody>
 </table>
-</div>
 
 
     
@@ -306,9 +297,6 @@ print("\n\nDataframe after adding aggregate features:\n\n"); display(data.head(3
     
     
 
-
-
-<div>
 
 <table border="1" class="dataframe">
   <thead>
@@ -413,7 +401,6 @@ print("\n\nDataframe after adding aggregate features:\n\n"); display(data.head(3
   </tbody>
 </table>
 <p>3 rows × 21 columns</p>
-</div>
 
 
 Quick and efficient! We have added ten more features to our dataset.  
