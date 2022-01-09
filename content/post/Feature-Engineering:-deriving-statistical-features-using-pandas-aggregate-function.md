@@ -11,7 +11,7 @@ icon: "fas fa-industry"
 # **Feature Engineering: deriving statistical features using pandas aggregate function**
 
 <p align="center">
-<img src="../images/pandas_agg.png" width="600" height="350" alt="png"/>
+<img src="/images/blog/pandas_agg.png" width="600" height="350" alt="png"/>
 </p>
 
 Many times when dealing with anonymized or machine-generated datasets, you find yourself out of ideas to come up 
