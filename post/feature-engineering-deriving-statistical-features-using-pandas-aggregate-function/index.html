@@ -50,12 +50,12 @@ Sugoi</span></a></li>
 <p>Many times when dealing with anonymized or machine-generated datasets, you find yourself out of ideas to come up
 with new features because it is unclear of what the dataset variables at hand represent. Take for example the
 following dataframe:</p>
-<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-python data-lang=python><span style=color:#f92672>import</span> pandas <span style=color:#66d9ef>as</span> pd
+<pre tabindex=0><code>import pandas as pd
 
-df <span style=color:#f92672>=</span> pd<span style=color:#f92672>.</span>read_csv(<span style=color:#e6db74>&#34;../datasets/Updated_Test.csv&#34;</span>)
-data <span style=color:#f92672>=</span> df[df<span style=color:#f92672>.</span>columns[<span style=color:#ae81ff>2</span>:<span style=color:#ae81ff>13</span>]]<span style=color:#f92672>.</span>head(<span style=color:#ae81ff>10</span>)
+df = pd.read_csv(&quot;../datasets/Updated_Test.csv&quot;)
+data = df[df.columns[2:13]].head(10)
 data
-</code></pre></div>
+</code></pre>
 <p>This data is most probably machine generated, that is true because what we&rsquo;re seeing here is 10 rows of blood spectroscopy readings. (There are well over 150 absorbance columns but since our focus is on generating features let&rsquo;s just work with these 11 columns.)<br>
 We can use pandas aggregate function to map various statistical measures such as mean, median, variance etc of our data to come up with more features that can aid in improving our machine learning model performance when using this data in modeling a possible solution to the problem at hand. The modeling bit aside, for now let&rsquo;s dive straight to designing our extra features.<br>
 The various statistical measures we&rsquo;re going to aggregate are:</p>
@@ -72,17 +72,17 @@ The various statistical measures we&rsquo;re going to aggregate are:</p>
 <li>kurtosis</li>
 </ul>
 <p>Let&rsquo;s quickly wrap them all up in a loop:</p>
-<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-python data-lang=python><span style=color:#75715e># To avoid including an aggregated feature to calculations of another aggregated feature</span>
-<span style=color:#75715e># we create a list of features</span>
-features <span style=color:#f92672>=</span> data<span style=color:#f92672>.</span>columns<span style=color:#f92672>.</span>to_list()
+<pre tabindex=0><code># To avoid including an aggregated feature to calculations of another aggregated feature
+# we create a list of features
+features = data.columns.to_list()
 
-print(<span style=color:#e6db74>&#34;Dataframe before adding aggregate features:</span><span style=color:#ae81ff>\n\n</span><span style=color:#e6db74>&#34;</span>); display(data<span style=color:#f92672>.</span>head(<span style=color:#ae81ff>3</span>))
+print(&quot;Dataframe before adding aggregate features:\n\n&quot;); display(data.head(3))
 
-<span style=color:#66d9ef>for</span> funct <span style=color:#f92672>in</span> [<span style=color:#e6db74>&#39;mean&#39;</span>, <span style=color:#e6db74>&#39;median&#39;</span>, <span style=color:#e6db74>&#39;sum&#39;</span>, <span style=color:#e6db74>&#39;count&#39;</span>, <span style=color:#e6db74>&#39;max&#39;</span>, <span style=color:#e6db74>&#39;min&#39;</span>, <span style=color:#e6db74>&#39;std&#39;</span>, <span style=color:#e6db74>&#39;var&#39;</span>, <span style=color:#e6db74>&#39;skew&#39;</span>, <span style=color:#e6db74>&#39;kurt&#39;</span>]:
-    data[<span style=color:#e6db74>f</span><span style=color:#e6db74>&#39;agg_</span><span style=color:#e6db74>{</span>funct<span style=color:#e6db74>}</span><span style=color:#e6db74>&#39;</span>] <span style=color:#f92672>=</span> data[features]<span style=color:#f92672>.</span>agg(<span style=color:#e6db74>f</span><span style=color:#e6db74>&#39;</span><span style=color:#e6db74>{</span>funct<span style=color:#e6db74>}</span><span style=color:#e6db74>&#39;</span>, axis<span style=color:#f92672>=</span><span style=color:#ae81ff>1</span>)
+for funct in ['mean', 'median', 'sum', 'count', 'max', 'min', 'std', 'var', 'skew', 'kurt']:
+    data[f'agg_{funct}'] = data[features].agg(f'{funct}', axis=1)
     
-print(<span style=color:#e6db74>&#34;</span><span style=color:#ae81ff>\n\n</span><span style=color:#e6db74>Dataframe after adding aggregate features:</span><span style=color:#ae81ff>\n\n</span><span style=color:#e6db74>&#34;</span>); display(data<span style=color:#f92672>.</span>head(<span style=color:#ae81ff>3</span>))
-</code></pre></div><pre><code>Dataframe before adding aggregate features:
+print(&quot;\n\nDataframe after adding aggregate features:\n\n&quot;); display(data.head(3))
+</code></pre><pre><code>Dataframe before adding aggregate features:
 </code></pre>
 <pre><code>Dataframe after adding aggregate features:
 </code></pre>
