@@ -1,55 +1,37 @@
-baseURL = "https://lyraxvincent.github.io/"
-defaultContentLanguage = "en"
-hasCJKLanguage = true
-languageCode = "en"
+theme = "hugo-sugoi"
+baseURL = "https://example.com"
+languageCode = "en-us"
+title = "Sugoi"
+summaryLength = 20
 paginate = 5
-theme = "hugo-theme-texify"
-title = "TeXify"
+# Google Analytics ID, Uncomment below line to enable
+# googleAnalytics = "UA-123-45"
 
-disqusShortname = ""
-googleAnalytics = ""
-pygmentsUseClasses = true
-
-[author]
-name = "author"
-
-[markup]
-  defaultMarkdownHandler = "goldmark"
-  [markup.goldmark]
-    [markup.goldmark.renderer]
-      unsafe = true
-
-[[menu.main]]
-  identifier = "post"
-  name = "Post"
-  url = "/"
-  weight = 1
-[[menu.main]]
-  identifier = "archives"
-  name = "Archives"
-  url = "/post/"
-  weight = 2
-[[menu.main]]
-  identifier = "about"
-  name = "About"
-  url = "/about/"
-  weight = 3
+# Enter your disqus Shortname and uncomment below line to enable
+# disqusShortname = "yourdiscussshortname"
 
 [params]
-  customCSS = []
-  dateFormat = "2006-01-02"
-  description = "an example site for hugo theme TeXify"
-  enableFullRSS = true
-  enableHanEmph = true
-  enableMathjax = true
-  favicon = "/favicon.ico"
-  footnote = "Follow me on <a class=link href=https://github.com/queensferryme>GitHub</a>, <a class=link href=https://twitter.com/queensferryme>Twitter</a> or <a class=link href=/index.xml>RSS</a> | <a class=link href=https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh target=_blank rel=noopener>CC BY-NC-SA 4.0</a>"
-  keywords = ["hugo", "latex", "theme"]
+favicon = "images/favicon.png"
+herotitle = "An Ultra Minimal theme!"
+herolink = "https://lyraxvincent.github.io/"
+herolinktext = "Check Now"
+contact = "Send me a message and I will get back as soon as possible."
 
-# see https://utteranc.es for installation guide
-[params.utterances]
-  enable = false
-  repo = ""
-  issue_term = "pathname"
-  label = "Comment"
-  theme = "github-light"
+[hero]
+
+[menu]
+    [[menu.nav]]
+        name    = "about"
+        pre = "<i class='fas fa-home'></i>"
+        url     = "about"
+        weight  = -1
+    [[menu.nav]]
+        name    = "blog"
+        pre = "<i class='fas fa-list'></i>"
+        url     = "post"
+        weight  = -2
+    [[menu.nav]]
+        name    = "contact"
+        pre = "<i class='fas fa-envelope'></i>"
+        url     = "contact"
+        weight  = -3
