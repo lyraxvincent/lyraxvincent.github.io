@@ -1,5 +1,5 @@
 theme = "hugo-sugoi"
-baseURL = "https://lyraxvincent.github.io/"
+baseURL = "https://example.com"
 languageCode = "en-us"
 title = "Sugoi"
 summaryLength = 20
@@ -13,7 +13,7 @@ paginate = 5
 [params]
 favicon = "images/favicon.png"
 herotitle = "An Ultra Minimal theme!"
-herolink = "https://github.com/aanupam23/hugo-sugoi"
+herolink = "https://lyraxvincent.github.io"
 herolinktext = "Check Now"
 contact = "Send me a message and I will get back as soon as possible."
 
