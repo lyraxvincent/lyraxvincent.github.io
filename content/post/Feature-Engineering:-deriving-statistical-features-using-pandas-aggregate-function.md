@@ -14,7 +14,7 @@ icon: "fas fa-industry"
 <img src="images/blog/pandas_agg.png" width="600" height="350" alt="png"/>
 </p>
 
-![png](static/images/blog/pandas_agg.png)
+![png](images/blog/pandas_agg.png)
 
 Many times when dealing with anonymized or machine-generated datasets, you find yourself out of ideas to come up 
 with new features because it is unclear of what the dataset variables at hand represent. Take for example the 
@@ -22,17 +22,15 @@ following dataframe:
 
 
 ```
-
 import pandas as pd
 
 df = pd.read_csv("../datasets/Updated_Test.csv")
 data = df[df.columns[2:13]].head(10)
 data
-
 ```
 
 
-<table border="1" class="dataframe">
+<table>
   <thead>
     <tr style="text-align: right;">
       <th></th>
