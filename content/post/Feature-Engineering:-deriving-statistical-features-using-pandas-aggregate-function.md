@@ -14,14 +14,14 @@ icon: "fas fa-industry"
 <img src="images/blog/pandas_agg.png" width="600" height="350" alt="png"/>
 </p>
 
-![png](images/blog/pandas_agg.png)
+![png](static/images/blog/pandas_agg.png)
 
 Many times when dealing with anonymized or machine-generated datasets, you find yourself out of ideas to come up 
 with new features because it is unclear of what the dataset variables at hand represent. Take for example the 
 following dataframe:
 
 
-```python
+```
 
 import pandas as pd
 
