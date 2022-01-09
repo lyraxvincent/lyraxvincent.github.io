@@ -17,6 +17,9 @@ herolink = "https://github.com/aanupam23/hugo-sugoi"
 herolinktext = "Check Now"
 contact = "Send me a message and I will get back as soon as possible."
 
+headTitle = "Joway Wang"
+mainSections = ["post"]
+
 [hero]
 
 [menu]
