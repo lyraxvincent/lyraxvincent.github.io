@@ -1,0 +1,100 @@
+<!doctype html><html lang=en-us>
+<head>
+<meta charset=utf-8>
+<title>Feature Engineering: deriving statistical features using pandas aggregate function - My New Hugo Site</title>
+<meta name=description content>
+<meta name=viewport content="width=device-width,initial-scale=1">
+<link href="//fonts.googleapis.com/css?family=Raleway:400,300,600" rel=stylesheet type=text/css>
+<link rel=stylesheet href=https://lyraxvincent.github.io/css/normalize.css>
+<link rel=stylesheet href=https://lyraxvincent.github.io/css/skeleton.css>
+<link rel=stylesheet href=https://lyraxvincent.github.io/css/custom.css>
+<script src=https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/js/all.min.js></script>
+<link rel="shortcut icon" href=/images/favicon.png type=image/png>
+</head>
+<body><nav>
+<label for=drop class=toggle><i class="fas fa-bars u-pull-right" aria-hidden=true></i> <span><i class="fas fa-fire" aria-hidden=true></i>
+Sugoi</span></label>
+<input type=checkbox id=drop>
+<ul class=menu>
+<li><a href=https://lyraxvincent.github.io/><span><i class="fas fa-fire" aria-hidden=true></i>
+Sugoi</span></a></li>
+<li class=u-pull-right>
+<a href=https://lyraxvincent.github.io/contact class=Members>
+<span><i class="fas fa-envelope"></i> contact</span>
+</a>
+</li>
+<li class=u-pull-right>
+<a href=https://lyraxvincent.github.io/post class=Members>
+<span><i class="fas fa-list"></i> blog</span>
+</a>
+</li>
+<li class=u-pull-right>
+<a href=https://lyraxvincent.github.io/about class=Members>
+<span><i class="fas fa-home"></i> about</span>
+</a>
+</li>
+</ul>
+</nav>
+<div class="section hero">
+<div class=container>
+<h1 class=section-heading>Feature Engineering: deriving statistical features using pandas aggregate function</h1>
+<i class="far fa-calendar"></i> Published On: 2022-01-09,
+<i class="far fa-clock"></i> Reading Time: 2 minutes
+</h6>
+</div>
+</div>
+<div class="section main">
+<div class="row content">
+<article>
+<h1 id=feature-engineering-deriving-statistical-features-using-pandas-aggregate-function><strong>Feature Engineering: deriving statistical features using pandas aggregate function</strong></h1>
+<p>Many times when dealing with anonymized or machine-generated datasets, you find yourself out of ideas to come up
+with new features because it is unclear of what the dataset variables at hand represent. Take for example the
+following dataframe:</p>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-python data-lang=python><span style=color:#f92672>import</span> pandas <span style=color:#66d9ef>as</span> pd
+
+df <span style=color:#f92672>=</span> pd<span style=color:#f92672>.</span>read_csv(<span style=color:#e6db74>&#34;../datasets/Updated_Test.csv&#34;</span>)
+data <span style=color:#f92672>=</span> df[df<span style=color:#f92672>.</span>columns[<span style=color:#ae81ff>2</span>:<span style=color:#ae81ff>13</span>]]<span style=color:#f92672>.</span>head(<span style=color:#ae81ff>10</span>)
+data
+</code></pre></div>
+<p>This data is most probably machine generated, that is true because what we&rsquo;re seeing here is 10 rows of blood spectroscopy readings. (There are well over 150 absorbance columns but since our focus is on generating features let&rsquo;s just work with these 11 columns.)<br>
+We can use pandas aggregate function to map various statistical measures such as mean, median, variance etc of our data to come up with more features that can aid in improving our machine learning model performance when using this data in modeling a possible solution to the problem at hand. The modeling bit aside, for now let&rsquo;s dive straight to designing our extra features.<br>
+The various statistical measures we&rsquo;re going to aggregate are:</p>
+<ul>
+<li>mean</li>
+<li>median</li>
+<li>sum</li>
+<li>count</li>
+<li>max</li>
+<li>min</li>
+<li>standard deviation</li>
+<li>variance</li>
+<li>skewness</li>
+<li>kurtosis</li>
+</ul>
+<p>Let&rsquo;s quickly wrap them all up in a loop:</p>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-python data-lang=python><span style=color:#75715e># To avoid including an aggregated feature to calculations of another aggregated feature</span>
+<span style=color:#75715e># we create a list of features</span>
+features <span style=color:#f92672>=</span> data<span style=color:#f92672>.</span>columns<span style=color:#f92672>.</span>to_list()
+
+print(<span style=color:#e6db74>&#34;Dataframe before adding aggregate features:</span><span style=color:#ae81ff>\n\n</span><span style=color:#e6db74>&#34;</span>); display(data<span style=color:#f92672>.</span>head(<span style=color:#ae81ff>3</span>))
+
+<span style=color:#66d9ef>for</span> funct <span style=color:#f92672>in</span> [<span style=color:#e6db74>&#39;mean&#39;</span>, <span style=color:#e6db74>&#39;median&#39;</span>, <span style=color:#e6db74>&#39;sum&#39;</span>, <span style=color:#e6db74>&#39;count&#39;</span>, <span style=color:#e6db74>&#39;max&#39;</span>, <span style=color:#e6db74>&#39;min&#39;</span>, <span style=color:#e6db74>&#39;std&#39;</span>, <span style=color:#e6db74>&#39;var&#39;</span>, <span style=color:#e6db74>&#39;skew&#39;</span>, <span style=color:#e6db74>&#39;kurt&#39;</span>]:
+    data[<span style=color:#e6db74>f</span><span style=color:#e6db74>&#39;agg_</span><span style=color:#e6db74>{</span>funct<span style=color:#e6db74>}</span><span style=color:#e6db74>&#39;</span>] <span style=color:#f92672>=</span> data[features]<span style=color:#f92672>.</span>agg(<span style=color:#e6db74>f</span><span style=color:#e6db74>&#39;</span><span style=color:#e6db74>{</span>funct<span style=color:#e6db74>}</span><span style=color:#e6db74>&#39;</span>, axis<span style=color:#f92672>=</span><span style=color:#ae81ff>1</span>)
+    
+print(<span style=color:#e6db74>&#34;</span><span style=color:#ae81ff>\n\n</span><span style=color:#e6db74>Dataframe after adding aggregate features:</span><span style=color:#ae81ff>\n\n</span><span style=color:#e6db74>&#34;</span>); display(data<span style=color:#f92672>.</span>head(<span style=color:#ae81ff>3</span>))
+</code></pre></div><pre><code>Dataframe before adding aggregate features:
+</code></pre>
+<pre><code>Dataframe after adding aggregate features:
+</code></pre>
+<p>Quick and efficient! We have added ten more features to our dataset.<br>
+Other function names that can be passed to pandas aggregate function are listed in the documentation <a href=https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.core.groupby.GroupBy.pipe.html#>here.</a> Note however that not all of them return a pandas series (column).</p>
+</article>
+</div>
+</div>
+<footer>
+<span class=copyright>
+&copy; 2022
+<a href=https://github.com/aanupam23/hugo-sugoi title=hugo-sugoi alt=hugo-sugoi target=_blank>Hugo-Sugoi</a>
+</span>
+</footer></body>
+</html>
