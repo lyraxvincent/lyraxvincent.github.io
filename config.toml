@@ -1,4 +1,4 @@
-theme = "yinyang"
+theme = "hugo-sugoi"
 baseURL = "https://lyraxvincent.github.io/"
 languageCode = "en-us"
 title = "My New Hugo Site"
@@ -17,8 +17,6 @@ herolink = "https://github.com/aanupam23/hugo-sugoi"
 herolinktext = "Check Now"
 contact = "Send me a message and I will get back as soon as possible."
 
-headTitle = "Joway Wang"
-mainSections = ["post"]
 
 [hero]
 
