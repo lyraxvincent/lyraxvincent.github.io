@@ -28,6 +28,21 @@ data
 
 
 
+
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
 <table border="1" class="dataframe">
   <thead>
     <tr style="text-align: right;">
@@ -188,6 +203,7 @@ data
     </tr>
   </tbody>
 </table>
+</div>
 
 
 
@@ -228,6 +244,20 @@ print("\n\nDataframe after adding aggregate features:\n\n"); display(data.head(3
 
 
 
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
 <table border="1" class="dataframe">
   <thead>
     <tr style="text-align: right;">
@@ -290,6 +320,7 @@ print("\n\nDataframe after adding aggregate features:\n\n"); display(data.head(3
     </tr>
   </tbody>
 </table>
+</div>
 
 
     
@@ -300,7 +331,20 @@ print("\n\nDataframe after adding aggregate features:\n\n"); display(data.head(3
 
 
 
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
 
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
 <table border="1" class="dataframe">
   <thead>
     <tr style="text-align: right;">
@@ -404,6 +448,7 @@ print("\n\nDataframe after adding aggregate features:\n\n"); display(data.head(3
   </tbody>
 </table>
 <p>3 rows × 21 columns</p>
+</div>
 
 
 Quick and efficient! We have added ten more features to our dataset.  
