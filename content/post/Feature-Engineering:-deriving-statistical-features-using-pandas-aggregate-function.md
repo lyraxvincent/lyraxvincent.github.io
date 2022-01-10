@@ -28,6 +28,7 @@ data = df[df.columns[2:13]].head(10)
 data
 ```
 
+<br><br>
 
 <table border="1" class="dataframe">
   <thead>
@@ -190,7 +191,7 @@ data
   </tbody>
 </table>
 
-
+<br><br>
 
 This data is most probably machine generated, that is true because what we're seeing here is 10 rows of blood spectroscopy readings. (There are well over 150 absorbance columns but since our focus is on generating features let's just work with these 11 columns.)  
 We can use pandas aggregate function to map various statistical measures such as mean, median, variance etc of our data to come up with more features that can aid in improving our machine learning model performance when using this data in modeling a possible solution to the problem at hand. The modeling bit aside, for now let's dive straight to designing our extra features.  
@@ -226,7 +227,7 @@ print("\n\nDataframe after adding aggregate features:\n\n"); display(data.head(3
     Dataframe before adding aggregate features:
     
     
-<p>
+<br><br>
 
 <table border="1" class="dataframe">
   <thead>
@@ -291,7 +292,7 @@ print("\n\nDataframe after adding aggregate features:\n\n"); display(data.head(3
   </tbody>
 </table>
 
-</p>
+
     
     
     Dataframe after adding aggregate features:
@@ -401,6 +402,7 @@ print("\n\nDataframe after adding aggregate features:\n\n"); display(data.head(3
     </tr>
   </tbody>
 </table>
+
 <p>3 rows × 21 columns</p>
 
 
