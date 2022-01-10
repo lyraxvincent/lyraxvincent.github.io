@@ -3,5 +3,5 @@
 	url = https://github.com/aanupam23/hugo-sugoi.git
 	
 [submodule "themes/even"]
-	pathe = themes/eveb
+	path = themes/even
 	url = https://github.com/olOwOlo/hugo-theme-even.git
