@@ -1,26 +1,27 @@
 ---
 title: "Feature Engineering: deriving statistical features using pandas aggregate function"
 date: 2022-01-09T20:58:49+05:30
+lastmod: 2022-01-09T20:58:49+05:30
 draft: false
-
+tags: ["features", "aggregate", "statistical"]
 categories: ["Feature Engineering", "Pandas"]
 icon: "fas fa-industry"
 ---
 
-# **Feature Engineering: deriving statistical features using pandas aggregate function**
+[# **Feature Engineering: deriving statistical features using pandas aggregate function**]::
 
 <p align="center">
-<img src="images/blog/pandas_agg.png" width="600" height="350" alt="png"/>
+<img src="static/images/blog/pandas_agg.png" width="600" height="350" alt="png"/>
 </p>
 
-![png](images/blog/pandas_agg.png)
+![png](../../static/images/blog/pandas_agg.png)
 
 Many times when dealing with anonymized or machine-generated datasets, you find yourself out of ideas to come up 
 with new features because it is unclear of what the dataset variables at hand represent. Take for example the 
 following dataframe:
 
 
-```
+```python
 import pandas as pd
 
 df = pd.read_csv("../datasets/Updated_Test.csv")
@@ -28,7 +29,6 @@ data = df[df.columns[2:13]].head(10)
 data
 ```
 
-<br><br>
 
 <table border="1" class="dataframe">
   <thead>
@@ -191,7 +191,6 @@ data
   </tbody>
 </table>
 
-<br><br>
 
 This data is most probably machine generated, that is true because what we're seeing here is 10 rows of blood spectroscopy readings. (There are well over 150 absorbance columns but since our focus is on generating features let's just work with these 11 columns.)  
 We can use pandas aggregate function to map various statistical measures such as mean, median, variance etc of our data to come up with more features that can aid in improving our machine learning model performance when using this data in modeling a possible solution to the problem at hand. The modeling bit aside, for now let's dive straight to designing our extra features.  
@@ -211,7 +210,7 @@ The various statistical measures we're going to aggregate are:
 Let's quickly wrap them all up in a loop:
 
 
-```
+```python
 # To avoid including an aggregated feature to calculations of another aggregated feature
 # we create a list of features
 features = data.columns.to_list()
@@ -226,8 +225,7 @@ print("\n\nDataframe after adding aggregate features:\n\n"); display(data.head(3
 
     Dataframe before adding aggregate features:
     
-    
-<br><br>
+
 
 <table border="1" class="dataframe">
   <thead>
@@ -402,7 +400,6 @@ print("\n\nDataframe after adding aggregate features:\n\n"); display(data.head(3
     </tr>
   </tbody>
 </table>
-
 <p>3 rows × 21 columns</p>
 
 
