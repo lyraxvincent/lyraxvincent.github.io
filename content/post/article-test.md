@@ -7,7 +7,7 @@ categories: ["TEST"]
 icon: "fas fa-industry"
 ---
 
-# **Feature Engineering: deriving statistical features using pandas aggregate function**
+# **FE**
 
 <p align="center">
 <img src="../images/pandas_agg.png" width="600" height="350" alt="png"/>
