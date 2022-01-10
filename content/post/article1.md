@@ -1,7 +1,7 @@
 ---
 title: "test article"
 date: 2022-01-10T12:37:00+00:00
-draft: true
+draft: false
 
 categories: ["TEST"]
 icon: "fas fa-industry"
