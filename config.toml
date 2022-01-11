@@ -34,25 +34,25 @@ copyright = ""            # default: author.name ↓        # 默认为下面配
   identifier = "home"
   url = "/"
 [[menu.main]]
-  name = "About & CV"
-  weight = 50
-  identifier = "about"
-  url = "about"
-[[menu.main]]
   name = "Posts"
   weight = 20
   identifier = "posts"
   url = "/post/"
 [[menu.main]]
-  name = "Tags"
+  name = "About"
   weight = 30
-  identifier = "tags"
-  url = "/tags/"
+  identifier = "about"
+  url = "about"
 [[menu.main]]
   name = "Categories"
   weight = 40
   identifier = "categories"
   url = "/categories/"
+[[menu.main]]
+  name = "Tags"
+  weight = 50
+  identifier = "tags"
+  url = "/tags/"
 
 
 [params]
