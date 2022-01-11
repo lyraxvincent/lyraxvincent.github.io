@@ -1,0 +1,2 @@
+User-agent: *
+Sitemap: https://lyraxvincent.github.io/sitemap.xml
