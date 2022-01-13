@@ -1,5 +1,5 @@
 ---
-title: "Feature Engineering: deriving statistical features using pandas aggregate function"
+title: "Monitoring machine learning model performance the right way to avoid overfitting the leaderboard in a competition"
 date: 2022-01-13T23:39:00+00:00
 lastmod: 2022-01-13T23:39:00+00:00
 draft: false
@@ -7,7 +7,7 @@ tags: ["model-monitoring", "model-performance", "machine-learning", "overfitting
 categories: ["Machine Learning"]
 ---
 
-[# **Tracking machine learning model performance the right way to avoid overfitting the leaderboard in a competition**]::
+[# **Monitoring machine learning model performance the right way to avoid overfitting the leaderboard in a competition**]::
 
 <p align='center'>
     <img src="/img/blog/charles-deluvio-unsplash.jpg", alt=jpg width="600" height="350"/>
