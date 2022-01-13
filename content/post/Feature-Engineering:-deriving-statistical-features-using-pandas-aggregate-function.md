@@ -3,8 +3,8 @@ title: "Feature Engineering: deriving statistical features using pandas aggregat
 date: 2022-01-09T20:58:49+05:30
 lastmod: 2022-01-09T20:58:49+05:30
 draft: false
-tags: ["features", "aggregate", "statistical"]
-categories: ["Feature Engineering", "Pandas"]
+tags: ["features", "aggregate", "statistical", "feature-engineering", "pandas"]
+categories: ["Machine Learning", "Feature Engineering", "Pandas"]
 icon: "fas fa-industry"
 ---
 
