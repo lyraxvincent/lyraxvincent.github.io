@@ -1,9 +1,9 @@
 ---
 title: "Feature Engineering: deriving statistical features using pandas aggregate function"
 date: 2022-01-09T20:58:49+05:30
-lastmod: 2022-01-09T20:58:49+05:30
+lastmod: 2022-01-14T00:07:00+00:00
 draft: false
-tags: ["features", "aggregate", "statistical", "feature-engineering", "pandas"]
+tags: ["aggregate", "statistical", "feature-engineering", "pandas"]
 categories: ["Machine Learning", "Feature Engineering", "Pandas"]
 icon: "fas fa-industry"
 ---
