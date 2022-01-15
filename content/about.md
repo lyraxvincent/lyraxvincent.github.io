@@ -1,10 +1,12 @@
-Hi!  
+<h1>Hi! 👋</h1>
+Welcome to my online portfolio and blog.
+
 I'm Vincent, a data scientist/ machine learning engineer passionate about
 using my data analytics knowledge in python
 programming for good(ethical AI) to solve data
 related problems.  
 
-Here's a little more professional detail about me:
+Here's a little more about me:
 
 ## **Technologies**
 My tech stack includes but is not limited to:
@@ -17,7 +19,7 @@ My tech stack includes but is not limited to:
 ## **Skills**
 My knowledge is built around:
 - Python programming:
-  -numpy
+  - numpy
   - pandas
   - matplotlib
   - seaborn
@@ -45,5 +47,10 @@ My knowledge is built around:
 
 
 ## **Projects**
+...
 
 ## **Publications**
+...
+
+## **Links**
+...
