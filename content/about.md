@@ -47,10 +47,22 @@ My knowledge is built around:
 
 
 ## **Projects**
-...
+
+- __Sentiment Analysis Web App__  
+This project was aimed at predicting the sentiment associated with tweets during
+the COVID-19 pandemic.  
+Covered a whole project cycle from data acquisition to model deployment. 
+The whole project cycle details and code on my [github](https://github.com/lyraxvincent/sentiment-analysis)  
+The project's web application is live [here.](https://sentlysis.herokuapp.com)
+
 
 ## **Publications**
-...
-
-## **Links**
-...
+- __Python Package [datastand](https://pypi.org/project/datastand/)__  
+Datastand is a python package designed to help Data
+Scientists, Machine Learning Engineers and Data Analysts to better understand
+data. It gives quick insights about given data; general dataset statistics, size and
+shape of dataset, number of unique data types, number of numerical and non-
+numerical columns, small overview of dataset, missing data statistics, missing data
+heatmap and provides methodology to impute missing data.  
+Package link on [pypi](https://pypi.org/project/datastand/)  
+I also made a guide to showcase how datastand works and help you get started [here.]()
