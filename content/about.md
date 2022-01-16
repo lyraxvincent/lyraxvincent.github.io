@@ -1,4 +1,4 @@
-# **Hi!** 👋
+# **Hi**👋
 Welcome to my online portfolio and blog.
 
 I'm Vincent, a data scientist/ machine learning engineer passionate about
