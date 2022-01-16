@@ -9,6 +9,9 @@ related problems.
 Here's a little more about me:
 
 ## **Technologies**
+
+-----
+
 My tech stack includes but is not limited to:
 - Python programming
 - SQL
@@ -17,6 +20,9 @@ My tech stack includes but is not limited to:
 - Linux
 
 ## **Skills**
+
+-----
+
 My knowledge is built around:
 - Python programming:
   - numpy
@@ -48,7 +54,9 @@ My knowledge is built around:
 
 ## **Projects**
 
-- __Sentiment Analysis Web App__  
+-----
+
+- <u>Sentiment Analysis Web App</u>  
 This project was aimed at predicting the sentiment associated with tweets during
 the COVID-19 pandemic.  
 Covered a whole project cycle from data acquisition to model deployment. 
@@ -57,7 +65,10 @@ The project's web application is live [here.](https://sentlysis.herokuapp.com)
 
 
 ## **Publications**
-- __Python Package [datastand](https://pypi.org/project/datastand/)__  
+
+-----
+
+- <u>Python Package [datastand](https://pypi.org/project/datastand/) </u>  
 Datastand is a python package designed to help Data
 Scientists, Machine Learning Engineers and Data Analysts to better understand
 data. It gives quick insights about given data; general dataset statistics, size and
