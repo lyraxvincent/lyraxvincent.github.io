@@ -1,10 +1,15 @@
 # **Hi**👋
 Welcome to my online portfolio and blog.
 
-I'm Vincent, a data scientist/ machine learning engineer passionate about
-using my data analytics knowledge in python
-programming for good(ethical AI) to solve data
-related problems.  
+I'm Vincent, a result-oriented data scientist and machine learning engineer with a data-driven mindset and attention
+to details. Ready to work and willing to learn and meet new challenges in a diverse and fast-paced
+working environment.
+Competent in executing data mining, data preparation, exploratory data analysis, data story telling, data
+visualization, feature engineering, data modeling and model deployment. Extensive experience in
+supervised and unsupervised machine learning algorithms and concepts. Proficiency in Windows and
+Linux operating systems.
+An all-round data analytics practitioner greatly passionate about artificial intelligence and python
+programming with an aim of becoming a world class problem solver.
 
 Here's a little more about me:
 
