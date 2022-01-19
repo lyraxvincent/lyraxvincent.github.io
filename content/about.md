@@ -81,4 +81,4 @@ shape of dataset, number of unique data types, number of numerical and non-
 numerical columns, small overview of dataset, missing data statistics, missing data
 heatmap and provides methodology to impute missing data.  
 Package link on [pypi](https://pypi.org/project/datastand/)  
-I also made a guide to showcase how datastand works and help you get started [here.]()
+I also made a guide to showcase how datastand works and help you get started [here.](https://lyraxvincent.github.io/post/datastand-a-python-package-for-data-explorers/)
