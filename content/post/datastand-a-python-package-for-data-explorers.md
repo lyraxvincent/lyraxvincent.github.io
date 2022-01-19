@@ -31,9 +31,9 @@ Run the following command on the terminal to install the package:
 ```python
 pip install datastand
 ```
-# Usage
+# **Usage**
 
-### Importing and using datastand
+## **Importing and using datastand**
 
 ```python
 from datastand.datastand import datastand
@@ -102,7 +102,7 @@ Do you wish to long-list missing data statistics?(y/n): y
 .
 ```
 
-### Missing data heatmap
+## **Missing data heatmap**
 To plot a heatmap to visualize missing data statistics, we import a function *plot_missing*:
 
 ```python
@@ -115,11 +115,11 @@ plot_missing(df)
 ```
 
 <p>
-    <img src="/img/blog/datastand_missing_data_heatmap.png", alt="heatmap" width="600" height="350"/>
+    <img src="/img/blog/datastand_missing_data_heatmap.png", alt="heatmap" width="700" height="500"/>
 </p>
 
 
-### Data imputation
+## **Data imputation**
 Datastand offers data imputation methodologies using the following strategies:
 - For numerical columns: fill missing value with a random value chosen from:  
   - np.arange(min value in the column, max_value, standard deviation of the column)
