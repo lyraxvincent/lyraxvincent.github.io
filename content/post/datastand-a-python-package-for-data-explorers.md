@@ -26,7 +26,7 @@ A python package to help Data Scientists, Machine Learning Engineers and Analyst
 - missing data heatmap and 
 - provides methodology to impute missing data
 
-# Installation
+# **Installation**
 Run the following command on the terminal to install the package:
 ```python
 pip install datastand
