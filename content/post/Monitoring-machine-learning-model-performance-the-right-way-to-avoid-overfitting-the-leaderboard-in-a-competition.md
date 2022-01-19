@@ -10,7 +10,7 @@ categories: ["Machine Learning"]
 [# **Monitoring machine learning model performance the right way to avoid overfitting the leaderboard in a competition**]::
 
 <p align='center'>
-    <img src="/img/blog/charles-deluvio-unsplash.jpg", alt=jpg width="600" height="350"/>
+    <img src="/img/blog/charles-deluvio-unsplash.jpg", alt="jpg" width="600" height="350"/>
     <br>
     Photo by <a href="https://unsplash.com/@charlesdeluvio?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Charles Deluvio</a> on <a href="https://unsplash.com/s/photos/machine-learning?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Unsplash</a>
   

@@ -5,7 +5,6 @@ lastmod: 2022-01-14T00:07:00+00:00
 draft: false
 tags: ["aggregate", "statistical", "feature-engineering", "pandas"]
 categories: ["Machine Learning", "Feature Engineering", "Pandas"]
-icon: "fas fa-industry"
 ---
 
 [# **Feature Engineering: deriving statistical features using pandas aggregate function**]::
