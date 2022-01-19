@@ -1,11 +1,10 @@
 ---
-title: "Datastand a Python Package for Data Explorers"
-date: 2022-01-19T15:44:46+03:00
-lastmod: 2022-01-19T15:44:46+03:00
+title: "DataStand, a python package for data explorers."
+date: 2022-01-19T14:21:00+00:00
+lastmod: 2022-01-19T14:21:00+00:00
 draft: false
 tags: ["datastand", "python-package", "data-imputation"]
 categories: ["Machine Learning"]
-author: "Vincent N."
 ---
 
 [# **DataStand, a python package for data explorers.**]::
