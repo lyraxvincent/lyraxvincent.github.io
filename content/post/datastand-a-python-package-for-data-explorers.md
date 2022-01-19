@@ -1,5 +1,5 @@
 ---
-title: "Datastand a Python Package for Data Explorers"
+title: "Datastand, a Python Package for Data Explorers"
 date: 2022-01-19T15:44:46+03:00
 lastmod: 2022-01-19T15:44:46+03:00
 draft: false
