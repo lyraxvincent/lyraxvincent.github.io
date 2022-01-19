@@ -115,7 +115,7 @@ plot_missing(df)
 ```
 
 <p>
-    <img src="/img/blog/datastand_missing_data_heatmap.png, alt="heatmap" width="600" height="350"/>
+    <img src="/img/blog/datastand_missing_data_heatmap.png", alt="heatmap" width="600" height="350"/>
 </p>
 
 
