@@ -1,3 +1,11 @@
+<h1 align="right">
+<u>
+
+[[BLOG](https://lyraxvincent.github.io/)]
+
+</u>
+</h1>
+
 # **Hi**👋
 Welcome to my online portfolio and blog.
 
