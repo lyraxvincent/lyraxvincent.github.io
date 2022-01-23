@@ -22,7 +22,7 @@ programming with an aim of becoming a world class problem solver.
 
 Here's a little more about me:
 
-## **Technologies**
+## **Technologies**💡
 
 -----
 
@@ -33,7 +33,7 @@ My tech stack includes but is not limited to:
 - Git and github
 - Linux
 
-## **Skills**
+## **Skills**🕵
 
 -----
 
@@ -66,7 +66,7 @@ My knowledge is built around:
 - ...(everything data really.)
 
 
-## **Projects**
+## **Projects**⛓
 
 -----
 
@@ -78,7 +78,7 @@ The whole project cycle details and code on my [github](https://github.com/lyrax
 The project's web application is live [here.](https://sentlysis.herokuapp.com)
 
 
-## **Publications**
+## **Publications**📋🗞
 
 -----
 
