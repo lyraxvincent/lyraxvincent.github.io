@@ -96,8 +96,8 @@ I also made a guide to showcase how datastand works and help you get started [he
 -----
 
 
-<p align="center">
+<h2 align="center">
 
-  [<img src="/img/about/view-blog.png" width='400' height='250'/>](https://lyraxvincent.github.io/)
+[View my [<u>**BLOG**</u>]](https://lyraxvincent.github.io/)
 
-</p>
+</h2>
