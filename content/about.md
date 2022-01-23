@@ -91,3 +91,13 @@ numerical columns, small overview of dataset, missing data statistics, missing d
 heatmap and provides methodology to impute missing data.  
 Package link on [pypi](https://pypi.org/project/datastand/)  
 I also made a guide to showcase how datastand works and help you get started [here.](https://lyraxvincent.github.io/post/datastand-a-python-package-for-data-explorers/)
+
+
+-----
+
+
+<p align="center">
+
+  [<img src="/img/about/view-blog.png", alt="" width="400" height="250"/>](https://lyraxvincent.github.io/)
+
+</p>
