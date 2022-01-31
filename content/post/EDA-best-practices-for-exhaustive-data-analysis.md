@@ -689,7 +689,7 @@ sns.heatmap(data[['country_code', 'region']].corr())
 
 
 <p align="center">
-    <img src="/img/blog/EDA_best_files/EDA_best_13_2.png" alt="png" width="600" height="350"/>
+    <img src="/img/blog/EDA_best_files/EDA_best_13_2.png" alt="png" width="500" height="250"/>
  
 </p>
 
@@ -790,7 +790,7 @@ sns.pairplot(data[list(data.columns[:10])+['Target']], hue='Target')
 
 
 <p align="center">
-    <img src="/img/blog/EDA_best_files/EDA_best_20_1.png" alt="png" width="600" height="350"/>
+    <img src="/img/blog/EDA_best_files/EDA_best_20_1.png" alt="png" width="750" height="550"/>
  
 </p>
 
