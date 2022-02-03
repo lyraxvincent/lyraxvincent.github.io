@@ -82,6 +82,13 @@ Covered a whole project cycle from data acquisition to model deployment.
 The whole project cycle details and code on my [github](https://github.com/lyraxvincent/sentiment-analysis)  
 The project's web application is live [here.](https://sentlysis.herokuapp.com)
 
+<br>
+
+- <u>Portfolio Website and Blog</u>  
+
+I built my portfolio [website and blog.](https://lyraxvincent.github.io/)
+
+
 
 ## **Publications**📋🗞
 
@@ -102,6 +109,11 @@ heatmap and provides methodology to impute missing data.
 Package link on [pypi](https://pypi.org/project/datastand/)  
 I also made a guide to showcase how datastand works and help you get started [here.](https://lyraxvincent.github.io/post/datastand-a-python-package-for-data-explorers/)
 
+<br>
+
+- <u>Technical Articles</u>
+
+Find technical articles written by me on the posts page [here.](https://lyraxvincent.github.io/post/)
 
 -----
 
