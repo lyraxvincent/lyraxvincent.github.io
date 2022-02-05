@@ -7,7 +7,7 @@
 </u>
 </h1>
 
-# **Hi**👋
+# **Hi** ![gif](/img/about/hi.gif)
 Welcome to my online portfolio and blog.
 
 I'm Vincent, a result-oriented data scientist and machine learning engineer with a data-driven mindset and attention
