@@ -22,7 +22,7 @@ programming with an aim of becoming a world class problem solver.
 
 Here's a little more about me:
 
-## **Technologies**💡
+## **Technologies** <img src="/img/about/lightbulb.gif" width="28"/>
 
 -----
 
@@ -33,7 +33,7 @@ My tech stack includes but is not limited to:
 - Git and github
 - Linux
 
-## **Skills**🕵
+## **Skills** <img src="/img/about/chains.gif" width="28"/>
 
 -----
 
@@ -66,7 +66,7 @@ My knowledge is built around:
 - ...(everything data really.)
 
 
-## **Projects**⛓
+## **Projects** <img src="/img/about/projects.gif" width="28"/>
 
 -----
 
@@ -90,7 +90,7 @@ I built my portfolio [website and blog.](https://lyraxvincent.github.io/)
 
 
 
-## **Publications**📋🗞
+## **Publications**📋 <img src="/img/about/newspapers.gif" width="28"/>
 
 -----
 
