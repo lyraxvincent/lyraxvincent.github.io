@@ -7,7 +7,7 @@
 </u>
 </h1>
 
-# **Hi** <img src="/img/about/hi.gif" width="28"/>
+# **Hi** <img src="/img/about/hi.gif" width="50"/>
 Welcome to my online portfolio and blog.
 
 I'm Vincent, a result-oriented data scientist and machine learning engineer with a data-driven mindset and attention
@@ -22,7 +22,7 @@ programming with an aim of becoming a world class problem solver.
 
 Here's a little more about me:
 
-## **Technologies** <img src="/img/about/lightbulb.gif" width="28"/>
+## **Technologies** <img src="/img/about/lightbulb.gif" width="60"/>
 
 -----
 
@@ -33,7 +33,7 @@ My tech stack includes but is not limited to:
 - Git and github
 - Linux
 
-## **Skills** <img src="/img/about/chains.gif" width="28"/>
+## **Skills** <img src="/img/about/chains.gif" width="60"/>
 
 -----
 
@@ -66,7 +66,7 @@ My knowledge is built around:
 - ...(everything data really.)
 
 
-## **Projects** <img src="/img/about/projects.gif" width="50"/>
+## **Projects** <img src="/img/about/projects.gif" width="75"/>
 
 -----
 
