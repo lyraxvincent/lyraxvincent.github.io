@@ -66,7 +66,7 @@ My knowledge is built around:
 - ...(everything data really.)
 
 
-## **Projects** <img src="/img/about/projects.gif" width="28"/>
+## **Projects** <img src="/img/about/projects.gif" width="50"/>
 
 -----
 
