@@ -90,7 +90,7 @@ I built my portfolio [website and blog.](https://lyraxvincent.github.io/)
 
 
 
-## **Publications**📋 <img src="/img/about/newspapers.gif" width="28"/>
+## **Publications**📋 <img src="/img/about/newspapers.gif" width="75"/>
 
 -----
 
