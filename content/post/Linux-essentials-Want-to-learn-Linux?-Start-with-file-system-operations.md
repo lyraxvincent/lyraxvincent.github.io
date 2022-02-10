@@ -1,7 +1,7 @@
 ---
-title: "Linux Essentials: Want to Learn Linux? Start With File System Operations"
-date: 2022-02-10T15:28:48+03:00
-lastmod: 2022-02-10T15:28:48+03:00
+title: "Linux Essentials; Want to Learn Linux? Start With File System Operations"
+date: 2022-02-10T15:38:25+03:00
+lastmod: 2022-02-10T15:38:25+03:00
 draft: false
 tags: ["linux"]
 categories: ["Linux"]
