@@ -9,7 +9,7 @@ author: "Vincent N."
 ---
 
 <p align="center">
-    <img src="/img/blog/linux-fso/linux-screen.mp4" width="650" height="400"/>
+    <img src="/img/blog/linux-fso/linux-screen.png" width="750" height="500"/>
 
 </p>
 
