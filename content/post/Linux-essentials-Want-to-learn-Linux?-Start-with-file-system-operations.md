@@ -6,6 +6,7 @@ draft: false
 tags: ["linux"]
 categories: ["Linux"]
 author: "Vincent N."
+---
 
 <p align="center">
     <img src="../img/linux-screen.mp4" width="650" height="400"/>
