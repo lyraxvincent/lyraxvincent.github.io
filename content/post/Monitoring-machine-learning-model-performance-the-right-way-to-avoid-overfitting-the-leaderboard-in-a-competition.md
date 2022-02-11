@@ -426,21 +426,21 @@ pred_test = np.zeros(len(test))
 NFOLDS = 10
 fold = KFold(n_splits=NFOLDS)
 
-for train_index, test_index in fold.split(X,y):
+for train_index, test_index in fold.split(X, y):
     
     X_train, X_test = X.iloc[train_index], X.iloc[test_index]
     y_train, y_test = y.iloc[train_index], y.iloc[test_index]
     
     cat  = CatBoostRegressor(verbose=False, random_seed=101, use_best_model=True, loss_function='RMSE', n_estimators=1500, learning_rate=0.05)
-    cat.fit(X_train,y_train,eval_set=[(X_train,y_train),(X_test, y_test)])
+    cat.fit(X_train, y_train, eval_set=[(X_train, y_train), (X_test, y_test)])
     preds = cat.predict(X_test)
     
     # update out of folds predictions
     oofs_preds[test_index] = preds
     
     # update errors
-    print(f"RMSE: {np.sqrt(mean_squared_error(y_test,preds))}")
-    errors.append(np.sqrt(mean_squared_error(y_test,preds)))
+    print(f"RMSE: {np.sqrt(mean_squared_error(y_test, preds))}")
+    errors.append(np.sqrt(mean_squared_error(y_test, preds)))
     p2 = cat.predict(test[feat_cols])
     pred_test += p2
 ```
