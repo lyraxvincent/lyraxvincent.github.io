@@ -28,12 +28,12 @@
 <meta property="og:type" content="article">
 <meta property="og:url" content="https://lyraxvincent.github.io/post/monitoring-machine-learning-model-performance-the-right-way-to-avoid-overfitting-the-leaderboard-in-a-competition/"><meta property="article:section" content="post">
 <meta property="article:published_time" content="2022-01-13T23:39:00+00:00">
-<meta property="article:modified_time" content="2022-01-19T15:36:36+03:00">
+<meta property="article:modified_time" content="2022-02-11T13:32:05+03:00">
 <meta itemprop=name content="Monitoring machine learning model performance the right way to avoid overfitting the leaderboard in a competition">
 <meta itemprop=description content="Photo by Charles Deluvio on Unsplash Introduction There are several explanations of what overfitting or underfitting is, whatever works for you, add the following idea to it:
  An overfitting model/algorithm is too complex for the task or dataset at hand while An underfitting model is too simple for the task  If overfitting has ever cost you downward jumps on a machine learning competition, you might agree with me that the experience was somewhat humiliating especially if you went from top 3 downwards, when you had better and stronger non-overfitting submissions that you didn&rsquo;t select to be scored on."><meta itemprop=datePublished content="2022-01-13T23:39:00+00:00">
-<meta itemprop=dateModified content="2022-01-19T15:36:36+03:00">
-<meta itemprop=wordCount content="1751">
+<meta itemprop=dateModified content="2022-02-11T13:32:05+03:00">
+<meta itemprop=wordCount content="1758">
 <meta itemprop=keywords content="model-monitoring,model-performance,machine-learning,overfitting,"><meta name=twitter:card content="summary">
 <meta name=twitter:title content="Monitoring machine learning model performance the right way to avoid overfitting the leaderboard in a competition">
 <meta name=twitter:description content="Photo by Charles Deluvio on Unsplash Introduction There are several explanations of what overfitting or underfitting is, whatever works for you, add the following idea to it:
@@ -761,21 +761,21 @@ This is where we populate these variables with values from our model training. I
 <span class=n>NFOLDS</span> <span class=o>=</span> <span class=mi>10</span>
 <span class=n>fold</span> <span class=o>=</span> <span class=n>KFold</span><span class=p>(</span><span class=n>n_splits</span><span class=o>=</span><span class=n>NFOLDS</span><span class=p>)</span>
 
-<span class=k>for</span> <span class=n>train_index</span><span class=p>,</span> <span class=n>test_index</span> <span class=ow>in</span> <span class=n>fold</span><span class=o>.</span><span class=n>split</span><span class=p>(</span><span class=n>X</span><span class=p>,</span><span class=n>y</span><span class=p>):</span>
+<span class=k>for</span> <span class=n>train_index</span><span class=p>,</span> <span class=n>test_index</span> <span class=ow>in</span> <span class=n>fold</span><span class=o>.</span><span class=n>split</span><span class=p>(</span><span class=n>X</span><span class=p>,</span> <span class=n>y</span><span class=p>):</span>
     
     <span class=n>X_train</span><span class=p>,</span> <span class=n>X_test</span> <span class=o>=</span> <span class=n>X</span><span class=o>.</span><span class=n>iloc</span><span class=p>[</span><span class=n>train_index</span><span class=p>],</span> <span class=n>X</span><span class=o>.</span><span class=n>iloc</span><span class=p>[</span><span class=n>test_index</span><span class=p>]</span>
     <span class=n>y_train</span><span class=p>,</span> <span class=n>y_test</span> <span class=o>=</span> <span class=n>y</span><span class=o>.</span><span class=n>iloc</span><span class=p>[</span><span class=n>train_index</span><span class=p>],</span> <span class=n>y</span><span class=o>.</span><span class=n>iloc</span><span class=p>[</span><span class=n>test_index</span><span class=p>]</span>
     
     <span class=n>cat</span>  <span class=o>=</span> <span class=n>CatBoostRegressor</span><span class=p>(</span><span class=n>verbose</span><span class=o>=</span><span class=kc>False</span><span class=p>,</span> <span class=n>random_seed</span><span class=o>=</span><span class=mi>101</span><span class=p>,</span> <span class=n>use_best_model</span><span class=o>=</span><span class=kc>True</span><span class=p>,</span> <span class=n>loss_function</span><span class=o>=</span><span class=s1>&#39;RMSE&#39;</span><span class=p>,</span> <span class=n>n_estimators</span><span class=o>=</span><span class=mi>1500</span><span class=p>,</span> <span class=n>learning_rate</span><span class=o>=</span><span class=mf>0.05</span><span class=p>)</span>
-    <span class=n>cat</span><span class=o>.</span><span class=n>fit</span><span class=p>(</span><span class=n>X_train</span><span class=p>,</span><span class=n>y_train</span><span class=p>,</span><span class=n>eval_set</span><span class=o>=</span><span class=p>[(</span><span class=n>X_train</span><span class=p>,</span><span class=n>y_train</span><span class=p>),(</span><span class=n>X_test</span><span class=p>,</span> <span class=n>y_test</span><span class=p>)])</span>
+    <span class=n>cat</span><span class=o>.</span><span class=n>fit</span><span class=p>(</span><span class=n>X_train</span><span class=p>,</span> <span class=n>y_train</span><span class=p>,</span> <span class=n>eval_set</span><span class=o>=</span><span class=p>[(</span><span class=n>X_train</span><span class=p>,</span> <span class=n>y_train</span><span class=p>),</span> <span class=p>(</span><span class=n>X_test</span><span class=p>,</span> <span class=n>y_test</span><span class=p>)])</span>
     <span class=n>preds</span> <span class=o>=</span> <span class=n>cat</span><span class=o>.</span><span class=n>predict</span><span class=p>(</span><span class=n>X_test</span><span class=p>)</span>
     
     <span class=c1># update out of folds predictions</span>
     <span class=n>oofs_preds</span><span class=p>[</span><span class=n>test_index</span><span class=p>]</span> <span class=o>=</span> <span class=n>preds</span>
     
     <span class=c1># update errors</span>
-    <span class=nb>print</span><span class=p>(</span><span class=sa>f</span><span class=s2>&#34;RMSE: </span><span class=si>{</span><span class=n>np</span><span class=o>.</span><span class=n>sqrt</span><span class=p>(</span><span class=n>mean_squared_error</span><span class=p>(</span><span class=n>y_test</span><span class=p>,</span><span class=n>preds</span><span class=p>))</span><span class=si>}</span><span class=s2>&#34;</span><span class=p>)</span>
-    <span class=n>errors</span><span class=o>.</span><span class=n>append</span><span class=p>(</span><span class=n>np</span><span class=o>.</span><span class=n>sqrt</span><span class=p>(</span><span class=n>mean_squared_error</span><span class=p>(</span><span class=n>y_test</span><span class=p>,</span><span class=n>preds</span><span class=p>)))</span>
+    <span class=nb>print</span><span class=p>(</span><span class=sa>f</span><span class=s2>&#34;RMSE: </span><span class=si>{</span><span class=n>np</span><span class=o>.</span><span class=n>sqrt</span><span class=p>(</span><span class=n>mean_squared_error</span><span class=p>(</span><span class=n>y_test</span><span class=p>,</span> <span class=n>preds</span><span class=p>))</span><span class=si>}</span><span class=s2>&#34;</span><span class=p>)</span>
+    <span class=n>errors</span><span class=o>.</span><span class=n>append</span><span class=p>(</span><span class=n>np</span><span class=o>.</span><span class=n>sqrt</span><span class=p>(</span><span class=n>mean_squared_error</span><span class=p>(</span><span class=n>y_test</span><span class=p>,</span> <span class=n>preds</span><span class=p>)))</span>
     <span class=n>p2</span> <span class=o>=</span> <span class=n>cat</span><span class=o>.</span><span class=n>predict</span><span class=p>(</span><span class=n>test</span><span class=p>[</span><span class=n>feat_cols</span><span class=p>])</span>
     <span class=n>pred_test</span> <span class=o>+=</span> <span class=n>p2</span>
 </code></pre></td></tr></table>
@@ -815,8 +815,8 @@ Mean error: 11.895585944533348
 <p class=copyright-item>
 <span class=item-title>LastMod</span>
 <span class=item-content>
-2022-01-19
-<a href=/commit/adbdadfdd74102ff78220f56a2ef2e6a3f28008d title="reset posts directory">(adbdadf)</a>
+2022-02-11
+<a href=/commit/0cab707799768e6f5dbd1f79614fbae5832434db title="edit code spacing on last block">(0cab707)</a>
 </span>
 </p>
 </div>
