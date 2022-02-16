@@ -44,13 +44,18 @@ copyright = ""            # default: author.name ↓        # 默认为下面配
   identifier = "about"
   url = "/about/"
 [[menu.main]]
-  name = "Categories"
+  name = "Contact"
   weight = 40
+  identifier = "contact"
+  url = "/contact/"
+[[menu.main]]
+  name = "Categories"
+  weight = 50
   identifier = "categories"
   url = "/categories/"
 [[menu.main]]
   name = "Tags"
-  weight = 50
+  weight = 60
   identifier = "tags"
   url = "/tags/"
 
