@@ -153,6 +153,8 @@ copyright = ""            # default: author.name ↓        # 默认为下面配
   [params.utterances]       # https://utteranc.es/
     owner = "lyraxvincent"              # Your GitHub ID
     repo = "lyraxvincent/portfolio-comments"               # The repo to store comments
+    enable = true
+    issueTerm = "pathname"
 
   [params.gitalk]           # Gitalk is a comment system based on GitHub issues. see https://github.com/gitalk/gitalk
     owner = ""              # Your GitHub ID
