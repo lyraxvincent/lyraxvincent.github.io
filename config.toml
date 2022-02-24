@@ -145,17 +145,16 @@ copyright = ""            # default: author.name ↓        # 默认为下面配
     warn = 180              # Display warning if the last modified time is more than these days ago.    # 如果文章最后更新于这天数之前，显示警告
 
   [params.gitment]          # Gitment is a comment system based on GitHub issues. see https://github.com/imsun/gitment
-    owner = "lyraxvincent"              # Your GitHub ID
-    repo = "portfolio-comments"               # The repo to store comments
-    clientId = "2edb7041533719d24b0e"           # Your client ID
-    clientSecret = "fa3ecbcfb4347a2b07857c5c35950da093ccbe72"       # Your client secret
-    enable = true
+    #owner = "lyraxvincent"              # Your GitHub ID
+    #repo = "portfolio-comments"               # The repo to store comments
+    #clientId = "2edb7041533719d24b0e"           # Your client ID
+    #clientSecret = "fa3ecbcfb4347a2b07857c5c35950da093ccbe72"       # Your client secret
 
   [params.utterances]       # https://utteranc.es/
-    #owner = "lyraxvincent"              # Your GitHub ID
-    #repo = "lyraxvincent/portfolio-comments"               # The repo to store comments
-    #enable = true
-    #issueTerm = "pathname"
+    owner = "lyraxvincent"              # Your GitHub ID
+    repo = "portfolio-comments"               # The repo to store comments
+    enable = true
+    issueTerm = "pathname"
 
   [params.gitalk]           # Gitalk is a comment system based on GitHub issues. see https://github.com/gitalk/gitalk
     #owner = "lyraxvincent"              # Your GitHub ID
