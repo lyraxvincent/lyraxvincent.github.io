@@ -1,149 +1,12 @@
-<!doctype html><html lang=en>
-<head>
-<meta charset=utf-8>
-<meta http-equiv=x-ua-compatible content="IE=edge,chrome=1">
-<title>Monitoring machine learning model performance the right way to avoid overfitting the leaderboard in a competition - Vincent N.</title>
-<meta name=renderer content="webkit">
-<meta name=viewport content="width=device-width,initial-scale=1,maximum-scale=1">
-<meta http-equiv=cache-control content="no-transform">
-<meta http-equiv=cache-control content="no-siteapp">
-<meta name=theme-color content="#f8f5ec">
-<meta name=msapplication-navbutton-color content="#f8f5ec">
-<meta name=apple-mobile-web-app-capable content="yes">
-<meta name=apple-mobile-web-app-status-bar-style content="#f8f5ec">
-<meta name=author content="Vincent N."><meta name=description content="Photo by Charles Deluvio on Unsplash Introduction There are several explanations of what overfitting or underfitting is, whatever works for you, add the following idea to it:
- An overfitting model/algorithm is too complex for the task or dataset at hand while An underfitting model is too simple for the task  If overfitting has ever cost you downward jumps on a machine learning competition, you might agree with me that the experience was somewhat humiliating especially if you went from top 3 downwards, when you had better and stronger non-overfitting submissions that you didn&amp;rsquo;t select to be scored on."><meta name=keywords content="Hugo,theme,even">
-<meta name=generator content="Hugo 0.92.2 with theme even">
-<link rel=canonical href=https://lyraxvincent.github.io/post/monitoring-machine-learning-model-performance-the-right-way-to-avoid-overfitting-the-leaderboard-in-a-competition/>
-<link rel=apple-touch-icon sizes=180x180 href=/apple-touch-icon.png>
-<link rel=icon type=image/png sizes=32x32 href=/favicon-32x32.png>
-<link rel=icon type=image/png sizes=16x16 href=/favicon-16x16.png>
-<link rel=manifest href=/manifest.json>
-<link rel=mask-icon href=/safari-pinned-tab.svg color=#5bbad5>
-<link href=/sass/main.min.f92fd13721ddf72129410fd8250e73152cc6f2438082b6c0208dc24ee7c13fc4.css rel=stylesheet>
-<link rel=stylesheet href=https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.css integrity="sha256-7TyXnr2YU040zfSP+rEcz29ggW4j56/ujTPwjMzyqFY=" crossorigin=anonymous>
-<meta property="og:title" content="Monitoring machine learning model performance the right way to avoid overfitting the leaderboard in a competition">
-<meta property="og:description" content="Photo by Charles Deluvio on Unsplash Introduction There are several explanations of what overfitting or underfitting is, whatever works for you, add the following idea to it:
- An overfitting model/algorithm is too complex for the task or dataset at hand while An underfitting model is too simple for the task  If overfitting has ever cost you downward jumps on a machine learning competition, you might agree with me that the experience was somewhat humiliating especially if you went from top 3 downwards, when you had better and stronger non-overfitting submissions that you didn&rsquo;t select to be scored on.">
-<meta property="og:type" content="article">
-<meta property="og:url" content="https://lyraxvincent.github.io/post/monitoring-machine-learning-model-performance-the-right-way-to-avoid-overfitting-the-leaderboard-in-a-competition/"><meta property="article:section" content="post">
-<meta property="article:published_time" content="2022-01-13T23:39:00+00:00">
-<meta property="article:modified_time" content="2022-02-11T13:32:05+03:00">
-<meta itemprop=name content="Monitoring machine learning model performance the right way to avoid overfitting the leaderboard in a competition">
-<meta itemprop=description content="Photo by Charles Deluvio on Unsplash Introduction There are several explanations of what overfitting or underfitting is, whatever works for you, add the following idea to it:
- An overfitting model/algorithm is too complex for the task or dataset at hand while An underfitting model is too simple for the task  If overfitting has ever cost you downward jumps on a machine learning competition, you might agree with me that the experience was somewhat humiliating especially if you went from top 3 downwards, when you had better and stronger non-overfitting submissions that you didn&rsquo;t select to be scored on."><meta itemprop=datePublished content="2022-01-13T23:39:00+00:00">
-<meta itemprop=dateModified content="2022-02-11T13:32:05+03:00">
-<meta itemprop=wordCount content="1758">
-<meta itemprop=keywords content="model-monitoring,model-performance,machine-learning,overfitting,"><meta name=twitter:card content="summary">
-<meta name=twitter:title content="Monitoring machine learning model performance the right way to avoid overfitting the leaderboard in a competition">
-<meta name=twitter:description content="Photo by Charles Deluvio on Unsplash Introduction There are several explanations of what overfitting or underfitting is, whatever works for you, add the following idea to it:
+<!doctype html><html lang=en><head><meta charset=utf-8><meta http-equiv=x-ua-compatible content="IE=edge,chrome=1"><title>Monitoring machine learning model performance the right way to avoid overfitting the leaderboard in a competition - Vincent N.</title><meta name=renderer content="webkit"><meta name=viewport content="width=device-width,initial-scale=1,maximum-scale=1"><meta http-equiv=cache-control content="no-transform"><meta http-equiv=cache-control content="no-siteapp"><meta name=theme-color content="#f8f5ec"><meta name=msapplication-navbutton-color content="#f8f5ec"><meta name=apple-mobile-web-app-capable content="yes"><meta name=apple-mobile-web-app-status-bar-style content="#f8f5ec"><meta name=author content="Vincent N."><meta name=description content="Photo by Charles Deluvio on Unsplash Introduction There are several explanations of what overfitting or underfitting is, whatever works for you, add the following idea to it:
+ An overfitting model/algorithm is too complex for the task or dataset at hand while An underfitting model is too simple for the task  If overfitting has ever cost you downward jumps on a machine learning competition, you might agree with me that the experience was somewhat humiliating especially if you went from top 3 downwards, when you had better and stronger non-overfitting submissions that you didn&amp;rsquo;t select to be scored on."><meta name=keywords content="Hugo,theme,even"><meta name=generator content="Hugo 0.94.2 with theme even"><link rel=canonical href=https://lyraxvincent.github.io/post/monitoring-machine-learning-model-performance-the-right-way-to-avoid-overfitting-the-leaderboard-in-a-competition/><link rel=apple-touch-icon sizes=180x180 href=/apple-touch-icon.png><link rel=icon type=image/png sizes=32x32 href=/favicon-32x32.png><link rel=icon type=image/png sizes=16x16 href=/favicon-16x16.png><link rel=manifest href=/manifest.json><link rel=mask-icon href=/safari-pinned-tab.svg color=#5bbad5><link href=/sass/main.min.f92fd13721ddf72129410fd8250e73152cc6f2438082b6c0208dc24ee7c13fc4.css rel=stylesheet><link rel=stylesheet href=https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.css integrity="sha256-7TyXnr2YU040zfSP+rEcz29ggW4j56/ujTPwjMzyqFY=" crossorigin=anonymous><meta property="og:title" content="Monitoring machine learning model performance the right way to avoid overfitting the leaderboard in a competition"><meta property="og:description" content="Photo by Charles Deluvio on Unsplash Introduction There are several explanations of what overfitting or underfitting is, whatever works for you, add the following idea to it:
+ An overfitting model/algorithm is too complex for the task or dataset at hand while An underfitting model is too simple for the task  If overfitting has ever cost you downward jumps on a machine learning competition, you might agree with me that the experience was somewhat humiliating especially if you went from top 3 downwards, when you had better and stronger non-overfitting submissions that you didn&rsquo;t select to be scored on."><meta property="og:type" content="article"><meta property="og:url" content="https://lyraxvincent.github.io/post/monitoring-machine-learning-model-performance-the-right-way-to-avoid-overfitting-the-leaderboard-in-a-competition/"><meta property="article:section" content="post"><meta property="article:published_time" content="2022-01-13T23:39:00+00:00"><meta property="article:modified_time" content="2022-02-11T13:32:05+03:00"><meta itemprop=name content="Monitoring machine learning model performance the right way to avoid overfitting the leaderboard in a competition"><meta itemprop=description content="Photo by Charles Deluvio on Unsplash Introduction There are several explanations of what overfitting or underfitting is, whatever works for you, add the following idea to it:
+ An overfitting model/algorithm is too complex for the task or dataset at hand while An underfitting model is too simple for the task  If overfitting has ever cost you downward jumps on a machine learning competition, you might agree with me that the experience was somewhat humiliating especially if you went from top 3 downwards, when you had better and stronger non-overfitting submissions that you didn&rsquo;t select to be scored on."><meta itemprop=datePublished content="2022-01-13T23:39:00+00:00"><meta itemprop=dateModified content="2022-02-11T13:32:05+03:00"><meta itemprop=wordCount content="1758"><meta itemprop=keywords content="model-monitoring,model-performance,machine-learning,overfitting,"><meta name=twitter:card content="summary"><meta name=twitter:title content="Monitoring machine learning model performance the right way to avoid overfitting the leaderboard in a competition"><meta name=twitter:description content="Photo by Charles Deluvio on Unsplash Introduction There are several explanations of what overfitting or underfitting is, whatever works for you, add the following idea to it:
  An overfitting model/algorithm is too complex for the task or dataset at hand while An underfitting model is too simple for the task  If overfitting has ever cost you downward jumps on a machine learning competition, you might agree with me that the experience was somewhat humiliating especially if you went from top 3 downwards, when you had better and stronger non-overfitting submissions that you didn&rsquo;t select to be scored on."><!--[if lte IE 9]><script src=https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js></script><![endif]--><!--[if lt IE 9]><script src=https://cdn.jsdelivr.net/npm/html5shiv@3.7.3/dist/html5shiv.min.js></script>
-<script src=https://cdn.jsdelivr.net/npm/respond.js@1.4.2/dest/respond.min.js></script><![endif]-->
-</head>
-<body>
-<div id=mobile-navbar class=mobile-navbar>
-<div class=mobile-header-logo>
-<a href=/ class=logo>Vincent N.</a>
-</div>
-<div class=mobile-navbar-icon>
+<script src=https://cdn.jsdelivr.net/npm/respond.js@1.4.2/dest/respond.min.js></script><![endif]--></head><body><div id=mobile-navbar class=mobile-navbar><div class=mobile-header-logo><a href=/ class=logo>Vincent N.</a></div><div class=mobile-navbar-icon><span></span>
 <span></span>
-<span></span>
-<span></span>
-</div>
-</div>
-<nav id=mobile-menu class="mobile-menu slideout-menu">
-<ul class=mobile-menu-list>
-<a href=/>
-<li class=mobile-menu-item>Home</li>
-</a><a href=/post/>
-<li class=mobile-menu-item>Posts</li>
-</a><a href=/about/>
-<li class=mobile-menu-item>About</li>
-</a><a href=/contact/>
-<li class=mobile-menu-item>Contact</li>
-</a><a href=/categories/>
-<li class=mobile-menu-item>Categories</li>
-</a><a href=/tags/>
-<li class=mobile-menu-item>Tags</li>
-</a>
-</ul>
-</nav>
-<div class=container id=mobile-panel>
-<header id=header class=header>
-<div class=logo-wrapper>
-<a href=/ class=logo>Vincent N.</a>
-</div>
-<nav class=site-navbar>
-<ul id=menu class=menu>
-<li class=menu-item>
-<a class=menu-item-link href=/>Home</a>
-</li><li class=menu-item>
-<a class=menu-item-link href=/post/>Posts</a>
-</li><li class=menu-item>
-<a class=menu-item-link href=/about/>About</a>
-</li><li class=menu-item>
-<a class=menu-item-link href=/contact/>Contact</a>
-</li><li class=menu-item>
-<a class=menu-item-link href=/categories/>Categories</a>
-</li><li class=menu-item>
-<a class=menu-item-link href=/tags/>Tags</a>
-</li>
-</ul>
-</nav>
-</header>
-<main id=main class=main>
-<div class=content-wrapper>
-<div id=content class=content>
-<article class=post>
-<header class=post-header>
-<h1 class=post-title>Monitoring machine learning model performance the right way to avoid overfitting the leaderboard in a competition</h1>
-<div class=post-meta>
-<span class=post-time> 2022-01-13 </span>
-<div class=post-category>
-<a href=/categories/machine-learning/> Machine Learning </a>
-</div>
-</div>
-</header>
-<div class=post-toc id=post-toc>
-<h2 class=post-toc-title>Contents</h2>
-<div class="post-toc-content always-active">
-<nav id=TableOfContents>
-<ul>
-<li>
-<ul>
-<li><a href=#introduction><strong>Introduction</strong></a></li>
-<li><a href=#sample-problem><strong>Sample problem</strong></a>
-<ul>
-<li><a href=#feature-engineering><strong>Feature Engineering</strong></a></li>
-<li><a href=#modeling-monitoring-model-performance><strong>Modeling: Monitoring model performance</strong></a></li>
-</ul>
-</li>
-</ul>
-</li>
-</ul>
-</nav>
-</div>
-</div>
-<div class=post-content>
-<p align=center>
-<img src=/img/blog/charles-deluvio-unsplash.jpg , alt=jpg width=600 height=350>
-<br>
-Photo by <a href="https://unsplash.com/@charlesdeluvio?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Charles Deluvio</a> on <a href="https://unsplash.com/s/photos/machine-learning?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Unsplash</a>
-</p>
-<h2 id=introduction><strong>Introduction</strong></h2>
-<p>There are several explanations of what overfitting or underfitting is, whatever works for you, add the following idea to it:</p>
-<ul>
-<li>An overfitting model/algorithm is too complex for the task or dataset at hand while</li>
-<li>An underfitting model is too simple for the task</li>
-</ul>
-<p>If overfitting has ever cost you downward jumps on a machine learning competition, you might agree with me that the experience was somewhat humiliating especially if you went from top 3 downwards, when you had better and stronger non-overfitting submissions that you didn&rsquo;t select to be scored on. This is what happens when you rely too much on public leaderboard placement instead of trusting your local cross validation, or local CV for short.
-I understand evaluating algorithms and tracking their performance can be tiresome sometimes but what is the point of building models in the first place if you&rsquo;re not going to make sure they are efficient for the work they are intended to perform? In this article, we are going to define a simple method to monitor your machine learning model performance to avoid such cases.</p>
-<h2 id=sample-problem><strong>Sample problem</strong></h2>
-<p>We&rsquo;re going to use a dataset from a competition on <a href=https://zindi.africa/hackathons/airqo-air-sensor-calibration-challenge>zindi.</a> The competition entails predicting air quality to help in air quality monitor calibration.<br>
-Let us make the necessary imports and have a look at a preview of the dataset:</p>
-<div class=highlight><div class=chroma>
-<table class=lntable><tr><td class=lntd>
-<pre tabindex=0 class=chroma><code><span class=lnt> 1
+<span></span></div></div><nav id=mobile-menu class="mobile-menu slideout-menu"><ul class=mobile-menu-list><a href=/><li class=mobile-menu-item>Home</li></a><a href=/post/><li class=mobile-menu-item>Posts</li></a><a href=/about/><li class=mobile-menu-item>About</li></a><a href=/contact/><li class=mobile-menu-item>Contact</li></a><a href=/categories/><li class=mobile-menu-item>Categories</li></a><a href=/tags/><li class=mobile-menu-item>Tags</li></a></ul></nav><div class=container id=mobile-panel><header id=header class=header><div class=logo-wrapper><a href=/ class=logo>Vincent N.</a></div><nav class=site-navbar><ul id=menu class=menu><li class=menu-item><a class=menu-item-link href=/>Home</a></li><li class=menu-item><a class=menu-item-link href=/post/>Posts</a></li><li class=menu-item><a class=menu-item-link href=/about/>About</a></li><li class=menu-item><a class=menu-item-link href=/contact/>Contact</a></li><li class=menu-item><a class=menu-item-link href=/categories/>Categories</a></li><li class=menu-item><a class=menu-item-link href=/tags/>Tags</a></li></ul></nav></header><main id=main class=main><div class=content-wrapper><div id=content class=content><article class=post><header class=post-header><h1 class=post-title>Monitoring machine learning model performance the right way to avoid overfitting the leaderboard in a competition</h1><div class=post-meta><span class=post-time>2022-01-13</span><div class=post-category><a href=/categories/machine-learning/>Machine Learning</a></div></div></header><div class=post-toc id=post-toc><h2 class=post-toc-title>Contents</h2><div class="post-toc-content always-active"><nav id=TableOfContents><ul><li><ul><li><a href=#introduction><strong>Introduction</strong></a></li><li><a href=#sample-problem><strong>Sample problem</strong></a><ul><li><a href=#feature-engineering><strong>Feature Engineering</strong></a></li><li><a href=#modeling-monitoring-model-performance><strong>Modeling: Monitoring model performance</strong></a></li></ul></li></ul></li></ul></nav></div></div><div class=post-content><p align=center><img src=/img/blog/charles-deluvio-unsplash.jpg , alt=jpg width=600 height=350><br>Photo by <a href="https://unsplash.com/@charlesdeluvio?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Charles Deluvio</a> on <a href="https://unsplash.com/s/photos/machine-learning?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Unsplash</a></p><h2 id=introduction><strong>Introduction</strong></h2><p>There are several explanations of what overfitting or underfitting is, whatever works for you, add the following idea to it:</p><ul><li>An overfitting model/algorithm is too complex for the task or dataset at hand while</li><li>An underfitting model is too simple for the task</li></ul><p>If overfitting has ever cost you downward jumps on a machine learning competition, you might agree with me that the experience was somewhat humiliating especially if you went from top 3 downwards, when you had better and stronger non-overfitting submissions that you didn&rsquo;t select to be scored on. This is what happens when you rely too much on public leaderboard placement instead of trusting your local cross validation, or local CV for short.
+I understand evaluating algorithms and tracking their performance can be tiresome sometimes but what is the point of building models in the first place if you&rsquo;re not going to make sure they are efficient for the work they are intended to perform? In this article, we are going to define a simple method to monitor your machine learning model performance to avoid such cases.</p><h2 id=sample-problem><strong>Sample problem</strong></h2><p>We&rsquo;re going to use a dataset from a competition on <a href=https://zindi.africa/hackathons/airqo-air-sensor-calibration-challenge>zindi.</a> The competition entails predicting air quality to help in air quality monitor calibration.<br>Let us make the necessary imports and have a look at a preview of the dataset:</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt> 1
 </span><span class=lnt> 2
 </span><span class=lnt> 3
 </span><span class=lnt> 4
@@ -166,199 +29,46 @@ Let us make the necessary imports and have a look at a preview of the dataset:</
 </span><span class=lnt>21
 </span><span class=lnt>22
 </span><span class=lnt>23
-</span></code></pre></td>
-<td class=lntd>
-<pre tabindex=0 class=chroma><code class=language-python data-lang=python><span class=kn>import</span> <span class=nn>numpy</span> <span class=k>as</span> <span class=nn>np</span>
-<span class=kn>import</span> <span class=nn>pandas</span> <span class=k>as</span> <span class=nn>pd</span>
-<span class=n>pd</span><span class=o>.</span><span class=n>set_option</span><span class=p>(</span><span class=s2>&#34;display.max_columns&#34;</span><span class=p>,</span> <span class=kc>None</span><span class=p>)</span>
-<span class=kn>import</span> <span class=nn>matplotlib.pyplot</span> <span class=k>as</span> <span class=nn>plt</span>
-<span class=o>%</span><span class=n>matplotlib</span> <span class=n>inline</span>
-<span class=kn>import</span> <span class=nn>seaborn</span> <span class=k>as</span> <span class=nn>sns</span>
-<span class=n>sns</span><span class=o>.</span><span class=n>set_palette</span><span class=p>(</span><span class=s2>&#34;bright&#34;</span><span class=p>)</span>
-
-<span class=kn>from</span> <span class=nn>sklearn.cluster</span> <span class=kn>import</span> <span class=n>KMeans</span>
-<span class=kn>from</span> <span class=nn>sklearn.ensemble</span> <span class=kn>import</span> <span class=n>RandomForestRegressor</span>
-<span class=kn>from</span> <span class=nn>sklearn.preprocessing</span> <span class=kn>import</span> <span class=n>LabelEncoder</span>
-<span class=kn>from</span> <span class=nn>sklearn.decomposition</span> <span class=kn>import</span> <span class=n>PCA</span>
-<span class=kn>from</span> <span class=nn>sklearn.metrics</span> <span class=kn>import</span> <span class=n>mean_squared_error</span>
-<span class=kn>from</span> <span class=nn>sklearn.model_selection</span> <span class=kn>import</span> <span class=n>train_test_split</span><span class=p>,</span> <span class=n>KFold</span>
-
-<span class=kn>from</span> <span class=nn>catboost</span> <span class=kn>import</span> <span class=n>CatBoostRegressor</span>
-<span class=kn>from</span> <span class=nn>xgboost</span> <span class=kn>import</span> <span class=n>XGBRegressor</span>
-<span class=kn>from</span> <span class=nn>lightgbm</span> <span class=kn>import</span> <span class=n>LGBMRegressor</span>
-
-<span class=kn>import</span> <span class=nn>pytz</span>
-<span class=kn>from</span> <span class=nn>tqdm</span> <span class=kn>import</span> <span class=n>tqdm</span><span class=p>,</span> <span class=n>trange</span>
-<span class=kn>import</span> <span class=nn>warnings</span>
-<span class=n>warnings</span><span class=o>.</span><span class=n>filterwarnings</span><span class=p>(</span><span class=s2>&#34;ignore&#34;</span><span class=p>)</span>
-</code></pre></td></tr></table>
-</div>
-</div><div class=highlight><div class=chroma>
-<table class=lntable><tr><td class=lntd>
-<pre tabindex=0 class=chroma><code><span class=lnt>1
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-python data-lang=python><span class=line><span class=cl><span class=kn>import</span> <span class=nn>numpy</span> <span class=k>as</span> <span class=nn>np</span>
+</span></span><span class=line><span class=cl><span class=kn>import</span> <span class=nn>pandas</span> <span class=k>as</span> <span class=nn>pd</span>
+</span></span><span class=line><span class=cl><span class=n>pd</span><span class=o>.</span><span class=n>set_option</span><span class=p>(</span><span class=s2>&#34;display.max_columns&#34;</span><span class=p>,</span> <span class=kc>None</span><span class=p>)</span>
+</span></span><span class=line><span class=cl><span class=kn>import</span> <span class=nn>matplotlib.pyplot</span> <span class=k>as</span> <span class=nn>plt</span>
+</span></span><span class=line><span class=cl><span class=o>%</span><span class=n>matplotlib</span> <span class=n>inline</span>
+</span></span><span class=line><span class=cl><span class=kn>import</span> <span class=nn>seaborn</span> <span class=k>as</span> <span class=nn>sns</span>
+</span></span><span class=line><span class=cl><span class=n>sns</span><span class=o>.</span><span class=n>set_palette</span><span class=p>(</span><span class=s2>&#34;bright&#34;</span><span class=p>)</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=kn>from</span> <span class=nn>sklearn.cluster</span> <span class=kn>import</span> <span class=n>KMeans</span>
+</span></span><span class=line><span class=cl><span class=kn>from</span> <span class=nn>sklearn.ensemble</span> <span class=kn>import</span> <span class=n>RandomForestRegressor</span>
+</span></span><span class=line><span class=cl><span class=kn>from</span> <span class=nn>sklearn.preprocessing</span> <span class=kn>import</span> <span class=n>LabelEncoder</span>
+</span></span><span class=line><span class=cl><span class=kn>from</span> <span class=nn>sklearn.decomposition</span> <span class=kn>import</span> <span class=n>PCA</span>
+</span></span><span class=line><span class=cl><span class=kn>from</span> <span class=nn>sklearn.metrics</span> <span class=kn>import</span> <span class=n>mean_squared_error</span>
+</span></span><span class=line><span class=cl><span class=kn>from</span> <span class=nn>sklearn.model_selection</span> <span class=kn>import</span> <span class=n>train_test_split</span><span class=p>,</span> <span class=n>KFold</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=kn>from</span> <span class=nn>catboost</span> <span class=kn>import</span> <span class=n>CatBoostRegressor</span>
+</span></span><span class=line><span class=cl><span class=kn>from</span> <span class=nn>xgboost</span> <span class=kn>import</span> <span class=n>XGBRegressor</span>
+</span></span><span class=line><span class=cl><span class=kn>from</span> <span class=nn>lightgbm</span> <span class=kn>import</span> <span class=n>LGBMRegressor</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=kn>import</span> <span class=nn>pytz</span>
+</span></span><span class=line><span class=cl><span class=kn>from</span> <span class=nn>tqdm</span> <span class=kn>import</span> <span class=n>tqdm</span><span class=p>,</span> <span class=n>trange</span>
+</span></span><span class=line><span class=cl><span class=kn>import</span> <span class=nn>warnings</span>
+</span></span><span class=line><span class=cl><span class=n>warnings</span><span class=o>.</span><span class=n>filterwarnings</span><span class=p>(</span><span class=s2>&#34;ignore&#34;</span><span class=p>)</span>
+</span></span></code></pre></td></tr></table></div></div><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt>1
 </span><span class=lnt>2
 </span><span class=lnt>3
 </span><span class=lnt>4
-</span></code></pre></td>
-<td class=lntd>
-<pre tabindex=0 class=chroma><code class=language-python data-lang=python><span class=c1># Load and preview data</span>
-<span class=n>data</span> <span class=o>=</span> <span class=n>pd</span><span class=o>.</span><span class=n>read_csv</span><span class=p>(</span><span class=s2>&#34;../data/Train.csv&#34;</span><span class=p>,</span> <span class=n>parse_dates</span><span class=o>=</span><span class=p>[</span><span class=s1>&#39;created_at&#39;</span><span class=p>])</span>
-<span class=n>test</span> <span class=o>=</span> <span class=n>pd</span><span class=o>.</span><span class=n>read_csv</span><span class=p>(</span><span class=s2>&#34;../data/Test.csv&#34;</span><span class=p>,</span> <span class=n>parse_dates</span><span class=o>=</span><span class=p>[</span><span class=s1>&#39;created_at&#39;</span><span class=p>])</span>
-<span class=n>data</span><span class=o>.</span><span class=n>head</span><span class=p>()</span>
-</code></pre></td></tr></table>
-</div>
-</div><table border=1 class=dataframe>
-<thead>
-<tr style=text-align:right>
-<th></th>
-<th>ID</th>
-<th>created_at</th>
-<th>site</th>
-<th>pm2_5</th>
-<th>pm10</th>
-<th>s2_pm2_5</th>
-<th>s2_pm10</th>
-<th>humidity</th>
-<th>temp</th>
-<th>lat</th>
-<th>long</th>
-<th>altitude</th>
-<th>greenness</th>
-<th>landform_90m</th>
-<th>landform_270m</th>
-<th>population</th>
-<th>dist_major_road</th>
-<th>ref_pm2_5</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<th>0</th>
-<td>ID_0038MG0B</td>
-<td>2020-04-23 17:00:00+03:00</td>
-<td>USEmbassy</td>
-<td>6.819048</td>
-<td>7.313810</td>
-<td>6.794048</td>
-<td>7.838333</td>
-<td>0.807417</td>
-<td>22.383333</td>
-<td>0.299255</td>
-<td>32.592686</td>
-<td>1199</td>
-<td>4374</td>
-<td>21</td>
-<td>14</td>
-<td>6834</td>
-<td>130</td>
-<td>25.0</td>
-</tr>
-<tr>
-<th>1</th>
-<td>ID_008ASVDD</td>
-<td>2020-02-23 19:00:00+03:00</td>
-<td>USEmbassy</td>
-<td>57.456047</td>
-<td>67.883488</td>
-<td>55.643488</td>
-<td>70.646977</td>
-<td>0.712417</td>
-<td>25.350000</td>
-<td>0.299255</td>
-<td>32.592686</td>
-<td>1199</td>
-<td>4374</td>
-<td>21</td>
-<td>14</td>
-<td>6834</td>
-<td>130</td>
-<td>68.0</td>
-</tr>
-<tr>
-<th>2</th>
-<td>ID_009ACJQ9</td>
-<td>2021-01-23 04:00:00+03:00</td>
-<td>Nakawa</td>
-<td>170.009773</td>
-<td>191.153636</td>
-<td>165.308636</td>
-<td>191.471591</td>
-<td>0.907833</td>
-<td>20.616667</td>
-<td>0.331740</td>
-<td>32.609510</td>
-<td>1191</td>
-<td>5865</td>
-<td>31</td>
-<td>-11</td>
-<td>4780</td>
-<td>500</td>
-<td>149.7</td>
-</tr>
-<tr>
-<th>3</th>
-<td>ID_00IGMAQ2</td>
-<td>2019-12-04 09:00:00+03:00</td>
-<td>USEmbassy</td>
-<td>49.732821</td>
-<td>61.512564</td>
-<td>0.000000</td>
-<td>0.000000</td>
-<td>0.949667</td>
-<td>21.216667</td>
-<td>0.299255</td>
-<td>32.592686</td>
-<td>1199</td>
-<td>4374</td>
-<td>21</td>
-<td>14</td>
-<td>6834</td>
-<td>130</td>
-<td>54.0</td>
-</tr>
-<tr>
-<th>4</th>
-<td>ID_00P76VAQ</td>
-<td>2019-10-01 01:00:00+03:00</td>
-<td>USEmbassy</td>
-<td>41.630455</td>
-<td>51.044545</td>
-<td>41.725000</td>
-<td>51.141364</td>
-<td>0.913833</td>
-<td>18.908333</td>
-<td>0.299255</td>
-<td>32.592686</td>
-<td>1199</td>
-<td>4374</td>
-<td>21</td>
-<td>14</td>
-<td>6834</td>
-<td>130</td>
-<td>39.0</td>
-</tr>
-</tbody>
-</table>
-<h3 id=feature-engineering><strong>Feature Engineering</strong></h3>
-<p>Normally to get good results, you must consider feature engineering. I was lucky to participate in this hackathon and after vigorous data exploration, I came up with some good features.<br>
-Let’s define a feature engineering function to handle feature generation:</p>
-<div class=highlight><div class=chroma>
-<table class=lntable><tr><td class=lntd>
-<pre tabindex=0 class=chroma><code><span class=lnt>1
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-python data-lang=python><span class=line><span class=cl><span class=c1># Load and preview data</span>
+</span></span><span class=line><span class=cl><span class=n>data</span> <span class=o>=</span> <span class=n>pd</span><span class=o>.</span><span class=n>read_csv</span><span class=p>(</span><span class=s2>&#34;../data/Train.csv&#34;</span><span class=p>,</span> <span class=n>parse_dates</span><span class=o>=</span><span class=p>[</span><span class=s1>&#39;created_at&#39;</span><span class=p>])</span>
+</span></span><span class=line><span class=cl><span class=n>test</span> <span class=o>=</span> <span class=n>pd</span><span class=o>.</span><span class=n>read_csv</span><span class=p>(</span><span class=s2>&#34;../data/Test.csv&#34;</span><span class=p>,</span> <span class=n>parse_dates</span><span class=o>=</span><span class=p>[</span><span class=s1>&#39;created_at&#39;</span><span class=p>])</span>
+</span></span><span class=line><span class=cl><span class=n>data</span><span class=o>.</span><span class=n>head</span><span class=p>()</span>
+</span></span></code></pre></td></tr></table></div></div><table border=1 class=dataframe><thead><tr style=text-align:right><th></th><th>ID</th><th>created_at</th><th>site</th><th>pm2_5</th><th>pm10</th><th>s2_pm2_5</th><th>s2_pm10</th><th>humidity</th><th>temp</th><th>lat</th><th>long</th><th>altitude</th><th>greenness</th><th>landform_90m</th><th>landform_270m</th><th>population</th><th>dist_major_road</th><th>ref_pm2_5</th></tr></thead><tbody><tr><th>0</th><td>ID_0038MG0B</td><td>2020-04-23 17:00:00+03:00</td><td>USEmbassy</td><td>6.819048</td><td>7.313810</td><td>6.794048</td><td>7.838333</td><td>0.807417</td><td>22.383333</td><td>0.299255</td><td>32.592686</td><td>1199</td><td>4374</td><td>21</td><td>14</td><td>6834</td><td>130</td><td>25.0</td></tr><tr><th>1</th><td>ID_008ASVDD</td><td>2020-02-23 19:00:00+03:00</td><td>USEmbassy</td><td>57.456047</td><td>67.883488</td><td>55.643488</td><td>70.646977</td><td>0.712417</td><td>25.350000</td><td>0.299255</td><td>32.592686</td><td>1199</td><td>4374</td><td>21</td><td>14</td><td>6834</td><td>130</td><td>68.0</td></tr><tr><th>2</th><td>ID_009ACJQ9</td><td>2021-01-23 04:00:00+03:00</td><td>Nakawa</td><td>170.009773</td><td>191.153636</td><td>165.308636</td><td>191.471591</td><td>0.907833</td><td>20.616667</td><td>0.331740</td><td>32.609510</td><td>1191</td><td>5865</td><td>31</td><td>-11</td><td>4780</td><td>500</td><td>149.7</td></tr><tr><th>3</th><td>ID_00IGMAQ2</td><td>2019-12-04 09:00:00+03:00</td><td>USEmbassy</td><td>49.732821</td><td>61.512564</td><td>0.000000</td><td>0.000000</td><td>0.949667</td><td>21.216667</td><td>0.299255</td><td>32.592686</td><td>1199</td><td>4374</td><td>21</td><td>14</td><td>6834</td><td>130</td><td>54.0</td></tr><tr><th>4</th><td>ID_00P76VAQ</td><td>2019-10-01 01:00:00+03:00</td><td>USEmbassy</td><td>41.630455</td><td>51.044545</td><td>41.725000</td><td>51.141364</td><td>0.913833</td><td>18.908333</td><td>0.299255</td><td>32.592686</td><td>1199</td><td>4374</td><td>21</td><td>14</td><td>6834</td><td>130</td><td>39.0</td></tr></tbody></table><h3 id=feature-engineering><strong>Feature Engineering</strong></h3><p>Normally to get good results, you must consider feature engineering. I was lucky to participate in this hackathon and after vigorous data exploration, I came up with some good features.<br>Let’s define a feature engineering function to handle feature generation:</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt>1
 </span><span class=lnt>2
 </span><span class=lnt>3
 </span><span class=lnt>4
-</span></code></pre></td>
-<td class=lntd>
-<pre tabindex=0 class=chroma><code class=language-python data-lang=python><span class=c1># First we impute missing values in the dataset</span>
-<span class=c1># It has very few NaNs so we&#39;ll do this with mean</span>
-<span class=n>all_data</span> <span class=o>=</span> <span class=n>pd</span><span class=o>.</span><span class=n>concat</span><span class=p>([</span><span class=n>data</span><span class=p>,</span> <span class=n>test</span><span class=p>]);</span> <span class=n>all_data</span><span class=o>.</span><span class=n>reset_index</span><span class=p>(</span><span class=n>drop</span><span class=o>=</span><span class=kc>True</span><span class=p>,</span> <span class=n>inplace</span><span class=o>=</span><span class=kc>True</span><span class=p>)</span>
-<span class=n>all_data</span><span class=o>.</span><span class=n>humidity</span><span class=o>.</span><span class=n>fillna</span><span class=p>(</span><span class=n>all_data</span><span class=o>.</span><span class=n>humidity</span><span class=o>.</span><span class=n>mean</span><span class=p>(),</span> <span class=n>inplace</span><span class=o>=</span><span class=kc>True</span><span class=p>);</span> <span class=n>all_data</span><span class=o>.</span><span class=n>temp</span><span class=o>.</span><span class=n>fillna</span><span class=p>(</span><span class=n>all_data</span><span class=o>.</span><span class=n>temp</span><span class=o>.</span><span class=n>mean</span><span class=p>(),</span> <span class=n>inplace</span><span class=o>=</span><span class=kc>True</span><span class=p>)</span>
-</code></pre></td></tr></table>
-</div>
-</div><div class=highlight><div class=chroma>
-<table class=lntable><tr><td class=lntd>
-<pre tabindex=0 class=chroma><code><span class=lnt>  1
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-python data-lang=python><span class=line><span class=cl><span class=c1># First we impute missing values in the dataset</span>
+</span></span><span class=line><span class=cl><span class=c1># It has very few NaNs so we&#39;ll do this with mean</span>
+</span></span><span class=line><span class=cl><span class=n>all_data</span> <span class=o>=</span> <span class=n>pd</span><span class=o>.</span><span class=n>concat</span><span class=p>([</span><span class=n>data</span><span class=p>,</span> <span class=n>test</span><span class=p>]);</span> <span class=n>all_data</span><span class=o>.</span><span class=n>reset_index</span><span class=p>(</span><span class=n>drop</span><span class=o>=</span><span class=kc>True</span><span class=p>,</span> <span class=n>inplace</span><span class=o>=</span><span class=kc>True</span><span class=p>)</span>
+</span></span><span class=line><span class=cl><span class=n>all_data</span><span class=o>.</span><span class=n>humidity</span><span class=o>.</span><span class=n>fillna</span><span class=p>(</span><span class=n>all_data</span><span class=o>.</span><span class=n>humidity</span><span class=o>.</span><span class=n>mean</span><span class=p>(),</span> <span class=n>inplace</span><span class=o>=</span><span class=kc>True</span><span class=p>);</span> <span class=n>all_data</span><span class=o>.</span><span class=n>temp</span><span class=o>.</span><span class=n>fillna</span><span class=p>(</span><span class=n>all_data</span><span class=o>.</span><span class=n>temp</span><span class=o>.</span><span class=n>mean</span><span class=p>(),</span> <span class=n>inplace</span><span class=o>=</span><span class=kc>True</span><span class=p>)</span>
+</span></span></code></pre></td></tr></table></div></div><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt>  1
 </span><span class=lnt>  2
 </span><span class=lnt>  3
 </span><span class=lnt>  4
@@ -495,152 +205,144 @@ Let’s define a feature engineering function to handle feature generation:</p>
 </span><span class=lnt>135
 </span><span class=lnt>136
 </span><span class=lnt>137
-</span></code></pre></td>
-<td class=lntd>
-<pre tabindex=0 class=chroma><code class=language-python data-lang=python><span class=k>def</span> <span class=nf>feat_eng</span><span class=p>(</span><span class=n>df</span><span class=p>):</span>
-    <span class=n>le</span> <span class=o>=</span> <span class=n>LabelEncoder</span><span class=p>()</span>
-    <span class=n>kmeans</span> <span class=o>=</span> <span class=n>KMeans</span><span class=p>(</span><span class=n>n_clusters</span><span class=o>=</span><span class=mi>3</span><span class=p>)</span>
-    
-    <span class=c1># date features</span>
-    <span class=n>df</span><span class=p>[</span><span class=s1>&#39;creation_year&#39;</span><span class=p>]</span> <span class=o>=</span> <span class=n>pd</span><span class=o>.</span><span class=n>to_datetime</span><span class=p>(</span><span class=n>df</span><span class=o>.</span><span class=n>created_at</span><span class=p>)</span><span class=o>.</span><span class=n>dt</span><span class=o>.</span><span class=n>year</span>
-    <span class=n>df</span><span class=p>[</span><span class=s1>&#39;creation_month&#39;</span><span class=p>]</span> <span class=o>=</span> <span class=n>pd</span><span class=o>.</span><span class=n>to_datetime</span><span class=p>(</span><span class=n>df</span><span class=o>.</span><span class=n>created_at</span><span class=p>)</span><span class=o>.</span><span class=n>dt</span><span class=o>.</span><span class=n>month</span>
-    <span class=n>df</span><span class=p>[</span><span class=s1>&#39;creation_day&#39;</span><span class=p>]</span> <span class=o>=</span> <span class=n>pd</span><span class=o>.</span><span class=n>to_datetime</span><span class=p>(</span><span class=n>df</span><span class=o>.</span><span class=n>created_at</span><span class=p>)</span><span class=o>.</span><span class=n>dt</span><span class=o>.</span><span class=n>day</span>
-    <span class=n>df</span><span class=p>[</span><span class=s1>&#39;creation_hour&#39;</span><span class=p>]</span> <span class=o>=</span> <span class=n>pd</span><span class=o>.</span><span class=n>to_datetime</span><span class=p>(</span><span class=n>df</span><span class=o>.</span><span class=n>created_at</span><span class=p>)</span><span class=o>.</span><span class=n>dt</span><span class=o>.</span><span class=n>hour</span>
-    <span class=n>df</span><span class=p>[</span><span class=s1>&#39;creation_weekday&#39;</span><span class=p>]</span> <span class=o>=</span> <span class=n>pd</span><span class=o>.</span><span class=n>Series</span><span class=p>(</span><span class=n>pd</span><span class=o>.</span><span class=n>to_datetime</span><span class=p>(</span><span class=n>df</span><span class=o>.</span><span class=n>created_at</span><span class=p>)</span><span class=o>.</span><span class=n>dt</span><span class=o>.</span><span class=n>weekday</span><span class=p>)</span><span class=o>.</span><span class=n>apply</span><span class=p>(</span><span class=k>lambda</span> <span class=n>x</span><span class=p>:</span> <span class=mi>1</span> <span class=k>if</span> <span class=n>x</span><span class=o>&lt;</span><span class=mi>5</span> <span class=k>else</span> <span class=mi>0</span><span class=p>)</span> <span class=c1># if weekday or weekeend</span>
-    <span class=n>df</span><span class=p>[</span><span class=s1>&#39;days_todate&#39;</span><span class=p>]</span> <span class=o>=</span> <span class=n>pd</span><span class=o>.</span><span class=n>to_datetime</span><span class=p>(</span><span class=n>pd</span><span class=o>.</span><span class=n>Timestamp</span><span class=o>.</span><span class=n>now</span><span class=p>()</span><span class=o>.</span><span class=n>date</span><span class=p>())</span><span class=o>.</span><span class=n>tz_localize</span><span class=p>(</span><span class=n>tz</span><span class=o>=</span><span class=n>pytz</span><span class=o>.</span><span class=n>UTC</span><span class=p>)</span> <span class=o>-</span> <span class=n>pd</span><span class=o>.</span><span class=n>to_datetime</span><span class=p>(</span><span class=n>df</span><span class=o>.</span><span class=n>created_at</span><span class=o>.</span><span class=n>dt</span><span class=o>.</span><span class=n>tz_convert</span><span class=p>(</span><span class=n>tz</span><span class=o>=</span><span class=n>pytz</span><span class=o>.</span><span class=n>UTC</span><span class=p>))</span>
-    <span class=n>df</span><span class=o>.</span><span class=n>days_todate</span> <span class=o>=</span> <span class=n>df</span><span class=o>.</span><span class=n>days_todate</span><span class=o>.</span><span class=n>apply</span><span class=p>(</span><span class=k>lambda</span> <span class=n>x</span><span class=p>:</span> <span class=nb>int</span><span class=p>(</span><span class=nb>str</span><span class=p>(</span><span class=n>x</span><span class=p>)</span><span class=o>.</span><span class=n>split</span><span class=p>(</span><span class=s1>&#39; days&#39;</span><span class=p>)[</span><span class=mi>0</span><span class=p>]))</span> <span class=c1># remove string &#39;days&#39;</span>
-    <span class=n>df</span><span class=p>[</span><span class=s1>&#39;years_todate&#39;</span><span class=p>]</span> <span class=o>=</span> <span class=n>df</span><span class=o>.</span><span class=n>days_todate</span><span class=o>.</span><span class=n>apply</span><span class=p>(</span><span class=k>lambda</span> <span class=n>x</span><span class=p>:</span> <span class=nb>int</span><span class=p>(</span><span class=n>np</span><span class=o>.</span><span class=n>round</span><span class=p>(</span><span class=n>x</span><span class=o>/</span><span class=mi>364</span><span class=p>)))</span>
-    
-    <span class=c1># time difference(number of hours to next recording)</span>
-    <span class=n>timediff</span> <span class=o>=</span> <span class=n>df</span><span class=o>.</span><span class=n>sort_values</span><span class=p>(</span><span class=s1>&#39;created_at&#39;</span><span class=p>)</span><span class=o>.</span><span class=n>created_at</span><span class=o>.</span><span class=n>diff</span><span class=p>();</span> <span class=n>timediff</span><span class=o>.</span><span class=n>fillna</span><span class=p>(</span><span class=n>pd</span><span class=o>.</span><span class=n>Timedelta</span><span class=p>(</span><span class=n>seconds</span><span class=o>=</span><span class=mi>0</span><span class=p>),</span> <span class=n>inplace</span><span class=o>=</span><span class=kc>True</span><span class=p>)</span>
-    <span class=n>timediff</span> <span class=o>=</span> <span class=n>timediff</span><span class=o>.</span><span class=n>apply</span><span class=p>(</span><span class=k>lambda</span> <span class=n>val</span><span class=p>:</span> <span class=nb>str</span><span class=p>(</span><span class=n>val</span><span class=p>)</span><span class=o>.</span><span class=n>split</span><span class=p>(</span><span class=s1>&#39;days&#39;</span><span class=p>)[</span><span class=o>-</span><span class=mi>1</span><span class=p>]</span><span class=o>.</span><span class=n>split</span><span class=p>(</span><span class=s1>&#39;:&#39;</span><span class=p>)[</span><span class=mi>0</span><span class=p>])</span>
-    <span class=n>df</span><span class=p>[</span><span class=s1>&#39;timediff&#39;</span><span class=p>]</span> <span class=o>=</span> <span class=mi>0</span>
-    <span class=n>df</span><span class=o>.</span><span class=n>sort_values</span><span class=p>(</span><span class=s1>&#39;created_at&#39;</span><span class=p>,</span> <span class=n>inplace</span><span class=o>=</span><span class=kc>True</span><span class=p>)</span>
-    <span class=n>df</span><span class=p>[</span><span class=s1>&#39;timediff&#39;</span><span class=p>]</span> <span class=o>=</span> <span class=n>timediff</span><span class=o>.</span><span class=n>astype</span><span class=p>(</span><span class=nb>int</span><span class=p>);</span> <span class=n>df</span><span class=o>.</span><span class=n>sort_index</span><span class=p>(</span><span class=n>inplace</span><span class=o>=</span><span class=kc>True</span><span class=p>)</span>
-    
-    <span class=c1># label encoded features</span>
-    <span class=n>df</span><span class=p>[</span><span class=s1>&#39;site_le&#39;</span><span class=p>]</span> <span class=o>=</span> <span class=n>le</span><span class=o>.</span><span class=n>fit_transform</span><span class=p>(</span><span class=n>df</span><span class=o>.</span><span class=n>site</span><span class=p>)</span>
-    <span class=n>df</span><span class=p>[</span><span class=s1>&#39;creation_year_le&#39;</span><span class=p>]</span> <span class=o>=</span> <span class=n>le</span><span class=o>.</span><span class=n>fit_transform</span><span class=p>(</span><span class=n>df</span><span class=o>.</span><span class=n>creation_year</span><span class=p>)</span>
-    
-    
-    <span class=c1># kmeans features</span>
-    <span class=n>kmeans</span><span class=o>.</span><span class=n>fit</span><span class=p>(</span><span class=n>df</span><span class=p>[[</span><span class=s1>&#39;lat&#39;</span><span class=p>,</span> <span class=s1>&#39;long&#39;</span><span class=p>]])</span>
-    <span class=n>df</span><span class=p>[</span><span class=s1>&#39;latlong_cluster&#39;</span><span class=p>]</span> <span class=o>=</span> <span class=n>kmeans</span><span class=o>.</span><span class=n>labels_</span>
-    
-    <span class=n>kmeans</span><span class=o>.</span><span class=n>fit</span><span class=p>(</span><span class=n>df</span><span class=p>[[</span><span class=s1>&#39;landform_90m&#39;</span><span class=p>,</span> <span class=s1>&#39;landform_270m&#39;</span><span class=p>]])</span>
-    <span class=n>landform_labels</span> <span class=o>=</span> <span class=n>kmeans</span><span class=o>.</span><span class=n>labels_</span>
-    <span class=n>df</span><span class=p>[</span><span class=s1>&#39;landforms_cluster&#39;</span><span class=p>]</span> <span class=o>=</span> <span class=n>landform_labels</span>
-    
-    <span class=n>kmeans</span><span class=o>.</span><span class=n>fit</span><span class=p>(</span><span class=n>pd</span><span class=o>.</span><span class=n>concat</span><span class=p>([</span><span class=n>pd</span><span class=o>.</span><span class=n>Series</span><span class=p>(</span><span class=n>landform_labels</span><span class=p>),</span> <span class=n>pd</span><span class=o>.</span><span class=n>Series</span><span class=p>(</span><span class=n>df</span><span class=p>[</span><span class=s1>&#39;greenness&#39;</span><span class=p>]</span><span class=o>.</span><span class=n>values</span><span class=p>)],</span> <span class=n>axis</span><span class=o>=</span><span class=mi>1</span><span class=p>))</span>
-    <span class=n>df</span><span class=p>[</span><span class=s1>&#39;landforms_greenness_clusters&#39;</span><span class=p>]</span> <span class=o>=</span> <span class=n>kmeans</span><span class=o>.</span><span class=n>labels_</span>
-    
-    <span class=n>kmeans</span><span class=o>.</span><span class=n>fit</span><span class=p>(</span><span class=n>df</span><span class=p>[[</span><span class=s1>&#39;altitude&#39;</span><span class=p>,</span> <span class=s1>&#39;greenness&#39;</span><span class=p>,</span> <span class=s1>&#39;population&#39;</span><span class=p>]])</span>
-    <span class=n>df</span><span class=p>[</span><span class=s1>&#39;altgreenpop_cluster&#39;</span><span class=p>]</span> <span class=o>=</span> <span class=n>kmeans</span><span class=o>.</span><span class=n>labels_</span>
-    
-    <span class=n>kmeans</span><span class=o>.</span><span class=n>fit</span><span class=p>(</span><span class=n>df</span><span class=p>[[</span><span class=s1>&#39;site_le&#39;</span><span class=p>,</span> <span class=s1>&#39;humidity&#39;</span><span class=p>,</span> <span class=s1>&#39;temp&#39;</span><span class=p>,</span> <span class=s1>&#39;lat&#39;</span><span class=p>,</span> <span class=s1>&#39;long&#39;</span><span class=p>,</span> <span class=s1>&#39;altitude&#39;</span><span class=p>,</span> <span class=s1>&#39;landform_90m&#39;</span><span class=p>,</span>
-                   <span class=s1>&#39;landform_270m&#39;</span><span class=p>,</span> <span class=s1>&#39;population&#39;</span><span class=p>,</span> <span class=s1>&#39;dist_major_road&#39;</span><span class=p>]])</span>
-    <span class=n>df</span><span class=p>[</span><span class=s1>&#39;master_cluster&#39;</span><span class=p>]</span> <span class=o>=</span> <span class=n>kmeans</span><span class=o>.</span><span class=n>labels_</span>
-    
-    <span class=c1># dewpoint</span>
-    <span class=n>df</span><span class=p>[</span><span class=s1>&#39;dewpoint&#39;</span><span class=p>]</span> <span class=o>=</span> <span class=mi>0</span>
-    <span class=k>for</span> <span class=n>i</span><span class=p>,</span> <span class=n>_</span> <span class=ow>in</span> <span class=n>tqdm</span><span class=p>(</span><span class=nb>enumerate</span><span class=p>(</span><span class=n>df</span><span class=o>.</span><span class=n>temp</span><span class=p>)):</span>
-        <span class=n>temp</span> <span class=o>=</span> <span class=n>df</span><span class=o>.</span><span class=n>loc</span><span class=p>[</span><span class=n>i</span><span class=p>,</span> <span class=s1>&#39;temp&#39;</span><span class=p>]</span>
-        <span class=n>humidity</span> <span class=o>=</span> <span class=n>df</span><span class=o>.</span><span class=n>loc</span><span class=p>[</span><span class=n>i</span><span class=p>,</span> <span class=s1>&#39;humidity&#39;</span><span class=p>]</span>
-        <span class=n>df</span><span class=o>.</span><span class=n>loc</span><span class=p>[</span><span class=n>i</span><span class=p>,</span> <span class=s1>&#39;dewpoint&#39;</span><span class=p>]</span> <span class=o>=</span> <span class=n>temp</span> <span class=o>-</span> <span class=p>((</span><span class=mi>1</span> <span class=o>-</span> <span class=n>humidity</span><span class=p>)</span><span class=o>/</span><span class=mi>5</span><span class=p>)</span>
-        
-    
-    <span class=c1># temperature and humidity categories</span>
-    <span class=c1># temp</span>
-    <span class=n>conditions</span> <span class=o>=</span> <span class=p>[</span>
-        <span class=p>(</span><span class=n>df</span><span class=p>[</span><span class=s1>&#39;temp&#39;</span><span class=p>]</span> <span class=o>&lt;=</span> <span class=mi>20</span><span class=p>),</span>
-        <span class=p>(</span><span class=n>df</span><span class=p>[</span><span class=s1>&#39;temp&#39;</span><span class=p>]</span> <span class=o>&gt;</span> <span class=mi>20</span><span class=p>)</span> <span class=o>&amp;</span> <span class=p>(</span><span class=n>df</span><span class=p>[</span><span class=s1>&#39;temp&#39;</span><span class=p>]</span> <span class=o>&lt;=</span> <span class=mi>25</span><span class=p>),</span>
-        <span class=p>(</span><span class=n>df</span><span class=p>[</span><span class=s1>&#39;temp&#39;</span><span class=p>]</span> <span class=o>&gt;</span> <span class=mi>25</span><span class=p>)]</span>
-    
-    <span class=n>values</span> <span class=o>=</span> <span class=p>[</span><span class=s1>&#39;2&#39;</span><span class=p>,</span> <span class=s1>&#39;3&#39;</span><span class=p>,</span> <span class=s1>&#39;1&#39;</span><span class=p>]</span>
-    <span class=n>df</span><span class=p>[</span><span class=s1>&#39;temp_cat&#39;</span><span class=p>]</span> <span class=o>=</span> <span class=n>np</span><span class=o>.</span><span class=n>select</span><span class=p>(</span><span class=n>conditions</span><span class=p>,</span> <span class=n>values</span><span class=p>)</span><span class=o>.</span><span class=n>astype</span><span class=p>(</span><span class=nb>int</span><span class=p>)</span>
-    
-    <span class=c1># temp</span>
-    <span class=n>conditions</span> <span class=o>=</span> <span class=p>[</span>
-    <span class=p>(</span><span class=n>df</span><span class=p>[</span><span class=s1>&#39;humidity&#39;</span><span class=p>]</span> <span class=o>&lt;=</span> <span class=mf>0.5</span><span class=p>),</span>
-    <span class=p>(</span><span class=n>df</span><span class=p>[</span><span class=s1>&#39;humidity&#39;</span><span class=p>]</span> <span class=o>&gt;</span> <span class=mf>0.5</span><span class=p>)</span> <span class=o>&amp;</span> <span class=p>(</span><span class=n>df</span><span class=p>[</span><span class=s1>&#39;humidity&#39;</span><span class=p>]</span> <span class=o>&lt;=</span> <span class=mf>0.8</span><span class=p>),</span>
-    <span class=p>(</span><span class=n>df</span><span class=p>[</span><span class=s1>&#39;humidity&#39;</span><span class=p>]</span> <span class=o>&gt;</span> <span class=mf>0.8</span><span class=p>)]</span>
-
-    <span class=n>values</span> <span class=o>=</span> <span class=p>[</span><span class=s1>&#39;1&#39;</span><span class=p>,</span> <span class=s1>&#39;2&#39;</span><span class=p>,</span> <span class=s1>&#39;3&#39;</span><span class=p>]</span>
-    <span class=n>df</span><span class=p>[</span><span class=s1>&#39;humidity_cat&#39;</span><span class=p>]</span> <span class=o>=</span> <span class=n>np</span><span class=o>.</span><span class=n>select</span><span class=p>(</span><span class=n>conditions</span><span class=p>,</span> <span class=n>values</span><span class=p>)</span><span class=o>.</span><span class=n>astype</span><span class=p>(</span><span class=nb>int</span><span class=p>)</span>
-    
-    <span class=c1># combination features</span>
-    <span class=n>df</span><span class=p>[</span><span class=s1>&#39;humixtemp&#39;</span><span class=p>]</span> <span class=o>=</span> <span class=n>df</span><span class=o>.</span><span class=n>humidity</span> <span class=o>*</span> <span class=n>df</span><span class=o>.</span><span class=n>temp</span>
-    <span class=n>df</span><span class=p>[</span><span class=s1>&#39;humixtemp2&#39;</span><span class=p>]</span> <span class=o>=</span> <span class=p>(</span><span class=n>df</span><span class=o>.</span><span class=n>humidity</span><span class=o>*</span><span class=mi>100</span><span class=p>)</span> <span class=o>/</span> <span class=n>df</span><span class=o>.</span><span class=n>temp</span>
-    <span class=n>df</span><span class=p>[</span><span class=s1>&#39;altxhumi&#39;</span><span class=p>]</span> <span class=o>=</span> <span class=n>df</span><span class=o>.</span><span class=n>altitude</span> <span class=o>*</span> <span class=n>df</span><span class=o>.</span><span class=n>humidity</span>
-    <span class=n>df</span><span class=p>[</span><span class=s1>&#39;altxtemp&#39;</span><span class=p>]</span> <span class=o>=</span> <span class=n>df</span><span class=o>.</span><span class=n>altitude</span> <span class=o>*</span> <span class=n>df</span><span class=o>.</span><span class=n>temp</span>
-    
-    <span class=c1># differences between pm2_5:s2_pm2_5, pm10:s2_pm10 and between pm2_5&#39;s:pm10&#39;s</span>
-    <span class=n>df</span><span class=p>[</span><span class=s1>&#39;pm2_5_diff&#39;</span><span class=p>]</span> <span class=o>=</span> <span class=n>np</span><span class=o>.</span><span class=n>abs</span><span class=p>(</span><span class=n>df</span><span class=o>.</span><span class=n>pm2_5</span> <span class=o>-</span> <span class=n>df</span><span class=o>.</span><span class=n>s2_pm2_5</span><span class=p>)</span>
-    <span class=n>df</span><span class=p>[</span><span class=s1>&#39;pm10_diff&#39;</span><span class=p>]</span> <span class=o>=</span> <span class=n>np</span><span class=o>.</span><span class=n>abs</span><span class=p>(</span><span class=n>df</span><span class=o>.</span><span class=n>pm10</span> <span class=o>-</span> <span class=n>df</span><span class=o>.</span><span class=n>s2_pm10</span><span class=p>)</span>
-    <span class=n>df</span><span class=p>[</span><span class=s1>&#39;pm10xpm25&#39;</span><span class=p>]</span> <span class=o>=</span> <span class=n>np</span><span class=o>.</span><span class=n>abs</span><span class=p>(</span><span class=n>df</span><span class=o>.</span><span class=n>pm10</span> <span class=o>-</span> <span class=n>df</span><span class=o>.</span><span class=n>pm2_5</span><span class=p>)</span>
-    <span class=n>df</span><span class=p>[</span><span class=s1>&#39;s2_pm10xpm25&#39;</span><span class=p>]</span> <span class=o>=</span> <span class=n>np</span><span class=o>.</span><span class=n>abs</span><span class=p>(</span><span class=n>df</span><span class=o>.</span><span class=n>s2_pm10</span> <span class=o>-</span> <span class=n>df</span><span class=o>.</span><span class=n>s2_pm2_5</span><span class=p>)</span>
-    
-    <span class=n>df</span><span class=p>[</span><span class=s1>&#39;pm_total_diffs&#39;</span><span class=p>]</span> <span class=o>=</span> <span class=n>df</span><span class=o>.</span><span class=n>pm2_5_diff</span> <span class=o>+</span> <span class=n>df</span><span class=o>.</span><span class=n>pm10_diff</span> <span class=o>+</span> <span class=n>df</span><span class=o>.</span><span class=n>pm10xpm25</span> <span class=o>+</span> <span class=n>df</span><span class=o>.</span><span class=n>s2_pm10xpm25</span>
-    <span class=n>df</span><span class=p>[</span><span class=s1>&#39;pm_diffs_mean&#39;</span><span class=p>]</span> <span class=o>=</span> <span class=p>(</span><span class=n>df</span><span class=o>.</span><span class=n>pm2_5_diff</span> <span class=o>+</span> <span class=n>df</span><span class=o>.</span><span class=n>pm10_diff</span> <span class=o>+</span> <span class=n>df</span><span class=o>.</span><span class=n>pm10xpm25</span> <span class=o>+</span> <span class=n>df</span><span class=o>.</span><span class=n>s2_pm10xpm25</span><span class=p>)</span><span class=o>/</span><span class=mi>4</span>
-    
-    <span class=c1># humixtemp categories</span>
-    <span class=n>conditions</span> <span class=o>=</span> <span class=p>[</span>
-    <span class=p>(</span><span class=n>df</span><span class=p>[</span><span class=s1>&#39;humixtemp&#39;</span><span class=p>]</span> <span class=o>&lt;=</span> <span class=mi>8</span><span class=p>),</span>
-    <span class=p>(</span><span class=n>df</span><span class=p>[</span><span class=s1>&#39;humixtemp&#39;</span><span class=p>]</span> <span class=o>&gt;</span> <span class=mi>13</span><span class=p>)</span> <span class=o>&amp;</span> <span class=p>(</span><span class=n>df</span><span class=p>[</span><span class=s1>&#39;humixtemp&#39;</span><span class=p>]</span> <span class=o>&lt;=</span> <span class=mi>18</span><span class=p>),</span>
-    <span class=p>(</span><span class=n>df</span><span class=p>[</span><span class=s1>&#39;humixtemp&#39;</span><span class=p>]</span> <span class=o>&gt;</span> <span class=mi>18</span><span class=p>)]</span>
-
-    <span class=n>values</span> <span class=o>=</span> <span class=p>[</span><span class=s1>&#39;2&#39;</span><span class=p>,</span> <span class=s1>&#39;1&#39;</span><span class=p>,</span> <span class=s1>&#39;3&#39;</span><span class=p>]</span>
-    <span class=n>df</span><span class=p>[</span><span class=s1>&#39;humixtemp_cat&#39;</span><span class=p>]</span> <span class=o>=</span> <span class=n>np</span><span class=o>.</span><span class=n>select</span><span class=p>(</span><span class=n>conditions</span><span class=p>,</span> <span class=n>values</span><span class=p>)</span><span class=o>.</span><span class=n>astype</span><span class=p>(</span><span class=nb>int</span><span class=p>)</span>
-    
-    <span class=c1># altxhumi categories</span>
-    <span class=n>conditions</span> <span class=o>=</span> <span class=p>[</span>
-    <span class=p>(</span><span class=n>df</span><span class=p>[</span><span class=s1>&#39;altxhumi&#39;</span><span class=p>]</span> <span class=o>&lt;=</span> <span class=mi>600</span><span class=p>),</span>
-    <span class=p>(</span><span class=n>df</span><span class=p>[</span><span class=s1>&#39;altxhumi&#39;</span><span class=p>]</span> <span class=o>&gt;</span> <span class=mi>600</span><span class=p>)</span> <span class=o>&amp;</span> <span class=p>(</span><span class=n>df</span><span class=p>[</span><span class=s1>&#39;altxhumi&#39;</span><span class=p>]</span> <span class=o>&lt;=</span> <span class=mi>900</span><span class=p>),</span>
-    <span class=p>(</span><span class=n>df</span><span class=p>[</span><span class=s1>&#39;altxhumi&#39;</span><span class=p>]</span> <span class=o>&gt;</span> <span class=mi>900</span><span class=p>)]</span>
-    <span class=n>values</span> <span class=o>=</span> <span class=p>[</span><span class=s1>&#39;3&#39;</span><span class=p>,</span> <span class=s1>&#39;1&#39;</span><span class=p>,</span> <span class=s1>&#39;2&#39;</span><span class=p>]</span>
-    <span class=n>df</span><span class=p>[</span><span class=s1>&#39;altxhumi_cat&#39;</span><span class=p>]</span> <span class=o>=</span> <span class=n>np</span><span class=o>.</span><span class=n>select</span><span class=p>(</span><span class=n>conditions</span><span class=p>,</span> <span class=n>values</span><span class=p>)</span><span class=o>.</span><span class=n>astype</span><span class=p>(</span><span class=nb>int</span><span class=p>)</span>
-    
-    <span class=c1># altxtemp categories</span>
-    <span class=n>conditions</span> <span class=o>=</span> <span class=p>[</span>
-    <span class=p>(</span><span class=n>df</span><span class=p>[</span><span class=s1>&#39;altxtemp&#39;</span><span class=p>]</span> <span class=o>&lt;=</span> <span class=mi>25000</span><span class=p>),</span>
-    <span class=p>(</span><span class=n>df</span><span class=p>[</span><span class=s1>&#39;altxtemp&#39;</span><span class=p>]</span> <span class=o>&gt;</span> <span class=mi>25000</span><span class=p>)</span> <span class=o>&amp;</span> <span class=p>(</span><span class=n>df</span><span class=p>[</span><span class=s1>&#39;altxtemp&#39;</span><span class=p>]</span> <span class=o>&lt;=</span> <span class=mi>31000</span><span class=p>),</span>
-    <span class=p>(</span><span class=n>df</span><span class=p>[</span><span class=s1>&#39;altxtemp&#39;</span><span class=p>]</span> <span class=o>&gt;</span> <span class=mi>31000</span><span class=p>)]</span>
-    <span class=n>values</span> <span class=o>=</span> <span class=p>[</span><span class=s1>&#39;3&#39;</span><span class=p>,</span> <span class=s1>&#39;1&#39;</span><span class=p>,</span> <span class=s1>&#39;2&#39;</span><span class=p>]</span>
-    <span class=n>df</span><span class=p>[</span><span class=s1>&#39;altxtemp_cat&#39;</span><span class=p>]</span> <span class=o>=</span> <span class=n>np</span><span class=o>.</span><span class=n>select</span><span class=p>(</span><span class=n>conditions</span><span class=p>,</span> <span class=n>values</span><span class=p>)</span><span class=o>.</span><span class=n>astype</span><span class=p>(</span><span class=nb>int</span><span class=p>)</span>
-    
-    <span class=c1># pca feature</span>
-    <span class=n>pca</span> <span class=o>=</span> <span class=n>PCA</span><span class=p>(</span><span class=n>n_components</span><span class=o>=</span><span class=mi>1</span><span class=p>,</span> <span class=n>random_state</span><span class=o>=</span><span class=mi>101</span><span class=p>)</span>
-    <span class=n>vals</span> <span class=o>=</span> <span class=n>pca</span><span class=o>.</span><span class=n>fit_transform</span><span class=p>(</span><span class=n>df</span><span class=p>[[</span><span class=s1>&#39;pm2_5&#39;</span><span class=p>,</span> <span class=s1>&#39;pm10&#39;</span><span class=p>,</span> <span class=s1>&#39;s2_pm2_5&#39;</span><span class=p>,</span> <span class=s1>&#39;s2_pm10&#39;</span><span class=p>,</span>
-       <span class=s1>&#39;humidity&#39;</span><span class=p>,</span> <span class=s1>&#39;temp&#39;</span><span class=p>,</span> <span class=s1>&#39;lat&#39;</span><span class=p>,</span> <span class=s1>&#39;long&#39;</span><span class=p>,</span> <span class=s1>&#39;altitude&#39;</span><span class=p>,</span> <span class=s1>&#39;greenness&#39;</span><span class=p>,</span>
-       <span class=s1>&#39;landform_90m&#39;</span><span class=p>,</span> <span class=s1>&#39;landform_270m&#39;</span><span class=p>,</span> <span class=s1>&#39;population&#39;</span><span class=p>,</span> <span class=s1>&#39;dist_major_road&#39;</span><span class=p>,</span>
-       <span class=s1>&#39;creation_month&#39;</span><span class=p>,</span> <span class=s1>&#39;creation_day&#39;</span><span class=p>,</span>
-       <span class=s1>&#39;creation_hour&#39;</span><span class=p>,</span> <span class=s1>&#39;creation_weekday&#39;</span><span class=p>,</span> <span class=s1>&#39;days_todate&#39;</span><span class=p>,</span> <span class=s1>&#39;years_todate&#39;</span><span class=p>,</span>
-       <span class=s1>&#39;timediff&#39;</span><span class=p>,</span> <span class=s1>&#39;site_le&#39;</span><span class=p>,</span> <span class=s1>&#39;creation_year_le&#39;</span><span class=p>,</span> <span class=s1>&#39;latlong_cluster&#39;</span><span class=p>,</span>
-       <span class=s1>&#39;landforms_cluster&#39;</span><span class=p>,</span> <span class=s1>&#39;landforms_greenness_clusters&#39;</span><span class=p>,</span>
-       <span class=s1>&#39;altgreenpop_cluster&#39;</span><span class=p>,</span> <span class=s1>&#39;master_cluster&#39;</span><span class=p>,</span> <span class=s1>&#39;dewpoint&#39;</span><span class=p>,</span> <span class=s1>&#39;temp_cat&#39;</span><span class=p>,</span>
-       <span class=s1>&#39;humidity_cat&#39;</span><span class=p>,</span> <span class=s1>&#39;humixtemp&#39;</span><span class=p>,</span> <span class=s1>&#39;humixtemp2&#39;</span><span class=p>,</span> <span class=s1>&#39;altxhumi&#39;</span><span class=p>,</span> <span class=s1>&#39;altxtemp&#39;</span><span class=p>,</span>
-       <span class=s1>&#39;pm2_5_diff&#39;</span><span class=p>,</span> <span class=s1>&#39;pm10_diff&#39;</span><span class=p>,</span> <span class=s1>&#39;pm10xpm25&#39;</span><span class=p>,</span> <span class=s1>&#39;s2_pm10xpm25&#39;</span><span class=p>,</span>
-       <span class=s1>&#39;pm_total_diffs&#39;</span><span class=p>,</span> <span class=s1>&#39;pm_diffs_mean&#39;</span><span class=p>,</span> <span class=s1>&#39;humixtemp_cat&#39;</span><span class=p>,</span> <span class=s1>&#39;altxhumi_cat&#39;</span><span class=p>,</span>
-       <span class=s1>&#39;altxtemp_cat&#39;</span><span class=p>]])</span>
-    <span class=n>df</span><span class=p>[</span><span class=s1>&#39;component&#39;</span><span class=p>]</span> <span class=o>=</span> <span class=n>pd</span><span class=o>.</span><span class=n>Series</span><span class=p>(</span><span class=n>vals</span><span class=o>.</span><span class=n>reshape</span><span class=p>(</span><span class=n>vals</span><span class=o>.</span><span class=n>shape</span><span class=p>[</span><span class=mi>0</span><span class=p>],))</span>
-    
-    <span class=c1># component categories</span>
-    <span class=c1># altxtemp categories</span>
-    <span class=n>conditions</span> <span class=o>=</span> <span class=p>[</span>
-    <span class=p>(</span><span class=n>df</span><span class=p>[</span><span class=s1>&#39;component&#39;</span><span class=p>]</span> <span class=o>&lt;=</span> <span class=o>-</span><span class=mi>1000</span><span class=p>),</span>
-    <span class=p>(</span><span class=n>df</span><span class=p>[</span><span class=s1>&#39;component&#39;</span><span class=p>]</span> <span class=o>&gt;</span> <span class=o>-</span><span class=mi>1000</span><span class=p>)</span> <span class=o>&amp;</span> <span class=p>(</span><span class=n>df</span><span class=p>[</span><span class=s1>&#39;component&#39;</span><span class=p>]</span> <span class=o>&lt;=</span> <span class=mi>5000</span><span class=p>),</span>
-    <span class=p>(</span><span class=n>df</span><span class=p>[</span><span class=s1>&#39;component&#39;</span><span class=p>]</span> <span class=o>&gt;</span> <span class=mi>5000</span><span class=p>)]</span>
-    <span class=n>values</span> <span class=o>=</span> <span class=p>[</span><span class=s1>&#39;2&#39;</span><span class=p>,</span> <span class=s1>&#39;1&#39;</span><span class=p>,</span> <span class=s1>&#39;3&#39;</span><span class=p>]</span>
-    <span class=n>df</span><span class=p>[</span><span class=s1>&#39;component_cat&#39;</span><span class=p>]</span> <span class=o>=</span> <span class=n>np</span><span class=o>.</span><span class=n>select</span><span class=p>(</span><span class=n>conditions</span><span class=p>,</span> <span class=n>values</span><span class=p>)</span><span class=o>.</span><span class=n>astype</span><span class=p>(</span><span class=nb>int</span><span class=p>)</span>
-    
-    <span class=k>return</span> <span class=n>df</span>
-</code></pre></td></tr></table>
-</div>
-</div><p>That was one hell of a process! You can imagine the extensive exploratory data analysis (EDA) I did to come up with such a piece!<br>
-Let us see how many more features we add to our initial dataset:</p>
-<div class=highlight><div class=chroma>
-<table class=lntable><tr><td class=lntd>
-<pre tabindex=0 class=chroma><code><span class=lnt> 1
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-python data-lang=python><span class=line><span class=cl><span class=k>def</span> <span class=nf>feat_eng</span><span class=p>(</span><span class=n>df</span><span class=p>):</span>
+</span></span><span class=line><span class=cl>    <span class=n>le</span> <span class=o>=</span> <span class=n>LabelEncoder</span><span class=p>()</span>
+</span></span><span class=line><span class=cl>    <span class=n>kmeans</span> <span class=o>=</span> <span class=n>KMeans</span><span class=p>(</span><span class=n>n_clusters</span><span class=o>=</span><span class=mi>3</span><span class=p>)</span>
+</span></span><span class=line><span class=cl>    
+</span></span><span class=line><span class=cl>    <span class=c1># date features</span>
+</span></span><span class=line><span class=cl>    <span class=n>df</span><span class=p>[</span><span class=s1>&#39;creation_year&#39;</span><span class=p>]</span> <span class=o>=</span> <span class=n>pd</span><span class=o>.</span><span class=n>to_datetime</span><span class=p>(</span><span class=n>df</span><span class=o>.</span><span class=n>created_at</span><span class=p>)</span><span class=o>.</span><span class=n>dt</span><span class=o>.</span><span class=n>year</span>
+</span></span><span class=line><span class=cl>    <span class=n>df</span><span class=p>[</span><span class=s1>&#39;creation_month&#39;</span><span class=p>]</span> <span class=o>=</span> <span class=n>pd</span><span class=o>.</span><span class=n>to_datetime</span><span class=p>(</span><span class=n>df</span><span class=o>.</span><span class=n>created_at</span><span class=p>)</span><span class=o>.</span><span class=n>dt</span><span class=o>.</span><span class=n>month</span>
+</span></span><span class=line><span class=cl>    <span class=n>df</span><span class=p>[</span><span class=s1>&#39;creation_day&#39;</span><span class=p>]</span> <span class=o>=</span> <span class=n>pd</span><span class=o>.</span><span class=n>to_datetime</span><span class=p>(</span><span class=n>df</span><span class=o>.</span><span class=n>created_at</span><span class=p>)</span><span class=o>.</span><span class=n>dt</span><span class=o>.</span><span class=n>day</span>
+</span></span><span class=line><span class=cl>    <span class=n>df</span><span class=p>[</span><span class=s1>&#39;creation_hour&#39;</span><span class=p>]</span> <span class=o>=</span> <span class=n>pd</span><span class=o>.</span><span class=n>to_datetime</span><span class=p>(</span><span class=n>df</span><span class=o>.</span><span class=n>created_at</span><span class=p>)</span><span class=o>.</span><span class=n>dt</span><span class=o>.</span><span class=n>hour</span>
+</span></span><span class=line><span class=cl>    <span class=n>df</span><span class=p>[</span><span class=s1>&#39;creation_weekday&#39;</span><span class=p>]</span> <span class=o>=</span> <span class=n>pd</span><span class=o>.</span><span class=n>Series</span><span class=p>(</span><span class=n>pd</span><span class=o>.</span><span class=n>to_datetime</span><span class=p>(</span><span class=n>df</span><span class=o>.</span><span class=n>created_at</span><span class=p>)</span><span class=o>.</span><span class=n>dt</span><span class=o>.</span><span class=n>weekday</span><span class=p>)</span><span class=o>.</span><span class=n>apply</span><span class=p>(</span><span class=k>lambda</span> <span class=n>x</span><span class=p>:</span> <span class=mi>1</span> <span class=k>if</span> <span class=n>x</span><span class=o>&lt;</span><span class=mi>5</span> <span class=k>else</span> <span class=mi>0</span><span class=p>)</span> <span class=c1># if weekday or weekeend</span>
+</span></span><span class=line><span class=cl>    <span class=n>df</span><span class=p>[</span><span class=s1>&#39;days_todate&#39;</span><span class=p>]</span> <span class=o>=</span> <span class=n>pd</span><span class=o>.</span><span class=n>to_datetime</span><span class=p>(</span><span class=n>pd</span><span class=o>.</span><span class=n>Timestamp</span><span class=o>.</span><span class=n>now</span><span class=p>()</span><span class=o>.</span><span class=n>date</span><span class=p>())</span><span class=o>.</span><span class=n>tz_localize</span><span class=p>(</span><span class=n>tz</span><span class=o>=</span><span class=n>pytz</span><span class=o>.</span><span class=n>UTC</span><span class=p>)</span> <span class=o>-</span> <span class=n>pd</span><span class=o>.</span><span class=n>to_datetime</span><span class=p>(</span><span class=n>df</span><span class=o>.</span><span class=n>created_at</span><span class=o>.</span><span class=n>dt</span><span class=o>.</span><span class=n>tz_convert</span><span class=p>(</span><span class=n>tz</span><span class=o>=</span><span class=n>pytz</span><span class=o>.</span><span class=n>UTC</span><span class=p>))</span>
+</span></span><span class=line><span class=cl>    <span class=n>df</span><span class=o>.</span><span class=n>days_todate</span> <span class=o>=</span> <span class=n>df</span><span class=o>.</span><span class=n>days_todate</span><span class=o>.</span><span class=n>apply</span><span class=p>(</span><span class=k>lambda</span> <span class=n>x</span><span class=p>:</span> <span class=nb>int</span><span class=p>(</span><span class=nb>str</span><span class=p>(</span><span class=n>x</span><span class=p>)</span><span class=o>.</span><span class=n>split</span><span class=p>(</span><span class=s1>&#39; days&#39;</span><span class=p>)[</span><span class=mi>0</span><span class=p>]))</span> <span class=c1># remove string &#39;days&#39;</span>
+</span></span><span class=line><span class=cl>    <span class=n>df</span><span class=p>[</span><span class=s1>&#39;years_todate&#39;</span><span class=p>]</span> <span class=o>=</span> <span class=n>df</span><span class=o>.</span><span class=n>days_todate</span><span class=o>.</span><span class=n>apply</span><span class=p>(</span><span class=k>lambda</span> <span class=n>x</span><span class=p>:</span> <span class=nb>int</span><span class=p>(</span><span class=n>np</span><span class=o>.</span><span class=n>round</span><span class=p>(</span><span class=n>x</span><span class=o>/</span><span class=mi>364</span><span class=p>)))</span>
+</span></span><span class=line><span class=cl>    
+</span></span><span class=line><span class=cl>    <span class=c1># time difference(number of hours to next recording)</span>
+</span></span><span class=line><span class=cl>    <span class=n>timediff</span> <span class=o>=</span> <span class=n>df</span><span class=o>.</span><span class=n>sort_values</span><span class=p>(</span><span class=s1>&#39;created_at&#39;</span><span class=p>)</span><span class=o>.</span><span class=n>created_at</span><span class=o>.</span><span class=n>diff</span><span class=p>();</span> <span class=n>timediff</span><span class=o>.</span><span class=n>fillna</span><span class=p>(</span><span class=n>pd</span><span class=o>.</span><span class=n>Timedelta</span><span class=p>(</span><span class=n>seconds</span><span class=o>=</span><span class=mi>0</span><span class=p>),</span> <span class=n>inplace</span><span class=o>=</span><span class=kc>True</span><span class=p>)</span>
+</span></span><span class=line><span class=cl>    <span class=n>timediff</span> <span class=o>=</span> <span class=n>timediff</span><span class=o>.</span><span class=n>apply</span><span class=p>(</span><span class=k>lambda</span> <span class=n>val</span><span class=p>:</span> <span class=nb>str</span><span class=p>(</span><span class=n>val</span><span class=p>)</span><span class=o>.</span><span class=n>split</span><span class=p>(</span><span class=s1>&#39;days&#39;</span><span class=p>)[</span><span class=o>-</span><span class=mi>1</span><span class=p>]</span><span class=o>.</span><span class=n>split</span><span class=p>(</span><span class=s1>&#39;:&#39;</span><span class=p>)[</span><span class=mi>0</span><span class=p>])</span>
+</span></span><span class=line><span class=cl>    <span class=n>df</span><span class=p>[</span><span class=s1>&#39;timediff&#39;</span><span class=p>]</span> <span class=o>=</span> <span class=mi>0</span>
+</span></span><span class=line><span class=cl>    <span class=n>df</span><span class=o>.</span><span class=n>sort_values</span><span class=p>(</span><span class=s1>&#39;created_at&#39;</span><span class=p>,</span> <span class=n>inplace</span><span class=o>=</span><span class=kc>True</span><span class=p>)</span>
+</span></span><span class=line><span class=cl>    <span class=n>df</span><span class=p>[</span><span class=s1>&#39;timediff&#39;</span><span class=p>]</span> <span class=o>=</span> <span class=n>timediff</span><span class=o>.</span><span class=n>astype</span><span class=p>(</span><span class=nb>int</span><span class=p>);</span> <span class=n>df</span><span class=o>.</span><span class=n>sort_index</span><span class=p>(</span><span class=n>inplace</span><span class=o>=</span><span class=kc>True</span><span class=p>)</span>
+</span></span><span class=line><span class=cl>    
+</span></span><span class=line><span class=cl>    <span class=c1># label encoded features</span>
+</span></span><span class=line><span class=cl>    <span class=n>df</span><span class=p>[</span><span class=s1>&#39;site_le&#39;</span><span class=p>]</span> <span class=o>=</span> <span class=n>le</span><span class=o>.</span><span class=n>fit_transform</span><span class=p>(</span><span class=n>df</span><span class=o>.</span><span class=n>site</span><span class=p>)</span>
+</span></span><span class=line><span class=cl>    <span class=n>df</span><span class=p>[</span><span class=s1>&#39;creation_year_le&#39;</span><span class=p>]</span> <span class=o>=</span> <span class=n>le</span><span class=o>.</span><span class=n>fit_transform</span><span class=p>(</span><span class=n>df</span><span class=o>.</span><span class=n>creation_year</span><span class=p>)</span>
+</span></span><span class=line><span class=cl>    
+</span></span><span class=line><span class=cl>    
+</span></span><span class=line><span class=cl>    <span class=c1># kmeans features</span>
+</span></span><span class=line><span class=cl>    <span class=n>kmeans</span><span class=o>.</span><span class=n>fit</span><span class=p>(</span><span class=n>df</span><span class=p>[[</span><span class=s1>&#39;lat&#39;</span><span class=p>,</span> <span class=s1>&#39;long&#39;</span><span class=p>]])</span>
+</span></span><span class=line><span class=cl>    <span class=n>df</span><span class=p>[</span><span class=s1>&#39;latlong_cluster&#39;</span><span class=p>]</span> <span class=o>=</span> <span class=n>kmeans</span><span class=o>.</span><span class=n>labels_</span>
+</span></span><span class=line><span class=cl>    
+</span></span><span class=line><span class=cl>    <span class=n>kmeans</span><span class=o>.</span><span class=n>fit</span><span class=p>(</span><span class=n>df</span><span class=p>[[</span><span class=s1>&#39;landform_90m&#39;</span><span class=p>,</span> <span class=s1>&#39;landform_270m&#39;</span><span class=p>]])</span>
+</span></span><span class=line><span class=cl>    <span class=n>landform_labels</span> <span class=o>=</span> <span class=n>kmeans</span><span class=o>.</span><span class=n>labels_</span>
+</span></span><span class=line><span class=cl>    <span class=n>df</span><span class=p>[</span><span class=s1>&#39;landforms_cluster&#39;</span><span class=p>]</span> <span class=o>=</span> <span class=n>landform_labels</span>
+</span></span><span class=line><span class=cl>    
+</span></span><span class=line><span class=cl>    <span class=n>kmeans</span><span class=o>.</span><span class=n>fit</span><span class=p>(</span><span class=n>pd</span><span class=o>.</span><span class=n>concat</span><span class=p>([</span><span class=n>pd</span><span class=o>.</span><span class=n>Series</span><span class=p>(</span><span class=n>landform_labels</span><span class=p>),</span> <span class=n>pd</span><span class=o>.</span><span class=n>Series</span><span class=p>(</span><span class=n>df</span><span class=p>[</span><span class=s1>&#39;greenness&#39;</span><span class=p>]</span><span class=o>.</span><span class=n>values</span><span class=p>)],</span> <span class=n>axis</span><span class=o>=</span><span class=mi>1</span><span class=p>))</span>
+</span></span><span class=line><span class=cl>    <span class=n>df</span><span class=p>[</span><span class=s1>&#39;landforms_greenness_clusters&#39;</span><span class=p>]</span> <span class=o>=</span> <span class=n>kmeans</span><span class=o>.</span><span class=n>labels_</span>
+</span></span><span class=line><span class=cl>    
+</span></span><span class=line><span class=cl>    <span class=n>kmeans</span><span class=o>.</span><span class=n>fit</span><span class=p>(</span><span class=n>df</span><span class=p>[[</span><span class=s1>&#39;altitude&#39;</span><span class=p>,</span> <span class=s1>&#39;greenness&#39;</span><span class=p>,</span> <span class=s1>&#39;population&#39;</span><span class=p>]])</span>
+</span></span><span class=line><span class=cl>    <span class=n>df</span><span class=p>[</span><span class=s1>&#39;altgreenpop_cluster&#39;</span><span class=p>]</span> <span class=o>=</span> <span class=n>kmeans</span><span class=o>.</span><span class=n>labels_</span>
+</span></span><span class=line><span class=cl>    
+</span></span><span class=line><span class=cl>    <span class=n>kmeans</span><span class=o>.</span><span class=n>fit</span><span class=p>(</span><span class=n>df</span><span class=p>[[</span><span class=s1>&#39;site_le&#39;</span><span class=p>,</span> <span class=s1>&#39;humidity&#39;</span><span class=p>,</span> <span class=s1>&#39;temp&#39;</span><span class=p>,</span> <span class=s1>&#39;lat&#39;</span><span class=p>,</span> <span class=s1>&#39;long&#39;</span><span class=p>,</span> <span class=s1>&#39;altitude&#39;</span><span class=p>,</span> <span class=s1>&#39;landform_90m&#39;</span><span class=p>,</span>
+</span></span><span class=line><span class=cl>                   <span class=s1>&#39;landform_270m&#39;</span><span class=p>,</span> <span class=s1>&#39;population&#39;</span><span class=p>,</span> <span class=s1>&#39;dist_major_road&#39;</span><span class=p>]])</span>
+</span></span><span class=line><span class=cl>    <span class=n>df</span><span class=p>[</span><span class=s1>&#39;master_cluster&#39;</span><span class=p>]</span> <span class=o>=</span> <span class=n>kmeans</span><span class=o>.</span><span class=n>labels_</span>
+</span></span><span class=line><span class=cl>    
+</span></span><span class=line><span class=cl>    <span class=c1># dewpoint</span>
+</span></span><span class=line><span class=cl>    <span class=n>df</span><span class=p>[</span><span class=s1>&#39;dewpoint&#39;</span><span class=p>]</span> <span class=o>=</span> <span class=mi>0</span>
+</span></span><span class=line><span class=cl>    <span class=k>for</span> <span class=n>i</span><span class=p>,</span> <span class=n>_</span> <span class=ow>in</span> <span class=n>tqdm</span><span class=p>(</span><span class=nb>enumerate</span><span class=p>(</span><span class=n>df</span><span class=o>.</span><span class=n>temp</span><span class=p>)):</span>
+</span></span><span class=line><span class=cl>        <span class=n>temp</span> <span class=o>=</span> <span class=n>df</span><span class=o>.</span><span class=n>loc</span><span class=p>[</span><span class=n>i</span><span class=p>,</span> <span class=s1>&#39;temp&#39;</span><span class=p>]</span>
+</span></span><span class=line><span class=cl>        <span class=n>humidity</span> <span class=o>=</span> <span class=n>df</span><span class=o>.</span><span class=n>loc</span><span class=p>[</span><span class=n>i</span><span class=p>,</span> <span class=s1>&#39;humidity&#39;</span><span class=p>]</span>
+</span></span><span class=line><span class=cl>        <span class=n>df</span><span class=o>.</span><span class=n>loc</span><span class=p>[</span><span class=n>i</span><span class=p>,</span> <span class=s1>&#39;dewpoint&#39;</span><span class=p>]</span> <span class=o>=</span> <span class=n>temp</span> <span class=o>-</span> <span class=p>((</span><span class=mi>1</span> <span class=o>-</span> <span class=n>humidity</span><span class=p>)</span><span class=o>/</span><span class=mi>5</span><span class=p>)</span>
+</span></span><span class=line><span class=cl>        
+</span></span><span class=line><span class=cl>    
+</span></span><span class=line><span class=cl>    <span class=c1># temperature and humidity categories</span>
+</span></span><span class=line><span class=cl>    <span class=c1># temp</span>
+</span></span><span class=line><span class=cl>    <span class=n>conditions</span> <span class=o>=</span> <span class=p>[</span>
+</span></span><span class=line><span class=cl>        <span class=p>(</span><span class=n>df</span><span class=p>[</span><span class=s1>&#39;temp&#39;</span><span class=p>]</span> <span class=o>&lt;=</span> <span class=mi>20</span><span class=p>),</span>
+</span></span><span class=line><span class=cl>        <span class=p>(</span><span class=n>df</span><span class=p>[</span><span class=s1>&#39;temp&#39;</span><span class=p>]</span> <span class=o>&gt;</span> <span class=mi>20</span><span class=p>)</span> <span class=o>&amp;</span> <span class=p>(</span><span class=n>df</span><span class=p>[</span><span class=s1>&#39;temp&#39;</span><span class=p>]</span> <span class=o>&lt;=</span> <span class=mi>25</span><span class=p>),</span>
+</span></span><span class=line><span class=cl>        <span class=p>(</span><span class=n>df</span><span class=p>[</span><span class=s1>&#39;temp&#39;</span><span class=p>]</span> <span class=o>&gt;</span> <span class=mi>25</span><span class=p>)]</span>
+</span></span><span class=line><span class=cl>    
+</span></span><span class=line><span class=cl>    <span class=n>values</span> <span class=o>=</span> <span class=p>[</span><span class=s1>&#39;2&#39;</span><span class=p>,</span> <span class=s1>&#39;3&#39;</span><span class=p>,</span> <span class=s1>&#39;1&#39;</span><span class=p>]</span>
+</span></span><span class=line><span class=cl>    <span class=n>df</span><span class=p>[</span><span class=s1>&#39;temp_cat&#39;</span><span class=p>]</span> <span class=o>=</span> <span class=n>np</span><span class=o>.</span><span class=n>select</span><span class=p>(</span><span class=n>conditions</span><span class=p>,</span> <span class=n>values</span><span class=p>)</span><span class=o>.</span><span class=n>astype</span><span class=p>(</span><span class=nb>int</span><span class=p>)</span>
+</span></span><span class=line><span class=cl>    
+</span></span><span class=line><span class=cl>    <span class=c1># temp</span>
+</span></span><span class=line><span class=cl>    <span class=n>conditions</span> <span class=o>=</span> <span class=p>[</span>
+</span></span><span class=line><span class=cl>    <span class=p>(</span><span class=n>df</span><span class=p>[</span><span class=s1>&#39;humidity&#39;</span><span class=p>]</span> <span class=o>&lt;=</span> <span class=mf>0.5</span><span class=p>),</span>
+</span></span><span class=line><span class=cl>    <span class=p>(</span><span class=n>df</span><span class=p>[</span><span class=s1>&#39;humidity&#39;</span><span class=p>]</span> <span class=o>&gt;</span> <span class=mf>0.5</span><span class=p>)</span> <span class=o>&amp;</span> <span class=p>(</span><span class=n>df</span><span class=p>[</span><span class=s1>&#39;humidity&#39;</span><span class=p>]</span> <span class=o>&lt;=</span> <span class=mf>0.8</span><span class=p>),</span>
+</span></span><span class=line><span class=cl>    <span class=p>(</span><span class=n>df</span><span class=p>[</span><span class=s1>&#39;humidity&#39;</span><span class=p>]</span> <span class=o>&gt;</span> <span class=mf>0.8</span><span class=p>)]</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>    <span class=n>values</span> <span class=o>=</span> <span class=p>[</span><span class=s1>&#39;1&#39;</span><span class=p>,</span> <span class=s1>&#39;2&#39;</span><span class=p>,</span> <span class=s1>&#39;3&#39;</span><span class=p>]</span>
+</span></span><span class=line><span class=cl>    <span class=n>df</span><span class=p>[</span><span class=s1>&#39;humidity_cat&#39;</span><span class=p>]</span> <span class=o>=</span> <span class=n>np</span><span class=o>.</span><span class=n>select</span><span class=p>(</span><span class=n>conditions</span><span class=p>,</span> <span class=n>values</span><span class=p>)</span><span class=o>.</span><span class=n>astype</span><span class=p>(</span><span class=nb>int</span><span class=p>)</span>
+</span></span><span class=line><span class=cl>    
+</span></span><span class=line><span class=cl>    <span class=c1># combination features</span>
+</span></span><span class=line><span class=cl>    <span class=n>df</span><span class=p>[</span><span class=s1>&#39;humixtemp&#39;</span><span class=p>]</span> <span class=o>=</span> <span class=n>df</span><span class=o>.</span><span class=n>humidity</span> <span class=o>*</span> <span class=n>df</span><span class=o>.</span><span class=n>temp</span>
+</span></span><span class=line><span class=cl>    <span class=n>df</span><span class=p>[</span><span class=s1>&#39;humixtemp2&#39;</span><span class=p>]</span> <span class=o>=</span> <span class=p>(</span><span class=n>df</span><span class=o>.</span><span class=n>humidity</span><span class=o>*</span><span class=mi>100</span><span class=p>)</span> <span class=o>/</span> <span class=n>df</span><span class=o>.</span><span class=n>temp</span>
+</span></span><span class=line><span class=cl>    <span class=n>df</span><span class=p>[</span><span class=s1>&#39;altxhumi&#39;</span><span class=p>]</span> <span class=o>=</span> <span class=n>df</span><span class=o>.</span><span class=n>altitude</span> <span class=o>*</span> <span class=n>df</span><span class=o>.</span><span class=n>humidity</span>
+</span></span><span class=line><span class=cl>    <span class=n>df</span><span class=p>[</span><span class=s1>&#39;altxtemp&#39;</span><span class=p>]</span> <span class=o>=</span> <span class=n>df</span><span class=o>.</span><span class=n>altitude</span> <span class=o>*</span> <span class=n>df</span><span class=o>.</span><span class=n>temp</span>
+</span></span><span class=line><span class=cl>    
+</span></span><span class=line><span class=cl>    <span class=c1># differences between pm2_5:s2_pm2_5, pm10:s2_pm10 and between pm2_5&#39;s:pm10&#39;s</span>
+</span></span><span class=line><span class=cl>    <span class=n>df</span><span class=p>[</span><span class=s1>&#39;pm2_5_diff&#39;</span><span class=p>]</span> <span class=o>=</span> <span class=n>np</span><span class=o>.</span><span class=n>abs</span><span class=p>(</span><span class=n>df</span><span class=o>.</span><span class=n>pm2_5</span> <span class=o>-</span> <span class=n>df</span><span class=o>.</span><span class=n>s2_pm2_5</span><span class=p>)</span>
+</span></span><span class=line><span class=cl>    <span class=n>df</span><span class=p>[</span><span class=s1>&#39;pm10_diff&#39;</span><span class=p>]</span> <span class=o>=</span> <span class=n>np</span><span class=o>.</span><span class=n>abs</span><span class=p>(</span><span class=n>df</span><span class=o>.</span><span class=n>pm10</span> <span class=o>-</span> <span class=n>df</span><span class=o>.</span><span class=n>s2_pm10</span><span class=p>)</span>
+</span></span><span class=line><span class=cl>    <span class=n>df</span><span class=p>[</span><span class=s1>&#39;pm10xpm25&#39;</span><span class=p>]</span> <span class=o>=</span> <span class=n>np</span><span class=o>.</span><span class=n>abs</span><span class=p>(</span><span class=n>df</span><span class=o>.</span><span class=n>pm10</span> <span class=o>-</span> <span class=n>df</span><span class=o>.</span><span class=n>pm2_5</span><span class=p>)</span>
+</span></span><span class=line><span class=cl>    <span class=n>df</span><span class=p>[</span><span class=s1>&#39;s2_pm10xpm25&#39;</span><span class=p>]</span> <span class=o>=</span> <span class=n>np</span><span class=o>.</span><span class=n>abs</span><span class=p>(</span><span class=n>df</span><span class=o>.</span><span class=n>s2_pm10</span> <span class=o>-</span> <span class=n>df</span><span class=o>.</span><span class=n>s2_pm2_5</span><span class=p>)</span>
+</span></span><span class=line><span class=cl>    
+</span></span><span class=line><span class=cl>    <span class=n>df</span><span class=p>[</span><span class=s1>&#39;pm_total_diffs&#39;</span><span class=p>]</span> <span class=o>=</span> <span class=n>df</span><span class=o>.</span><span class=n>pm2_5_diff</span> <span class=o>+</span> <span class=n>df</span><span class=o>.</span><span class=n>pm10_diff</span> <span class=o>+</span> <span class=n>df</span><span class=o>.</span><span class=n>pm10xpm25</span> <span class=o>+</span> <span class=n>df</span><span class=o>.</span><span class=n>s2_pm10xpm25</span>
+</span></span><span class=line><span class=cl>    <span class=n>df</span><span class=p>[</span><span class=s1>&#39;pm_diffs_mean&#39;</span><span class=p>]</span> <span class=o>=</span> <span class=p>(</span><span class=n>df</span><span class=o>.</span><span class=n>pm2_5_diff</span> <span class=o>+</span> <span class=n>df</span><span class=o>.</span><span class=n>pm10_diff</span> <span class=o>+</span> <span class=n>df</span><span class=o>.</span><span class=n>pm10xpm25</span> <span class=o>+</span> <span class=n>df</span><span class=o>.</span><span class=n>s2_pm10xpm25</span><span class=p>)</span><span class=o>/</span><span class=mi>4</span>
+</span></span><span class=line><span class=cl>    
+</span></span><span class=line><span class=cl>    <span class=c1># humixtemp categories</span>
+</span></span><span class=line><span class=cl>    <span class=n>conditions</span> <span class=o>=</span> <span class=p>[</span>
+</span></span><span class=line><span class=cl>    <span class=p>(</span><span class=n>df</span><span class=p>[</span><span class=s1>&#39;humixtemp&#39;</span><span class=p>]</span> <span class=o>&lt;=</span> <span class=mi>8</span><span class=p>),</span>
+</span></span><span class=line><span class=cl>    <span class=p>(</span><span class=n>df</span><span class=p>[</span><span class=s1>&#39;humixtemp&#39;</span><span class=p>]</span> <span class=o>&gt;</span> <span class=mi>13</span><span class=p>)</span> <span class=o>&amp;</span> <span class=p>(</span><span class=n>df</span><span class=p>[</span><span class=s1>&#39;humixtemp&#39;</span><span class=p>]</span> <span class=o>&lt;=</span> <span class=mi>18</span><span class=p>),</span>
+</span></span><span class=line><span class=cl>    <span class=p>(</span><span class=n>df</span><span class=p>[</span><span class=s1>&#39;humixtemp&#39;</span><span class=p>]</span> <span class=o>&gt;</span> <span class=mi>18</span><span class=p>)]</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>    <span class=n>values</span> <span class=o>=</span> <span class=p>[</span><span class=s1>&#39;2&#39;</span><span class=p>,</span> <span class=s1>&#39;1&#39;</span><span class=p>,</span> <span class=s1>&#39;3&#39;</span><span class=p>]</span>
+</span></span><span class=line><span class=cl>    <span class=n>df</span><span class=p>[</span><span class=s1>&#39;humixtemp_cat&#39;</span><span class=p>]</span> <span class=o>=</span> <span class=n>np</span><span class=o>.</span><span class=n>select</span><span class=p>(</span><span class=n>conditions</span><span class=p>,</span> <span class=n>values</span><span class=p>)</span><span class=o>.</span><span class=n>astype</span><span class=p>(</span><span class=nb>int</span><span class=p>)</span>
+</span></span><span class=line><span class=cl>    
+</span></span><span class=line><span class=cl>    <span class=c1># altxhumi categories</span>
+</span></span><span class=line><span class=cl>    <span class=n>conditions</span> <span class=o>=</span> <span class=p>[</span>
+</span></span><span class=line><span class=cl>    <span class=p>(</span><span class=n>df</span><span class=p>[</span><span class=s1>&#39;altxhumi&#39;</span><span class=p>]</span> <span class=o>&lt;=</span> <span class=mi>600</span><span class=p>),</span>
+</span></span><span class=line><span class=cl>    <span class=p>(</span><span class=n>df</span><span class=p>[</span><span class=s1>&#39;altxhumi&#39;</span><span class=p>]</span> <span class=o>&gt;</span> <span class=mi>600</span><span class=p>)</span> <span class=o>&amp;</span> <span class=p>(</span><span class=n>df</span><span class=p>[</span><span class=s1>&#39;altxhumi&#39;</span><span class=p>]</span> <span class=o>&lt;=</span> <span class=mi>900</span><span class=p>),</span>
+</span></span><span class=line><span class=cl>    <span class=p>(</span><span class=n>df</span><span class=p>[</span><span class=s1>&#39;altxhumi&#39;</span><span class=p>]</span> <span class=o>&gt;</span> <span class=mi>900</span><span class=p>)]</span>
+</span></span><span class=line><span class=cl>    <span class=n>values</span> <span class=o>=</span> <span class=p>[</span><span class=s1>&#39;3&#39;</span><span class=p>,</span> <span class=s1>&#39;1&#39;</span><span class=p>,</span> <span class=s1>&#39;2&#39;</span><span class=p>]</span>
+</span></span><span class=line><span class=cl>    <span class=n>df</span><span class=p>[</span><span class=s1>&#39;altxhumi_cat&#39;</span><span class=p>]</span> <span class=o>=</span> <span class=n>np</span><span class=o>.</span><span class=n>select</span><span class=p>(</span><span class=n>conditions</span><span class=p>,</span> <span class=n>values</span><span class=p>)</span><span class=o>.</span><span class=n>astype</span><span class=p>(</span><span class=nb>int</span><span class=p>)</span>
+</span></span><span class=line><span class=cl>    
+</span></span><span class=line><span class=cl>    <span class=c1># altxtemp categories</span>
+</span></span><span class=line><span class=cl>    <span class=n>conditions</span> <span class=o>=</span> <span class=p>[</span>
+</span></span><span class=line><span class=cl>    <span class=p>(</span><span class=n>df</span><span class=p>[</span><span class=s1>&#39;altxtemp&#39;</span><span class=p>]</span> <span class=o>&lt;=</span> <span class=mi>25000</span><span class=p>),</span>
+</span></span><span class=line><span class=cl>    <span class=p>(</span><span class=n>df</span><span class=p>[</span><span class=s1>&#39;altxtemp&#39;</span><span class=p>]</span> <span class=o>&gt;</span> <span class=mi>25000</span><span class=p>)</span> <span class=o>&amp;</span> <span class=p>(</span><span class=n>df</span><span class=p>[</span><span class=s1>&#39;altxtemp&#39;</span><span class=p>]</span> <span class=o>&lt;=</span> <span class=mi>31000</span><span class=p>),</span>
+</span></span><span class=line><span class=cl>    <span class=p>(</span><span class=n>df</span><span class=p>[</span><span class=s1>&#39;altxtemp&#39;</span><span class=p>]</span> <span class=o>&gt;</span> <span class=mi>31000</span><span class=p>)]</span>
+</span></span><span class=line><span class=cl>    <span class=n>values</span> <span class=o>=</span> <span class=p>[</span><span class=s1>&#39;3&#39;</span><span class=p>,</span> <span class=s1>&#39;1&#39;</span><span class=p>,</span> <span class=s1>&#39;2&#39;</span><span class=p>]</span>
+</span></span><span class=line><span class=cl>    <span class=n>df</span><span class=p>[</span><span class=s1>&#39;altxtemp_cat&#39;</span><span class=p>]</span> <span class=o>=</span> <span class=n>np</span><span class=o>.</span><span class=n>select</span><span class=p>(</span><span class=n>conditions</span><span class=p>,</span> <span class=n>values</span><span class=p>)</span><span class=o>.</span><span class=n>astype</span><span class=p>(</span><span class=nb>int</span><span class=p>)</span>
+</span></span><span class=line><span class=cl>    
+</span></span><span class=line><span class=cl>    <span class=c1># pca feature</span>
+</span></span><span class=line><span class=cl>    <span class=n>pca</span> <span class=o>=</span> <span class=n>PCA</span><span class=p>(</span><span class=n>n_components</span><span class=o>=</span><span class=mi>1</span><span class=p>,</span> <span class=n>random_state</span><span class=o>=</span><span class=mi>101</span><span class=p>)</span>
+</span></span><span class=line><span class=cl>    <span class=n>vals</span> <span class=o>=</span> <span class=n>pca</span><span class=o>.</span><span class=n>fit_transform</span><span class=p>(</span><span class=n>df</span><span class=p>[[</span><span class=s1>&#39;pm2_5&#39;</span><span class=p>,</span> <span class=s1>&#39;pm10&#39;</span><span class=p>,</span> <span class=s1>&#39;s2_pm2_5&#39;</span><span class=p>,</span> <span class=s1>&#39;s2_pm10&#39;</span><span class=p>,</span>
+</span></span><span class=line><span class=cl>       <span class=s1>&#39;humidity&#39;</span><span class=p>,</span> <span class=s1>&#39;temp&#39;</span><span class=p>,</span> <span class=s1>&#39;lat&#39;</span><span class=p>,</span> <span class=s1>&#39;long&#39;</span><span class=p>,</span> <span class=s1>&#39;altitude&#39;</span><span class=p>,</span> <span class=s1>&#39;greenness&#39;</span><span class=p>,</span>
+</span></span><span class=line><span class=cl>       <span class=s1>&#39;landform_90m&#39;</span><span class=p>,</span> <span class=s1>&#39;landform_270m&#39;</span><span class=p>,</span> <span class=s1>&#39;population&#39;</span><span class=p>,</span> <span class=s1>&#39;dist_major_road&#39;</span><span class=p>,</span>
+</span></span><span class=line><span class=cl>       <span class=s1>&#39;creation_month&#39;</span><span class=p>,</span> <span class=s1>&#39;creation_day&#39;</span><span class=p>,</span>
+</span></span><span class=line><span class=cl>       <span class=s1>&#39;creation_hour&#39;</span><span class=p>,</span> <span class=s1>&#39;creation_weekday&#39;</span><span class=p>,</span> <span class=s1>&#39;days_todate&#39;</span><span class=p>,</span> <span class=s1>&#39;years_todate&#39;</span><span class=p>,</span>
+</span></span><span class=line><span class=cl>       <span class=s1>&#39;timediff&#39;</span><span class=p>,</span> <span class=s1>&#39;site_le&#39;</span><span class=p>,</span> <span class=s1>&#39;creation_year_le&#39;</span><span class=p>,</span> <span class=s1>&#39;latlong_cluster&#39;</span><span class=p>,</span>
+</span></span><span class=line><span class=cl>       <span class=s1>&#39;landforms_cluster&#39;</span><span class=p>,</span> <span class=s1>&#39;landforms_greenness_clusters&#39;</span><span class=p>,</span>
+</span></span><span class=line><span class=cl>       <span class=s1>&#39;altgreenpop_cluster&#39;</span><span class=p>,</span> <span class=s1>&#39;master_cluster&#39;</span><span class=p>,</span> <span class=s1>&#39;dewpoint&#39;</span><span class=p>,</span> <span class=s1>&#39;temp_cat&#39;</span><span class=p>,</span>
+</span></span><span class=line><span class=cl>       <span class=s1>&#39;humidity_cat&#39;</span><span class=p>,</span> <span class=s1>&#39;humixtemp&#39;</span><span class=p>,</span> <span class=s1>&#39;humixtemp2&#39;</span><span class=p>,</span> <span class=s1>&#39;altxhumi&#39;</span><span class=p>,</span> <span class=s1>&#39;altxtemp&#39;</span><span class=p>,</span>
+</span></span><span class=line><span class=cl>       <span class=s1>&#39;pm2_5_diff&#39;</span><span class=p>,</span> <span class=s1>&#39;pm10_diff&#39;</span><span class=p>,</span> <span class=s1>&#39;pm10xpm25&#39;</span><span class=p>,</span> <span class=s1>&#39;s2_pm10xpm25&#39;</span><span class=p>,</span>
+</span></span><span class=line><span class=cl>       <span class=s1>&#39;pm_total_diffs&#39;</span><span class=p>,</span> <span class=s1>&#39;pm_diffs_mean&#39;</span><span class=p>,</span> <span class=s1>&#39;humixtemp_cat&#39;</span><span class=p>,</span> <span class=s1>&#39;altxhumi_cat&#39;</span><span class=p>,</span>
+</span></span><span class=line><span class=cl>       <span class=s1>&#39;altxtemp_cat&#39;</span><span class=p>]])</span>
+</span></span><span class=line><span class=cl>    <span class=n>df</span><span class=p>[</span><span class=s1>&#39;component&#39;</span><span class=p>]</span> <span class=o>=</span> <span class=n>pd</span><span class=o>.</span><span class=n>Series</span><span class=p>(</span><span class=n>vals</span><span class=o>.</span><span class=n>reshape</span><span class=p>(</span><span class=n>vals</span><span class=o>.</span><span class=n>shape</span><span class=p>[</span><span class=mi>0</span><span class=p>],))</span>
+</span></span><span class=line><span class=cl>    
+</span></span><span class=line><span class=cl>    <span class=c1># component categories</span>
+</span></span><span class=line><span class=cl>    <span class=c1># altxtemp categories</span>
+</span></span><span class=line><span class=cl>    <span class=n>conditions</span> <span class=o>=</span> <span class=p>[</span>
+</span></span><span class=line><span class=cl>    <span class=p>(</span><span class=n>df</span><span class=p>[</span><span class=s1>&#39;component&#39;</span><span class=p>]</span> <span class=o>&lt;=</span> <span class=o>-</span><span class=mi>1000</span><span class=p>),</span>
+</span></span><span class=line><span class=cl>    <span class=p>(</span><span class=n>df</span><span class=p>[</span><span class=s1>&#39;component&#39;</span><span class=p>]</span> <span class=o>&gt;</span> <span class=o>-</span><span class=mi>1000</span><span class=p>)</span> <span class=o>&amp;</span> <span class=p>(</span><span class=n>df</span><span class=p>[</span><span class=s1>&#39;component&#39;</span><span class=p>]</span> <span class=o>&lt;=</span> <span class=mi>5000</span><span class=p>),</span>
+</span></span><span class=line><span class=cl>    <span class=p>(</span><span class=n>df</span><span class=p>[</span><span class=s1>&#39;component&#39;</span><span class=p>]</span> <span class=o>&gt;</span> <span class=mi>5000</span><span class=p>)]</span>
+</span></span><span class=line><span class=cl>    <span class=n>values</span> <span class=o>=</span> <span class=p>[</span><span class=s1>&#39;2&#39;</span><span class=p>,</span> <span class=s1>&#39;1&#39;</span><span class=p>,</span> <span class=s1>&#39;3&#39;</span><span class=p>]</span>
+</span></span><span class=line><span class=cl>    <span class=n>df</span><span class=p>[</span><span class=s1>&#39;component_cat&#39;</span><span class=p>]</span> <span class=o>=</span> <span class=n>np</span><span class=o>.</span><span class=n>select</span><span class=p>(</span><span class=n>conditions</span><span class=p>,</span> <span class=n>values</span><span class=p>)</span><span class=o>.</span><span class=n>astype</span><span class=p>(</span><span class=nb>int</span><span class=p>)</span>
+</span></span><span class=line><span class=cl>    
+</span></span><span class=line><span class=cl>    <span class=k>return</span> <span class=n>df</span>
+</span></span></code></pre></td></tr></table></div></div><p>That was one hell of a process! You can imagine the extensive exploratory data analysis (EDA) I did to come up with such a piece!<br>Let us see how many more features we add to our initial dataset:</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt> 1
 </span><span class=lnt> 2
 </span><span class=lnt> 3
 </span><span class=lnt> 4
@@ -651,33 +353,22 @@ Let us see how many more features we add to our initial dataset:</p>
 </span><span class=lnt> 9
 </span><span class=lnt>10
 </span><span class=lnt>11
-</span></code></pre></td>
-<td class=lntd>
-<pre tabindex=0 class=chroma><code class=language-python data-lang=python><span class=n>initial_columns</span> <span class=o>=</span> <span class=n>all_data</span><span class=o>.</span><span class=n>shape</span><span class=p>[</span><span class=mi>1</span><span class=p>]</span>
-<span class=n>all_data</span> <span class=o>=</span> <span class=n>feat_eng</span><span class=p>(</span><span class=n>all_data</span><span class=p>)</span>
-
-<span class=c1># separate back to train and test splits</span>
-<span class=n>data</span> <span class=o>=</span> <span class=n>all_data</span><span class=p>[</span><span class=n>all_data</span><span class=o>.</span><span class=n>ref_pm2_5</span><span class=o>.</span><span class=n>notna</span><span class=p>()]</span>
-<span class=n>test</span> <span class=o>=</span> <span class=n>all_data</span><span class=p>[</span><span class=n>all_data</span><span class=o>.</span><span class=n>ref_pm2_5</span><span class=o>.</span><span class=n>isna</span><span class=p>()];</span> <span class=n>test</span><span class=o>.</span><span class=n>drop</span><span class=p>(</span><span class=s1>&#39;ref_pm2_5&#39;</span><span class=p>,</span> <span class=n>axis</span><span class=o>=</span><span class=mi>1</span><span class=p>,</span> <span class=n>inplace</span><span class=o>=</span><span class=kc>True</span><span class=p>)</span>
-
-<span class=c1># free memory</span>
-<span class=k>del</span> <span class=n>all_data</span>
-
-<span class=nb>print</span><span class=p>(</span><span class=sa>f</span><span class=s2>&#34;We created </span><span class=si>{</span><span class=n>data</span><span class=o>.</span><span class=n>shape</span><span class=p>[</span><span class=mi>1</span><span class=p>]</span> <span class=o>-</span> <span class=n>initial_columns</span><span class=si>}</span><span class=s2> more features!&#34;</span><span class=p>)</span>
-</code></pre></td></tr></table>
-</div>
-</div><pre><code>13665it [00:04, 2915.07it/s]
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-python data-lang=python><span class=line><span class=cl><span class=n>initial_columns</span> <span class=o>=</span> <span class=n>all_data</span><span class=o>.</span><span class=n>shape</span><span class=p>[</span><span class=mi>1</span><span class=p>]</span>
+</span></span><span class=line><span class=cl><span class=n>all_data</span> <span class=o>=</span> <span class=n>feat_eng</span><span class=p>(</span><span class=n>all_data</span><span class=p>)</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=c1># separate back to train and test splits</span>
+</span></span><span class=line><span class=cl><span class=n>data</span> <span class=o>=</span> <span class=n>all_data</span><span class=p>[</span><span class=n>all_data</span><span class=o>.</span><span class=n>ref_pm2_5</span><span class=o>.</span><span class=n>notna</span><span class=p>()]</span>
+</span></span><span class=line><span class=cl><span class=n>test</span> <span class=o>=</span> <span class=n>all_data</span><span class=p>[</span><span class=n>all_data</span><span class=o>.</span><span class=n>ref_pm2_5</span><span class=o>.</span><span class=n>isna</span><span class=p>()];</span> <span class=n>test</span><span class=o>.</span><span class=n>drop</span><span class=p>(</span><span class=s1>&#39;ref_pm2_5&#39;</span><span class=p>,</span> <span class=n>axis</span><span class=o>=</span><span class=mi>1</span><span class=p>,</span> <span class=n>inplace</span><span class=o>=</span><span class=kc>True</span><span class=p>)</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=c1># free memory</span>
+</span></span><span class=line><span class=cl><span class=k>del</span> <span class=n>all_data</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=nb>print</span><span class=p>(</span><span class=sa>f</span><span class=s2>&#34;We created </span><span class=si>{</span><span class=n>data</span><span class=o>.</span><span class=n>shape</span><span class=p>[</span><span class=mi>1</span><span class=p>]</span> <span class=o>-</span> <span class=n>initial_columns</span><span class=si>}</span><span class=s2> more features!&#34;</span><span class=p>)</span>
+</span></span></code></pre></td></tr></table></div></div><pre><code>13665it [00:04, 2915.07it/s]
 
 
 We created 33 more features!
-</code></pre>
-<p>33 more features! No one should beat our place in the leaderboard now if we combine our excellent feature engineering with performance monitoring to make sure we trust our local CV.</p>
-<h3 id=modeling-monitoring-model-performance><strong>Modeling: Monitoring model performance</strong></h3>
-<p>This is now where we start to define model performance steps.<br>
-Let&rsquo;s declare objects first. We&rsquo;ll be using the able <strong>CatBoost</strong> algorithm wrapped in <strong>KFold</strong> cross validation spanning 10 folds for our modeling.</p>
-<div class=highlight><div class=chroma>
-<table class=lntable><tr><td class=lntd>
-<pre tabindex=0 class=chroma><code><span class=lnt> 1
+</code></pre><p>33 more features! No one should beat our place in the leaderboard now if we combine our excellent feature engineering with performance monitoring to make sure we trust our local CV.</p><h3 id=modeling-monitoring-model-performance><strong>Modeling: Monitoring model performance</strong></h3><p>This is now where we start to define model performance steps.<br>Let&rsquo;s declare objects first. We&rsquo;ll be using the able <strong>CatBoost</strong> algorithm wrapped in <strong>KFold</strong> cross validation spanning 10 folds for our modeling.</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt> 1
 </span><span class=lnt> 2
 </span><span class=lnt> 3
 </span><span class=lnt> 4
@@ -693,48 +384,27 @@ Let&rsquo;s declare objects first. We&rsquo;ll be using the able <strong>CatBoos
 </span><span class=lnt>14
 </span><span class=lnt>15
 </span><span class=lnt>16
-</span></code></pre></td>
-<td class=lntd>
-<pre tabindex=0 class=chroma><code class=language-python data-lang=python><span class=c1># Features</span>
-<span class=n>feat_cols</span> <span class=o>=</span> <span class=p>[</span><span class=s1>&#39;pm2_5&#39;</span><span class=p>,</span> <span class=s1>&#39;pm10&#39;</span><span class=p>,</span> <span class=s1>&#39;s2_pm2_5&#39;</span><span class=p>,</span> <span class=s1>&#39;s2_pm10&#39;</span><span class=p>,</span>
-       <span class=s1>&#39;humidity&#39;</span><span class=p>,</span> <span class=s1>&#39;temp&#39;</span><span class=p>,</span> <span class=s1>&#39;lat&#39;</span><span class=p>,</span> <span class=s1>&#39;long&#39;</span><span class=p>,</span> <span class=s1>&#39;altitude&#39;</span><span class=p>,</span> <span class=s1>&#39;greenness&#39;</span><span class=p>,</span>
-       <span class=s1>&#39;landform_90m&#39;</span><span class=p>,</span> <span class=s1>&#39;landform_270m&#39;</span><span class=p>,</span> <span class=s1>&#39;population&#39;</span><span class=p>,</span> <span class=s1>&#39;dist_major_road&#39;</span><span class=p>,</span>
-       <span class=s1>&#39;creation_month&#39;</span><span class=p>,</span> <span class=s1>&#39;creation_day&#39;</span><span class=p>,</span>
-       <span class=s1>&#39;creation_hour&#39;</span><span class=p>,</span> <span class=s1>&#39;creation_weekday&#39;</span><span class=p>,</span> <span class=s1>&#39;days_todate&#39;</span><span class=p>,</span> <span class=s1>&#39;years_todate&#39;</span><span class=p>,</span>
-       <span class=s1>&#39;timediff&#39;</span><span class=p>,</span> <span class=s1>&#39;site_le&#39;</span><span class=p>,</span> <span class=s1>&#39;creation_year_le&#39;</span><span class=p>,</span> <span class=s1>&#39;latlong_cluster&#39;</span><span class=p>,</span>
-       <span class=s1>&#39;landforms_cluster&#39;</span><span class=p>,</span> <span class=s1>&#39;landforms_greenness_clusters&#39;</span><span class=p>,</span>
-       <span class=s1>&#39;altgreenpop_cluster&#39;</span><span class=p>,</span> <span class=s1>&#39;master_cluster&#39;</span><span class=p>,</span> <span class=s1>&#39;dewpoint&#39;</span><span class=p>,</span> <span class=s1>&#39;temp_cat&#39;</span><span class=p>,</span>
-       <span class=s1>&#39;humidity_cat&#39;</span><span class=p>,</span> <span class=s1>&#39;humixtemp&#39;</span><span class=p>,</span> <span class=s1>&#39;humixtemp2&#39;</span><span class=p>,</span> <span class=s1>&#39;altxhumi&#39;</span><span class=p>,</span> <span class=s1>&#39;altxtemp&#39;</span><span class=p>,</span>
-       <span class=s1>&#39;pm2_5_diff&#39;</span><span class=p>,</span> <span class=s1>&#39;pm10_diff&#39;</span><span class=p>,</span> <span class=s1>&#39;pm10xpm25&#39;</span><span class=p>,</span> <span class=s1>&#39;s2_pm10xpm25&#39;</span><span class=p>,</span>
-       <span class=s1>&#39;pm_total_diffs&#39;</span><span class=p>,</span> <span class=s1>&#39;pm_diffs_mean&#39;</span><span class=p>,</span> <span class=s1>&#39;humixtemp_cat&#39;</span><span class=p>,</span> <span class=s1>&#39;altxhumi_cat&#39;</span><span class=p>,</span>
-       <span class=s1>&#39;altxtemp_cat&#39;</span><span class=p>,</span> <span class=s1>&#39;component&#39;</span><span class=p>,</span> <span class=s1>&#39;component_cat&#39;</span><span class=p>]</span>
-
-<span class=n>X</span> <span class=o>=</span> <span class=n>data</span><span class=p>[</span><span class=n>feat_cols</span><span class=p>]</span>
-<span class=n>y</span> <span class=o>=</span> <span class=n>data</span><span class=o>.</span><span class=n>ref_pm2_5</span>
-</code></pre></td></tr></table>
-</div>
-</div><p>First, define two variables:</p>
-<ul>
-<li>out of folds predictions (those predictions made on the holdout set during the resampling procedure)</li>
-<li>errors (the errors recorded in every fold - for these we’ll calculate the mean error) The error metric for this competition was root mean squared error (RMSE).</li>
-</ul>
-<p>The second variable is not too important, and must not be used, but I like to include it to strengthen my belief that the model performance across folds is reliable compared to the out of fold score if it does not deviate so much.<br>
-We’ll use both in comparison to gauge our model performance. Naturally they should not be far from each other.</p>
-<div class=highlight><div class=chroma>
-<table class=lntable><tr><td class=lntd>
-<pre tabindex=0 class=chroma><code><span class=lnt>1
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-python data-lang=python><span class=line><span class=cl><span class=c1># Features</span>
+</span></span><span class=line><span class=cl><span class=n>feat_cols</span> <span class=o>=</span> <span class=p>[</span><span class=s1>&#39;pm2_5&#39;</span><span class=p>,</span> <span class=s1>&#39;pm10&#39;</span><span class=p>,</span> <span class=s1>&#39;s2_pm2_5&#39;</span><span class=p>,</span> <span class=s1>&#39;s2_pm10&#39;</span><span class=p>,</span>
+</span></span><span class=line><span class=cl>       <span class=s1>&#39;humidity&#39;</span><span class=p>,</span> <span class=s1>&#39;temp&#39;</span><span class=p>,</span> <span class=s1>&#39;lat&#39;</span><span class=p>,</span> <span class=s1>&#39;long&#39;</span><span class=p>,</span> <span class=s1>&#39;altitude&#39;</span><span class=p>,</span> <span class=s1>&#39;greenness&#39;</span><span class=p>,</span>
+</span></span><span class=line><span class=cl>       <span class=s1>&#39;landform_90m&#39;</span><span class=p>,</span> <span class=s1>&#39;landform_270m&#39;</span><span class=p>,</span> <span class=s1>&#39;population&#39;</span><span class=p>,</span> <span class=s1>&#39;dist_major_road&#39;</span><span class=p>,</span>
+</span></span><span class=line><span class=cl>       <span class=s1>&#39;creation_month&#39;</span><span class=p>,</span> <span class=s1>&#39;creation_day&#39;</span><span class=p>,</span>
+</span></span><span class=line><span class=cl>       <span class=s1>&#39;creation_hour&#39;</span><span class=p>,</span> <span class=s1>&#39;creation_weekday&#39;</span><span class=p>,</span> <span class=s1>&#39;days_todate&#39;</span><span class=p>,</span> <span class=s1>&#39;years_todate&#39;</span><span class=p>,</span>
+</span></span><span class=line><span class=cl>       <span class=s1>&#39;timediff&#39;</span><span class=p>,</span> <span class=s1>&#39;site_le&#39;</span><span class=p>,</span> <span class=s1>&#39;creation_year_le&#39;</span><span class=p>,</span> <span class=s1>&#39;latlong_cluster&#39;</span><span class=p>,</span>
+</span></span><span class=line><span class=cl>       <span class=s1>&#39;landforms_cluster&#39;</span><span class=p>,</span> <span class=s1>&#39;landforms_greenness_clusters&#39;</span><span class=p>,</span>
+</span></span><span class=line><span class=cl>       <span class=s1>&#39;altgreenpop_cluster&#39;</span><span class=p>,</span> <span class=s1>&#39;master_cluster&#39;</span><span class=p>,</span> <span class=s1>&#39;dewpoint&#39;</span><span class=p>,</span> <span class=s1>&#39;temp_cat&#39;</span><span class=p>,</span>
+</span></span><span class=line><span class=cl>       <span class=s1>&#39;humidity_cat&#39;</span><span class=p>,</span> <span class=s1>&#39;humixtemp&#39;</span><span class=p>,</span> <span class=s1>&#39;humixtemp2&#39;</span><span class=p>,</span> <span class=s1>&#39;altxhumi&#39;</span><span class=p>,</span> <span class=s1>&#39;altxtemp&#39;</span><span class=p>,</span>
+</span></span><span class=line><span class=cl>       <span class=s1>&#39;pm2_5_diff&#39;</span><span class=p>,</span> <span class=s1>&#39;pm10_diff&#39;</span><span class=p>,</span> <span class=s1>&#39;pm10xpm25&#39;</span><span class=p>,</span> <span class=s1>&#39;s2_pm10xpm25&#39;</span><span class=p>,</span>
+</span></span><span class=line><span class=cl>       <span class=s1>&#39;pm_total_diffs&#39;</span><span class=p>,</span> <span class=s1>&#39;pm_diffs_mean&#39;</span><span class=p>,</span> <span class=s1>&#39;humixtemp_cat&#39;</span><span class=p>,</span> <span class=s1>&#39;altxhumi_cat&#39;</span><span class=p>,</span>
+</span></span><span class=line><span class=cl>       <span class=s1>&#39;altxtemp_cat&#39;</span><span class=p>,</span> <span class=s1>&#39;component&#39;</span><span class=p>,</span> <span class=s1>&#39;component_cat&#39;</span><span class=p>]</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=n>X</span> <span class=o>=</span> <span class=n>data</span><span class=p>[</span><span class=n>feat_cols</span><span class=p>]</span>
+</span></span><span class=line><span class=cl><span class=n>y</span> <span class=o>=</span> <span class=n>data</span><span class=o>.</span><span class=n>ref_pm2_5</span>
+</span></span></code></pre></td></tr></table></div></div><p>First, define two variables:</p><ul><li>out of folds predictions (those predictions made on the holdout set during the resampling procedure)</li><li>errors (the errors recorded in every fold - for these we’ll calculate the mean error) The error metric for this competition was root mean squared error (RMSE).</li></ul><p>The second variable is not too important, and must not be used, but I like to include it to strengthen my belief that the model performance across folds is reliable compared to the out of fold score if it does not deviate so much.<br>We’ll use both in comparison to gauge our model performance. Naturally they should not be far from each other.</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt>1
 </span><span class=lnt>2
-</span></code></pre></td>
-<td class=lntd>
-<pre tabindex=0 class=chroma><code class=language-python data-lang=python><span class=n>oofs_preds</span> <span class=o>=</span> <span class=n>np</span><span class=o>.</span><span class=n>zeros</span><span class=p>(</span><span class=nb>len</span><span class=p>(</span><span class=n>data</span><span class=p>))</span>
-<span class=n>errors</span> <span class=o>=</span> <span class=p>[]</span>
-</code></pre></td></tr></table>
-</div>
-</div><p>Second, define your cross validation strategy. In this case, we’re using KFold with 10 folds.<br>
-This is where we populate these variables with values from our model training. In this loop, the two variables we created above get updated as the model trains and predicts on each fold.</p>
-<div class=highlight><div class=chroma>
-<table class=lntable><tr><td class=lntd>
-<pre tabindex=0 class=chroma><code><span class=lnt> 1
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-python data-lang=python><span class=line><span class=cl><span class=n>oofs_preds</span> <span class=o>=</span> <span class=n>np</span><span class=o>.</span><span class=n>zeros</span><span class=p>(</span><span class=nb>len</span><span class=p>(</span><span class=n>data</span><span class=p>))</span>
+</span></span><span class=line><span class=cl><span class=n>errors</span> <span class=o>=</span> <span class=p>[]</span>
+</span></span></code></pre></td></tr></table></div></div><p>Second, define your cross validation strategy. In this case, we’re using KFold with 10 folds.<br>This is where we populate these variables with values from our model training. In this loop, the two variables we created above get updated as the model trains and predicts on each fold.</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt> 1
 </span><span class=lnt> 2
 </span><span class=lnt> 3
 </span><span class=lnt> 4
@@ -757,34 +427,30 @@ This is where we populate these variables with values from our model training. I
 </span><span class=lnt>21
 </span><span class=lnt>22
 </span><span class=lnt>23
-</span></code></pre></td>
-<td class=lntd>
-<pre tabindex=0 class=chroma><code class=language-python data-lang=python><span class=c1># these are test predictions, those that we submit to be scored on</span>
-<span class=n>pred_test</span> <span class=o>=</span> <span class=n>np</span><span class=o>.</span><span class=n>zeros</span><span class=p>(</span><span class=nb>len</span><span class=p>(</span><span class=n>test</span><span class=p>))</span>
-
-<span class=n>NFOLDS</span> <span class=o>=</span> <span class=mi>10</span>
-<span class=n>fold</span> <span class=o>=</span> <span class=n>KFold</span><span class=p>(</span><span class=n>n_splits</span><span class=o>=</span><span class=n>NFOLDS</span><span class=p>)</span>
-
-<span class=k>for</span> <span class=n>train_index</span><span class=p>,</span> <span class=n>test_index</span> <span class=ow>in</span> <span class=n>fold</span><span class=o>.</span><span class=n>split</span><span class=p>(</span><span class=n>X</span><span class=p>,</span> <span class=n>y</span><span class=p>):</span>
-    
-    <span class=n>X_train</span><span class=p>,</span> <span class=n>X_test</span> <span class=o>=</span> <span class=n>X</span><span class=o>.</span><span class=n>iloc</span><span class=p>[</span><span class=n>train_index</span><span class=p>],</span> <span class=n>X</span><span class=o>.</span><span class=n>iloc</span><span class=p>[</span><span class=n>test_index</span><span class=p>]</span>
-    <span class=n>y_train</span><span class=p>,</span> <span class=n>y_test</span> <span class=o>=</span> <span class=n>y</span><span class=o>.</span><span class=n>iloc</span><span class=p>[</span><span class=n>train_index</span><span class=p>],</span> <span class=n>y</span><span class=o>.</span><span class=n>iloc</span><span class=p>[</span><span class=n>test_index</span><span class=p>]</span>
-    
-    <span class=n>cat</span>  <span class=o>=</span> <span class=n>CatBoostRegressor</span><span class=p>(</span><span class=n>verbose</span><span class=o>=</span><span class=kc>False</span><span class=p>,</span> <span class=n>random_seed</span><span class=o>=</span><span class=mi>101</span><span class=p>,</span> <span class=n>use_best_model</span><span class=o>=</span><span class=kc>True</span><span class=p>,</span> <span class=n>loss_function</span><span class=o>=</span><span class=s1>&#39;RMSE&#39;</span><span class=p>,</span> <span class=n>n_estimators</span><span class=o>=</span><span class=mi>1500</span><span class=p>,</span> <span class=n>learning_rate</span><span class=o>=</span><span class=mf>0.05</span><span class=p>)</span>
-    <span class=n>cat</span><span class=o>.</span><span class=n>fit</span><span class=p>(</span><span class=n>X_train</span><span class=p>,</span> <span class=n>y_train</span><span class=p>,</span> <span class=n>eval_set</span><span class=o>=</span><span class=p>[(</span><span class=n>X_train</span><span class=p>,</span> <span class=n>y_train</span><span class=p>),</span> <span class=p>(</span><span class=n>X_test</span><span class=p>,</span> <span class=n>y_test</span><span class=p>)])</span>
-    <span class=n>preds</span> <span class=o>=</span> <span class=n>cat</span><span class=o>.</span><span class=n>predict</span><span class=p>(</span><span class=n>X_test</span><span class=p>)</span>
-    
-    <span class=c1># update out of folds predictions</span>
-    <span class=n>oofs_preds</span><span class=p>[</span><span class=n>test_index</span><span class=p>]</span> <span class=o>=</span> <span class=n>preds</span>
-    
-    <span class=c1># update errors</span>
-    <span class=nb>print</span><span class=p>(</span><span class=sa>f</span><span class=s2>&#34;RMSE: </span><span class=si>{</span><span class=n>np</span><span class=o>.</span><span class=n>sqrt</span><span class=p>(</span><span class=n>mean_squared_error</span><span class=p>(</span><span class=n>y_test</span><span class=p>,</span> <span class=n>preds</span><span class=p>))</span><span class=si>}</span><span class=s2>&#34;</span><span class=p>)</span>
-    <span class=n>errors</span><span class=o>.</span><span class=n>append</span><span class=p>(</span><span class=n>np</span><span class=o>.</span><span class=n>sqrt</span><span class=p>(</span><span class=n>mean_squared_error</span><span class=p>(</span><span class=n>y_test</span><span class=p>,</span> <span class=n>preds</span><span class=p>)))</span>
-    <span class=n>p2</span> <span class=o>=</span> <span class=n>cat</span><span class=o>.</span><span class=n>predict</span><span class=p>(</span><span class=n>test</span><span class=p>[</span><span class=n>feat_cols</span><span class=p>])</span>
-    <span class=n>pred_test</span> <span class=o>+=</span> <span class=n>p2</span>
-</code></pre></td></tr></table>
-</div>
-</div><pre><code>RMSE: 11.147193104786583
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-python data-lang=python><span class=line><span class=cl><span class=c1># these are test predictions, those that we submit to be scored on</span>
+</span></span><span class=line><span class=cl><span class=n>pred_test</span> <span class=o>=</span> <span class=n>np</span><span class=o>.</span><span class=n>zeros</span><span class=p>(</span><span class=nb>len</span><span class=p>(</span><span class=n>test</span><span class=p>))</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=n>NFOLDS</span> <span class=o>=</span> <span class=mi>10</span>
+</span></span><span class=line><span class=cl><span class=n>fold</span> <span class=o>=</span> <span class=n>KFold</span><span class=p>(</span><span class=n>n_splits</span><span class=o>=</span><span class=n>NFOLDS</span><span class=p>)</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=k>for</span> <span class=n>train_index</span><span class=p>,</span> <span class=n>test_index</span> <span class=ow>in</span> <span class=n>fold</span><span class=o>.</span><span class=n>split</span><span class=p>(</span><span class=n>X</span><span class=p>,</span> <span class=n>y</span><span class=p>):</span>
+</span></span><span class=line><span class=cl>    
+</span></span><span class=line><span class=cl>    <span class=n>X_train</span><span class=p>,</span> <span class=n>X_test</span> <span class=o>=</span> <span class=n>X</span><span class=o>.</span><span class=n>iloc</span><span class=p>[</span><span class=n>train_index</span><span class=p>],</span> <span class=n>X</span><span class=o>.</span><span class=n>iloc</span><span class=p>[</span><span class=n>test_index</span><span class=p>]</span>
+</span></span><span class=line><span class=cl>    <span class=n>y_train</span><span class=p>,</span> <span class=n>y_test</span> <span class=o>=</span> <span class=n>y</span><span class=o>.</span><span class=n>iloc</span><span class=p>[</span><span class=n>train_index</span><span class=p>],</span> <span class=n>y</span><span class=o>.</span><span class=n>iloc</span><span class=p>[</span><span class=n>test_index</span><span class=p>]</span>
+</span></span><span class=line><span class=cl>    
+</span></span><span class=line><span class=cl>    <span class=n>cat</span>  <span class=o>=</span> <span class=n>CatBoostRegressor</span><span class=p>(</span><span class=n>verbose</span><span class=o>=</span><span class=kc>False</span><span class=p>,</span> <span class=n>random_seed</span><span class=o>=</span><span class=mi>101</span><span class=p>,</span> <span class=n>use_best_model</span><span class=o>=</span><span class=kc>True</span><span class=p>,</span> <span class=n>loss_function</span><span class=o>=</span><span class=s1>&#39;RMSE&#39;</span><span class=p>,</span> <span class=n>n_estimators</span><span class=o>=</span><span class=mi>1500</span><span class=p>,</span> <span class=n>learning_rate</span><span class=o>=</span><span class=mf>0.05</span><span class=p>)</span>
+</span></span><span class=line><span class=cl>    <span class=n>cat</span><span class=o>.</span><span class=n>fit</span><span class=p>(</span><span class=n>X_train</span><span class=p>,</span> <span class=n>y_train</span><span class=p>,</span> <span class=n>eval_set</span><span class=o>=</span><span class=p>[(</span><span class=n>X_train</span><span class=p>,</span> <span class=n>y_train</span><span class=p>),</span> <span class=p>(</span><span class=n>X_test</span><span class=p>,</span> <span class=n>y_test</span><span class=p>)])</span>
+</span></span><span class=line><span class=cl>    <span class=n>preds</span> <span class=o>=</span> <span class=n>cat</span><span class=o>.</span><span class=n>predict</span><span class=p>(</span><span class=n>X_test</span><span class=p>)</span>
+</span></span><span class=line><span class=cl>    
+</span></span><span class=line><span class=cl>    <span class=c1># update out of folds predictions</span>
+</span></span><span class=line><span class=cl>    <span class=n>oofs_preds</span><span class=p>[</span><span class=n>test_index</span><span class=p>]</span> <span class=o>=</span> <span class=n>preds</span>
+</span></span><span class=line><span class=cl>    
+</span></span><span class=line><span class=cl>    <span class=c1># update errors</span>
+</span></span><span class=line><span class=cl>    <span class=nb>print</span><span class=p>(</span><span class=sa>f</span><span class=s2>&#34;RMSE: </span><span class=si>{</span><span class=n>np</span><span class=o>.</span><span class=n>sqrt</span><span class=p>(</span><span class=n>mean_squared_error</span><span class=p>(</span><span class=n>y_test</span><span class=p>,</span> <span class=n>preds</span><span class=p>))</span><span class=si>}</span><span class=s2>&#34;</span><span class=p>)</span>
+</span></span><span class=line><span class=cl>    <span class=n>errors</span><span class=o>.</span><span class=n>append</span><span class=p>(</span><span class=n>np</span><span class=o>.</span><span class=n>sqrt</span><span class=p>(</span><span class=n>mean_squared_error</span><span class=p>(</span><span class=n>y_test</span><span class=p>,</span> <span class=n>preds</span><span class=p>)))</span>
+</span></span><span class=line><span class=cl>    <span class=n>p2</span> <span class=o>=</span> <span class=n>cat</span><span class=o>.</span><span class=n>predict</span><span class=p>(</span><span class=n>test</span><span class=p>[</span><span class=n>feat_cols</span><span class=p>])</span>
+</span></span><span class=line><span class=cl>    <span class=n>pred_test</span> <span class=o>+=</span> <span class=n>p2</span>
+</span></span></code></pre></td></tr></table></div></div><pre><code>RMSE: 11.147193104786583
 RMSE: 11.542680896491985
 RMSE: 14.893402844224648
 RMSE: 14.109007552380556
@@ -794,93 +460,33 @@ RMSE: 8.893336931729067
 RMSE: 8.760814543657926
 RMSE: 10.588465788639557
 RMSE: 15.59393007990298
-</code></pre>
-<p>Now comes time to compare between the two variables:
-We obtain the RMSE in out of folds predictions and we average errors across folds then compare.<br>
-<strong>REMEMBER:</strong> The difference between these values should be minimal. Otherwise, you could be overfitting.</p>
-<div class=highlight><div class=chroma>
-<table class=lntable><tr><td class=lntd>
-<pre tabindex=0 class=chroma><code><span class=lnt>1
-</span></code></pre></td>
-<td class=lntd>
-<pre tabindex=0 class=chroma><code class=language-python data-lang=python><span class=nb>print</span><span class=p>(</span><span class=sa>f</span><span class=s2>&#34;RMSE: </span><span class=si>{</span><span class=n>np</span><span class=o>.</span><span class=n>sqrt</span><span class=p>(</span><span class=n>mean_squared_error</span><span class=p>(</span><span class=n>y</span><span class=p>,</span> <span class=n>oofs_preds</span><span class=p>))</span><span class=si>}</span><span class=se>\n</span><span class=s2>Mean error: </span><span class=si>{</span><span class=n>np</span><span class=o>.</span><span class=n>mean</span><span class=p>(</span><span class=n>errors</span><span class=p>)</span><span class=si>}</span><span class=s2>&#34;</span><span class=p>)</span>
-</code></pre></td></tr></table>
-</div>
-</div><pre><code>RMSE: 11.930416509510236
+</code></pre><p>Now comes time to compare between the two variables:
+We obtain the RMSE in out of folds predictions and we average errors across folds then compare.<br><strong>REMEMBER:</strong> The difference between these values should be minimal. Otherwise, you could be overfitting.</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt>1
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-python data-lang=python><span class=line><span class=cl><span class=nb>print</span><span class=p>(</span><span class=sa>f</span><span class=s2>&#34;RMSE: </span><span class=si>{</span><span class=n>np</span><span class=o>.</span><span class=n>sqrt</span><span class=p>(</span><span class=n>mean_squared_error</span><span class=p>(</span><span class=n>y</span><span class=p>,</span> <span class=n>oofs_preds</span><span class=p>))</span><span class=si>}</span><span class=se>\n</span><span class=s2>Mean error: </span><span class=si>{</span><span class=n>np</span><span class=o>.</span><span class=n>mean</span><span class=p>(</span><span class=n>errors</span><span class=p>)</span><span class=si>}</span><span class=s2>&#34;</span><span class=p>)</span>
+</span></span></code></pre></td></tr></table></div></div><pre><code>RMSE: 11.930416509510236
 Mean error: 11.895585944533348
-</code></pre>
-<p>The two values are closer to each other. This is promising so we should trust our CV score regardless of what leaderboard score we are ranked with. If anything we should retain our place in the private leaderboard or secure upward jumps, not downwards because we have done our due diligence in tracking and monitoring our model performance.</p>
-</div>
-<div class=post-copyright>
-<p class=copyright-item>
-<span class=item-title>Author</span>
-<span class=item-content>Vincent N.</span>
-</p>
-<p class=copyright-item>
-<span class=item-title>LastMod</span>
-<span class=item-content>
-2022-02-11
-<a href=/commit/0cab707799768e6f5dbd1f79614fbae5832434db title="edit code spacing on last block">(0cab707)</a>
-</span>
-</p>
-</div>
-<footer class=post-footer>
-<div class=post-tags>
-<a href=/tags/model-monitoring/>model-monitoring</a>
+</code></pre><p>The two values are closer to each other. This is promising so we should trust our CV score regardless of what leaderboard score we are ranked with. If anything we should retain our place in the private leaderboard or secure upward jumps, not downwards because we have done our due diligence in tracking and monitoring our model performance.</p></div><div class=post-copyright><p class=copyright-item><span class=item-title>Author</span>
+<span class=item-content>Vincent N.</span></p><p class=copyright-item><span class=item-title>LastMod</span>
+<span class=item-content>2022-02-11
+<a href=/commit/0cab707799768e6f5dbd1f79614fbae5832434db title="edit code spacing on last block">(0cab707)</a></span></p></div><footer class=post-footer><div class=post-tags><a href=/tags/model-monitoring/>model-monitoring</a>
 <a href=/tags/model-performance/>model-performance</a>
 <a href=/tags/machine-learning/>machine-learning</a>
-<a href=/tags/overfitting/>overfitting</a>
-</div>
-<nav class=post-nav>
-<a class=prev href=/post/datastand-a-python-package-for-data-explorers/>
-<i class="iconfont icon-left"></i>
+<a href=/tags/overfitting/>overfitting</a></div><nav class=post-nav><a class=prev href=/post/datastand-a-python-package-for-data-explorers/><i class="iconfont icon-left"></i>
 <span class="prev-text nav-default">Datastand, a Python Package for Data Explorers</span>
-<span class="prev-text nav-mobile">Prev</span>
-</a>
-<a class=next href=/post/feature-engineering-deriving-statistical-features-using-pandas-aggregate-function/>
-<span class="next-text nav-default">Feature Engineering: deriving statistical features using pandas aggregate function</span>
+<span class="prev-text nav-mobile">Prev</span></a>
+<a class=next href=/post/feature-engineering-deriving-statistical-features-using-pandas-aggregate-function/><span class="next-text nav-default">Feature Engineering: deriving statistical features using pandas aggregate function</span>
 <span class="next-text nav-mobile">Next</span>
-<i class="iconfont icon-right"></i>
-</a>
-</nav>
-</footer>
-</article>
-</div>
-<script src=https://utteranc.es/client.js repo=lyraxvincent/lyraxvincent.github.io issue-term=pathname theme=github-light crossorigin=anonymous async></script>
-<noscript>Please enable JavaScript to view the <a href=https://github.com/utterance>comments powered by utterances.</a></noscript>
-</div>
-</main>
-<footer id=footer class=footer>
-<div class=social-links>
-<a href=mailto:njongevincent@gmail.com class="iconfont icon-email" title=email></a>
+<i class="iconfont icon-right"></i></a></nav></footer></article></div><script src=https://utteranc.es/client.js repo=lyraxvincent/lyraxvincent.github.io issue-term=pathname theme=github-light crossorigin=anonymous async></script><noscript>Please enable JavaScript to view the <a href=https://github.com/utterance>comments powered by utterances.</a></noscript></div></main><footer id=footer class=footer><div class=social-links><a href=mailto:njongevincent@gmail.com class="iconfont icon-email" title=email></a>
 <a href=https://stackoverflow.com/users/11856808/lyrax class="iconfont icon-stack-overflow" title=stack-overflow></a>
 <a href=https://twitter.com/lyraxvincent class="iconfont icon-twitter" title=twitter></a>
 <a href=https://www.linkedin.com/in/vincent-njonge-528070178/ class="iconfont icon-linkedin" title=linkedin></a>
 <a href=https://github.com/lyraxvincent class="iconfont icon-github" title=github></a>
-<a href=https://lyraxvincent.github.io/index.xml type=application/rss+xml class="iconfont icon-rss" title=rss></a>
-</div>
-<div class=copyright>
-<span class=power-by>
-Powered by <a class=hexo-link href=https://gohugo.io>Hugo</a>
-</span>
+<a href=https://lyraxvincent.github.io/index.xml type=application/rss+xml class="iconfont icon-rss" title=rss></a></div><div class=copyright><span class=power-by>Powered by <a class=hexo-link href=https://gohugo.io>Hugo</a></span>
 <span class=division>|</span>
-<span class=theme-info>
-Theme -
-<a class=theme-link href=https://github.com/olOwOlo/hugo-theme-even>Even</a>
-</span>
-<span class=copyright-year>
-&copy;
-2022<span class=heart><i class="iconfont icon-heart"></i></span><span>Vincent N.</span>
-</span>
-</div>
-</footer>
-<div class=back-to-top id=back-to-top>
-<i class="iconfont icon-up"></i>
-</div>
-</div>
-<script src=https://cdn.jsdelivr.net/npm/jquery@3.2.1/dist/jquery.min.js integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin=anonymous></script>
+<span class=theme-info>Theme -
+<a class=theme-link href=https://github.com/olOwOlo/hugo-theme-even>Even</a></span>
+<span class=copyright-year>&copy;
+2022<span class=heart><i class="iconfont icon-heart"></i></span><span>Vincent N.</span></span></div></footer><div class=back-to-top id=back-to-top><i class="iconfont icon-up"></i></div></div><script src=https://cdn.jsdelivr.net/npm/jquery@3.2.1/dist/jquery.min.js integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin=anonymous></script>
 <script src=https://cdn.jsdelivr.net/npm/slideout@1.0.1/dist/slideout.min.js integrity="sha256-t+zJ/g8/KXIJMjSVQdnibt4dlaDxc9zXr/9oNPeWqdg=" crossorigin=anonymous></script>
 <script src=https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.js integrity="sha256-XVLffZaxoWfGUEbdzuLi7pwaUJv1cecsQJQqGLe7axY=" crossorigin=anonymous></script>
-<script type=text/javascript src=/js/main.min.c99b103c33d1539acf3025e1913697534542c4a5aa5af0ccc20475ed2863603b.js></script>
-</body>
-</html>
+<script type=text/javascript src=/js/main.min.64437849d125a2d603b3e71d6de5225d641a32d17168a58106e0b61852079683.js></script></body></html>

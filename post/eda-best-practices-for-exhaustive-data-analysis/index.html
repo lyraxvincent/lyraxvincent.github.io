@@ -1,155 +1,12 @@
-<!doctype html><html lang=en>
-<head>
-<meta charset=utf-8>
-<meta http-equiv=x-ua-compatible content="IE=edge,chrome=1">
-<title>Exploratory Data Analysis Best Practices for Exhaustive Data Analysis - Vincent N.</title>
-<meta name=renderer content="webkit">
-<meta name=viewport content="width=device-width,initial-scale=1,maximum-scale=1">
-<meta http-equiv=cache-control content="no-transform">
-<meta http-equiv=cache-control content="no-siteapp">
-<meta name=theme-color content="#f8f5ec">
-<meta name=msapplication-navbutton-color content="#f8f5ec">
-<meta name=apple-mobile-web-app-capable content="yes">
-<meta name=apple-mobile-web-app-status-bar-style content="#f8f5ec">
-<meta name=author content="Vincent N."><meta name=description content="Introduction EDA, short for Exploratory Data Analysis, or as I like to call it, Data Reveal Party 😊 (because it is fun playing around and getting your hands dirty with datasets) is one of the most important steps towards a successful data project. You get to uncover hidden data insights that only this process can unearth. It is therefore good practice to make sure you exhaust on it by investigating and looking at the dataset from every possible angle."><meta name=keywords content="Hugo,theme,even">
-<meta name=generator content="Hugo 0.92.2 with theme even">
-<link rel=canonical href=https://lyraxvincent.github.io/post/eda-best-practices-for-exhaustive-data-analysis/>
-<link rel=apple-touch-icon sizes=180x180 href=/apple-touch-icon.png>
-<link rel=icon type=image/png sizes=32x32 href=/favicon-32x32.png>
-<link rel=icon type=image/png sizes=16x16 href=/favicon-16x16.png>
-<link rel=manifest href=/manifest.json>
-<link rel=mask-icon href=/safari-pinned-tab.svg color=#5bbad5>
-<link href=/sass/main.min.f92fd13721ddf72129410fd8250e73152cc6f2438082b6c0208dc24ee7c13fc4.css rel=stylesheet>
-<link rel=stylesheet href=https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.css integrity="sha256-7TyXnr2YU040zfSP+rEcz29ggW4j56/ujTPwjMzyqFY=" crossorigin=anonymous>
-<meta property="og:title" content="Exploratory Data Analysis Best Practices for Exhaustive Data Analysis">
-<meta property="og:description" content="Introduction EDA, short for Exploratory Data Analysis, or as I like to call it, Data Reveal Party 😊 (because it is fun playing around and getting your hands dirty with datasets) is one of the most important steps towards a successful data project. You get to uncover hidden data insights that only this process can unearth. It is therefore good practice to make sure you exhaust on it by investigating and looking at the dataset from every possible angle.">
-<meta property="og:type" content="article">
-<meta property="og:url" content="https://lyraxvincent.github.io/post/eda-best-practices-for-exhaustive-data-analysis/"><meta property="article:section" content="post">
-<meta property="article:published_time" content="2022-01-31T22:43:22+03:00">
-<meta property="article:modified_time" content="2022-01-31T23:09:34+03:00">
-<meta itemprop=name content="Exploratory Data Analysis Best Practices for Exhaustive Data Analysis">
-<meta itemprop=description content="Introduction EDA, short for Exploratory Data Analysis, or as I like to call it, Data Reveal Party 😊 (because it is fun playing around and getting your hands dirty with datasets) is one of the most important steps towards a successful data project. You get to uncover hidden data insights that only this process can unearth. It is therefore good practice to make sure you exhaust on it by investigating and looking at the dataset from every possible angle."><meta itemprop=datePublished content="2022-01-31T22:43:22+03:00">
-<meta itemprop=dateModified content="2022-01-31T23:09:34+03:00">
-<meta itemprop=wordCount content="1467">
-<meta itemprop=keywords content="EDA,pandas,plots,"><meta name=twitter:card content="summary">
-<meta name=twitter:title content="Exploratory Data Analysis Best Practices for Exhaustive Data Analysis">
-<meta name=twitter:description content="Introduction EDA, short for Exploratory Data Analysis, or as I like to call it, Data Reveal Party 😊 (because it is fun playing around and getting your hands dirty with datasets) is one of the most important steps towards a successful data project. You get to uncover hidden data insights that only this process can unearth. It is therefore good practice to make sure you exhaust on it by investigating and looking at the dataset from every possible angle."><!--[if lte IE 9]><script src=https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js></script><![endif]--><!--[if lt IE 9]><script src=https://cdn.jsdelivr.net/npm/html5shiv@3.7.3/dist/html5shiv.min.js></script>
-<script src=https://cdn.jsdelivr.net/npm/respond.js@1.4.2/dest/respond.min.js></script><![endif]-->
-</head>
-<body>
-<div id=mobile-navbar class=mobile-navbar>
-<div class=mobile-header-logo>
-<a href=/ class=logo>Vincent N.</a>
-</div>
-<div class=mobile-navbar-icon>
+<!doctype html><html lang=en><head><meta charset=utf-8><meta http-equiv=x-ua-compatible content="IE=edge,chrome=1"><title>Exploratory Data Analysis Best Practices for Exhaustive Data Analysis - Vincent N.</title><meta name=renderer content="webkit"><meta name=viewport content="width=device-width,initial-scale=1,maximum-scale=1"><meta http-equiv=cache-control content="no-transform"><meta http-equiv=cache-control content="no-siteapp"><meta name=theme-color content="#f8f5ec"><meta name=msapplication-navbutton-color content="#f8f5ec"><meta name=apple-mobile-web-app-capable content="yes"><meta name=apple-mobile-web-app-status-bar-style content="#f8f5ec"><meta name=author content="Vincent N."><meta name=description content="Introduction EDA, short for Exploratory Data Analysis, or as I like to call it, Data Reveal Party 😊 (because it is fun playing around and getting your hands dirty with datasets) is one of the most important steps towards a successful data project. You get to uncover hidden data insights that only this process can unearth. It is therefore good practice to make sure you exhaust on it by investigating and looking at the dataset from every possible angle."><meta name=keywords content="Hugo,theme,even"><meta name=generator content="Hugo 0.94.2 with theme even"><link rel=canonical href=https://lyraxvincent.github.io/post/eda-best-practices-for-exhaustive-data-analysis/><link rel=apple-touch-icon sizes=180x180 href=/apple-touch-icon.png><link rel=icon type=image/png sizes=32x32 href=/favicon-32x32.png><link rel=icon type=image/png sizes=16x16 href=/favicon-16x16.png><link rel=manifest href=/manifest.json><link rel=mask-icon href=/safari-pinned-tab.svg color=#5bbad5><link href=/sass/main.min.f92fd13721ddf72129410fd8250e73152cc6f2438082b6c0208dc24ee7c13fc4.css rel=stylesheet><link rel=stylesheet href=https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.css integrity="sha256-7TyXnr2YU040zfSP+rEcz29ggW4j56/ujTPwjMzyqFY=" crossorigin=anonymous><meta property="og:title" content="Exploratory Data Analysis Best Practices for Exhaustive Data Analysis"><meta property="og:description" content="Introduction EDA, short for Exploratory Data Analysis, or as I like to call it, Data Reveal Party 😊 (because it is fun playing around and getting your hands dirty with datasets) is one of the most important steps towards a successful data project. You get to uncover hidden data insights that only this process can unearth. It is therefore good practice to make sure you exhaust on it by investigating and looking at the dataset from every possible angle."><meta property="og:type" content="article"><meta property="og:url" content="https://lyraxvincent.github.io/post/eda-best-practices-for-exhaustive-data-analysis/"><meta property="article:section" content="post"><meta property="article:published_time" content="2022-01-31T22:43:22+03:00"><meta property="article:modified_time" content="2022-01-31T23:09:34+03:00"><meta itemprop=name content="Exploratory Data Analysis Best Practices for Exhaustive Data Analysis"><meta itemprop=description content="Introduction EDA, short for Exploratory Data Analysis, or as I like to call it, Data Reveal Party 😊 (because it is fun playing around and getting your hands dirty with datasets) is one of the most important steps towards a successful data project. You get to uncover hidden data insights that only this process can unearth. It is therefore good practice to make sure you exhaust on it by investigating and looking at the dataset from every possible angle."><meta itemprop=datePublished content="2022-01-31T22:43:22+03:00"><meta itemprop=dateModified content="2022-01-31T23:09:34+03:00"><meta itemprop=wordCount content="1467"><meta itemprop=keywords content="EDA,pandas,plots,"><meta name=twitter:card content="summary"><meta name=twitter:title content="Exploratory Data Analysis Best Practices for Exhaustive Data Analysis"><meta name=twitter:description content="Introduction EDA, short for Exploratory Data Analysis, or as I like to call it, Data Reveal Party 😊 (because it is fun playing around and getting your hands dirty with datasets) is one of the most important steps towards a successful data project. You get to uncover hidden data insights that only this process can unearth. It is therefore good practice to make sure you exhaust on it by investigating and looking at the dataset from every possible angle."><!--[if lte IE 9]><script src=https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js></script><![endif]--><!--[if lt IE 9]><script src=https://cdn.jsdelivr.net/npm/html5shiv@3.7.3/dist/html5shiv.min.js></script>
+<script src=https://cdn.jsdelivr.net/npm/respond.js@1.4.2/dest/respond.min.js></script><![endif]--></head><body><div id=mobile-navbar class=mobile-navbar><div class=mobile-header-logo><a href=/ class=logo>Vincent N.</a></div><div class=mobile-navbar-icon><span></span>
 <span></span>
-<span></span>
-<span></span>
-</div>
-</div>
-<nav id=mobile-menu class="mobile-menu slideout-menu">
-<ul class=mobile-menu-list>
-<a href=/>
-<li class=mobile-menu-item>Home</li>
-</a><a href=/post/>
-<li class=mobile-menu-item>Posts</li>
-</a><a href=/about/>
-<li class=mobile-menu-item>About</li>
-</a><a href=/contact/>
-<li class=mobile-menu-item>Contact</li>
-</a><a href=/categories/>
-<li class=mobile-menu-item>Categories</li>
-</a><a href=/tags/>
-<li class=mobile-menu-item>Tags</li>
-</a>
-</ul>
-</nav>
-<div class=container id=mobile-panel>
-<header id=header class=header>
-<div class=logo-wrapper>
-<a href=/ class=logo>Vincent N.</a>
-</div>
-<nav class=site-navbar>
-<ul id=menu class=menu>
-<li class=menu-item>
-<a class=menu-item-link href=/>Home</a>
-</li><li class=menu-item>
-<a class=menu-item-link href=/post/>Posts</a>
-</li><li class=menu-item>
-<a class=menu-item-link href=/about/>About</a>
-</li><li class=menu-item>
-<a class=menu-item-link href=/contact/>Contact</a>
-</li><li class=menu-item>
-<a class=menu-item-link href=/categories/>Categories</a>
-</li><li class=menu-item>
-<a class=menu-item-link href=/tags/>Tags</a>
-</li>
-</ul>
-</nav>
-</header>
-<main id=main class=main>
-<div class=content-wrapper>
-<div id=content class=content>
-<article class=post>
-<header class=post-header>
-<h1 class=post-title>Exploratory Data Analysis Best Practices for Exhaustive Data Analysis</h1>
-<div class=post-meta>
-<span class=post-time> 2022-01-31 </span>
-<div class=post-category>
-<a href=/categories/data-analysis/> Data Analysis </a>
-<a href=/categories/visualizations/> Visualizations </a>
-</div>
-</div>
-</header>
-<div class=post-toc id=post-toc>
-<h2 class=post-toc-title>Contents</h2>
-<div class="post-toc-content always-active">
-<nav id=TableOfContents>
-<ul>
-<li>
-<ul>
-<li><a href=#introduction><strong>Introduction</strong></a></li>
-<li><a href=#eda-steps><strong>EDA Steps</strong></a>
-<ul>
-<li><a href=#1-general-dataset-statistics><strong>1. General dataset statistics</strong></a></li>
-<li><a href=#2-univariate-analysis><strong>2. Univariate Analysis</strong></a></li>
-<li><a href=#3-bivariate-analysis><strong>3. Bivariate Analysis</strong></a></li>
-<li><a href=#4-multivariate-analysis><strong>4. Multivariate Analysis</strong></a></li>
-</ul>
-</li>
-</ul>
-</li>
-</ul>
-</nav>
-</div>
-</div>
-<div class=post-content>
-<p align=center>
-<img src=/img/blog/luke-chesser-JKUTrJ4vK00-unsplash.jpg alt=jpg width=600 height=350>
-</p>
-<h2 id=introduction><strong>Introduction</strong></h2>
-<p>EDA, short for Exploratory Data Analysis, or as I like to call it, <strong>Data Reveal Party</strong> 😊 (because it is fun playing around
+<span></span></div></div><nav id=mobile-menu class="mobile-menu slideout-menu"><ul class=mobile-menu-list><a href=/><li class=mobile-menu-item>Home</li></a><a href=/post/><li class=mobile-menu-item>Posts</li></a><a href=/about/><li class=mobile-menu-item>About</li></a><a href=/contact/><li class=mobile-menu-item>Contact</li></a><a href=/categories/><li class=mobile-menu-item>Categories</li></a><a href=/tags/><li class=mobile-menu-item>Tags</li></a></ul></nav><div class=container id=mobile-panel><header id=header class=header><div class=logo-wrapper><a href=/ class=logo>Vincent N.</a></div><nav class=site-navbar><ul id=menu class=menu><li class=menu-item><a class=menu-item-link href=/>Home</a></li><li class=menu-item><a class=menu-item-link href=/post/>Posts</a></li><li class=menu-item><a class=menu-item-link href=/about/>About</a></li><li class=menu-item><a class=menu-item-link href=/contact/>Contact</a></li><li class=menu-item><a class=menu-item-link href=/categories/>Categories</a></li><li class=menu-item><a class=menu-item-link href=/tags/>Tags</a></li></ul></nav></header><main id=main class=main><div class=content-wrapper><div id=content class=content><article class=post><header class=post-header><h1 class=post-title>Exploratory Data Analysis Best Practices for Exhaustive Data Analysis</h1><div class=post-meta><span class=post-time>2022-01-31</span><div class=post-category><a href=/categories/data-analysis/>Data Analysis</a>
+<a href=/categories/visualizations/>Visualizations</a></div></div></header><div class=post-toc id=post-toc><h2 class=post-toc-title>Contents</h2><div class="post-toc-content always-active"><nav id=TableOfContents><ul><li><ul><li><a href=#introduction><strong>Introduction</strong></a></li><li><a href=#eda-steps><strong>EDA Steps</strong></a><ul><li><a href=#1-general-dataset-statistics><strong>1. General dataset statistics</strong></a></li><li><a href=#2-univariate-analysis><strong>2. Univariate Analysis</strong></a></li><li><a href=#3-bivariate-analysis><strong>3. Bivariate Analysis</strong></a></li><li><a href=#4-multivariate-analysis><strong>4. Multivariate Analysis</strong></a></li></ul></li></ul></li></ul></nav></div></div><div class=post-content><p align=center><img src=/img/blog/luke-chesser-JKUTrJ4vK00-unsplash.jpg alt=jpg width=600 height=350></p><h2 id=introduction><strong>Introduction</strong></h2><p>EDA, short for Exploratory Data Analysis, or as I like to call it, <strong>Data Reveal Party</strong> 😊 (because it is fun playing around
 and getting your hands dirty with datasets) is one of the most important steps towards a successful data project. You get to
 uncover hidden data insights that only this process can unearth. It is therefore good practice to make sure you exhaust on it
 by investigating and looking at the dataset from every possible angle. In this article we are going to look at the steps to
-follow to accomplish this when doing EDA.</p>
-<h2 id=eda-steps><strong>EDA Steps</strong></h2>
-<h3 id=1-general-dataset-statistics><strong>1. General dataset statistics</strong></h3>
-<p>Here you investigate the structure of your dataset before doing any visualizations. General dataset stats may include but are not limited to:</p>
-<ul>
-<li>small overview of dataset - head(), tail() or even sample()</li>
-<li>size and shape of dataset</li>
-<li>number of unique data types</li>
-<li>number of numerical and non-numerical columns</li>
-<li>number of missing values per column</li>
-<li>presence of duplicate values</li>
-<li>column names - correct naming of column names to one word for ease of calling columns from the dataframe object</li>
-</ul>
-<p>This is just to familiarise yourself with the dataset.<br>
-Let&rsquo;s wrap all these steps in a single python function:</p>
-<div class=highlight><div class=chroma>
-<table class=lntable><tr><td class=lntd>
-<pre tabindex=0 class=chroma><code><span class=lnt> 1
+follow to accomplish this when doing EDA.</p><h2 id=eda-steps><strong>EDA Steps</strong></h2><h3 id=1-general-dataset-statistics><strong>1. General dataset statistics</strong></h3><p>Here you investigate the structure of your dataset before doing any visualizations. General dataset stats may include but are not limited to:</p><ul><li>small overview of dataset - head(), tail() or even sample()</li><li>size and shape of dataset</li><li>number of unique data types</li><li>number of numerical and non-numerical columns</li><li>number of missing values per column</li><li>presence of duplicate values</li><li>column names - correct naming of column names to one word for ease of calling columns from the dataframe object</li></ul><p>This is just to familiarise yourself with the dataset.<br>Let&rsquo;s wrap all these steps in a single python function:</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt> 1
 </span><span class=lnt> 2
 </span><span class=lnt> 3
 </span><span class=lnt> 4
@@ -176,141 +33,34 @@ Let&rsquo;s wrap all these steps in a single python function:</p>
 </span><span class=lnt>25
 </span><span class=lnt>26
 </span><span class=lnt>27
-</span></code></pre></td>
-<td class=lntd>
-<pre tabindex=0 class=chroma><code class=language-python data-lang=python><span class=c1># Necessary imports</span>
-<span class=kn>import</span> <span class=nn>numpy</span> <span class=k>as</span> <span class=nn>np</span>
-<span class=kn>import</span> <span class=nn>pandas</span> <span class=k>as</span> <span class=nn>pd</span>
-<span class=kn>import</span> <span class=nn>matplotlib.pyplot</span> <span class=k>as</span> <span class=nn>plt</span>
-<span class=o>%</span><span class=n>matplotlib</span> <span class=n>inline</span>
-<span class=kn>import</span> <span class=nn>seaborn</span> <span class=k>as</span> <span class=nn>sns</span>
-<span class=n>sns</span><span class=o>.</span><span class=n>set_style</span><span class=p>(</span><span class=s2>&#34;darkgrid&#34;</span><span class=p>)</span>
-
-
-<span class=c1># Load sample dataset</span>
-<span class=n>data</span> <span class=o>=</span> <span class=n>pd</span><span class=o>.</span><span class=n>read_csv</span><span class=p>(</span><span class=s2>&#34;../data/ix-mobile-banking.csv&#34;</span><span class=p>)</span>
-
-<span class=k>def</span> <span class=nf>get_stats</span><span class=p>(</span><span class=n>df</span><span class=p>):</span>
-    
-    <span class=n>display</span><span class=p>(</span><span class=n>df</span><span class=o>.</span><span class=n>head</span><span class=p>(</span><span class=mi>3</span><span class=p>))</span>
-    <span class=nb>print</span><span class=p>(</span><span class=sa>f</span><span class=s2>&#34;&#34;&#34;
-</span><span class=s2>        </span><span class=se>\n</span><span class=s2>shape of dataset: </span><span class=si>{</span><span class=n>df</span><span class=o>.</span><span class=n>shape</span><span class=si>}</span><span class=se>\n</span><span class=s2>size: </span><span class=si>{</span><span class=n>df</span><span class=o>.</span><span class=n>size</span><span class=si>}</span><span class=s2>
-</span><span class=s2>        </span><span class=se>\n</span><span class=s2>Number of unique data types: </span><span class=si>{</span><span class=n>df</span><span class=o>.</span><span class=n>dtypes</span><span class=o>.</span><span class=n>nunique</span><span class=p>()</span><span class=si>}</span><span class=s2>
-</span><span class=s2>        </span><span class=se>\n\t</span><span class=si>{</span><span class=n>df</span><span class=o>.</span><span class=n>dtypes</span><span class=si>}</span><span class=s2>
-</span><span class=s2>        </span><span class=se>\n</span><span class=s2>Number of numerical columns: </span><span class=si>{</span><span class=nb>len</span><span class=p>(</span><span class=n>df</span><span class=o>.</span><span class=n>select_dtypes</span><span class=p>(</span><span class=n>np</span><span class=o>.</span><span class=n>number</span><span class=p>)</span><span class=o>.</span><span class=n>columns</span><span class=p>)</span><span class=si>}</span><span class=s2>
-</span><span class=s2>        </span><span class=se>\n</span><span class=s2>Non-numerical columns: </span><span class=si>{</span><span class=n>df</span><span class=o>.</span><span class=n>shape</span><span class=p>[</span><span class=mi>1</span><span class=p>]</span> <span class=o>-</span> <span class=nb>len</span><span class=p>(</span><span class=n>df</span><span class=o>.</span><span class=n>select_dtypes</span><span class=p>(</span><span class=n>np</span><span class=o>.</span><span class=n>number</span><span class=p>)</span><span class=o>.</span><span class=n>columns</span><span class=p>)</span><span class=si>}</span><span class=s2>
-</span><span class=s2>        </span><span class=se>\n</span><span class=s2>Missing values per column:</span><span class=se>\n\t</span><span class=si>{</span><span class=n>df</span><span class=o>.</span><span class=n>isnull</span><span class=p>()</span><span class=o>.</span><span class=n>sum</span><span class=p>()</span><span class=si>}</span><span class=s2>
-</span><span class=s2>        </span><span class=se>\n</span><span class=s2>Duplicates: </span><span class=si>{</span><span class=n>df</span><span class=o>.</span><span class=n>duplicated</span><span class=p>()</span><span class=o>.</span><span class=n>any</span><span class=p>()</span><span class=si>}</span><span class=s2>
-</span><span class=s2>        </span><span class=se>\n</span><span class=s2>Column names: </span><span class=si>{</span><span class=nb>list</span><span class=p>(</span><span class=n>df</span><span class=o>.</span><span class=n>columns</span><span class=p>)</span><span class=si>}</span><span class=s2>
-</span><span class=s2>    &#34;&#34;&#34;</span><span class=p>)</span>
-    
-<span class=n>get_stats</span><span class=p>(</span><span class=n>data</span><span class=p>)</span>
-</code></pre></td></tr></table>
-</div>
-</div><table border=1 class=dataframe>
-<thead>
-<tr style=text-align:right>
-<th></th>
-<th>ID</th>
-<th>country_code</th>
-<th>region</th>
-<th>age</th>
-<th>FQ1</th>
-<th>FQ2</th>
-<th>FQ3</th>
-<th>FQ4</th>
-<th>FQ5</th>
-<th>FQ6</th>
-<th>...</th>
-<th>FQ27</th>
-<th>FQ28</th>
-<th>FQ29</th>
-<th>FQ30</th>
-<th>FQ31</th>
-<th>FQ32</th>
-<th>FQ33</th>
-<th>FQ34</th>
-<th>FQ37</th>
-<th>Target</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<th>0</th>
-<td>ID_000J8GTZ</td>
-<td>1</td>
-<td>6</td>
-<td>35.0</td>
-<td>2</td>
-<td>NaN</td>
-<td>NaN</td>
-<td>2</td>
-<td>NaN</td>
-<td>NaN</td>
-<td>...</td>
-<td>NaN</td>
-<td>NaN</td>
-<td>1.0</td>
-<td>NaN</td>
-<td>NaN</td>
-<td>NaN</td>
-<td>1.0</td>
-<td>1.0</td>
-<td>0</td>
-<td>0</td>
-</tr>
-<tr>
-<th>1</th>
-<td>ID_000QLXZM</td>
-<td>32</td>
-<td>7</td>
-<td>70.0</td>
-<td>2</td>
-<td>NaN</td>
-<td>NaN</td>
-<td>2</td>
-<td>NaN</td>
-<td>NaN</td>
-<td>...</td>
-<td>NaN</td>
-<td>NaN</td>
-<td>2.0</td>
-<td>NaN</td>
-<td>NaN</td>
-<td>NaN</td>
-<td>1.0</td>
-<td>2.0</td>
-<td>0</td>
-<td>0</td>
-</tr>
-<tr>
-<th>2</th>
-<td>ID_001728I2</td>
-<td>71</td>
-<td>7</td>
-<td>22.0</td>
-<td>2</td>
-<td>1.0</td>
-<td>NaN</td>
-<td>2</td>
-<td>NaN</td>
-<td>NaN</td>
-<td>...</td>
-<td>NaN</td>
-<td>NaN</td>
-<td>2.0</td>
-<td>NaN</td>
-<td>NaN</td>
-<td>NaN</td>
-<td>2.0</td>
-<td>1.0</td>
-<td>1</td>
-<td>0</td>
-</tr>
-</tbody>
-</table>
-<p>3 rows × 42 columns</p>
-<pre><code>shape of dataset: (108446, 42)
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-python data-lang=python><span class=line><span class=cl><span class=c1># Necessary imports</span>
+</span></span><span class=line><span class=cl><span class=kn>import</span> <span class=nn>numpy</span> <span class=k>as</span> <span class=nn>np</span>
+</span></span><span class=line><span class=cl><span class=kn>import</span> <span class=nn>pandas</span> <span class=k>as</span> <span class=nn>pd</span>
+</span></span><span class=line><span class=cl><span class=kn>import</span> <span class=nn>matplotlib.pyplot</span> <span class=k>as</span> <span class=nn>plt</span>
+</span></span><span class=line><span class=cl><span class=o>%</span><span class=n>matplotlib</span> <span class=n>inline</span>
+</span></span><span class=line><span class=cl><span class=kn>import</span> <span class=nn>seaborn</span> <span class=k>as</span> <span class=nn>sns</span>
+</span></span><span class=line><span class=cl><span class=n>sns</span><span class=o>.</span><span class=n>set_style</span><span class=p>(</span><span class=s2>&#34;darkgrid&#34;</span><span class=p>)</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=c1># Load sample dataset</span>
+</span></span><span class=line><span class=cl><span class=n>data</span> <span class=o>=</span> <span class=n>pd</span><span class=o>.</span><span class=n>read_csv</span><span class=p>(</span><span class=s2>&#34;../data/ix-mobile-banking.csv&#34;</span><span class=p>)</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=k>def</span> <span class=nf>get_stats</span><span class=p>(</span><span class=n>df</span><span class=p>):</span>
+</span></span><span class=line><span class=cl>    
+</span></span><span class=line><span class=cl>    <span class=n>display</span><span class=p>(</span><span class=n>df</span><span class=o>.</span><span class=n>head</span><span class=p>(</span><span class=mi>3</span><span class=p>))</span>
+</span></span><span class=line><span class=cl>    <span class=nb>print</span><span class=p>(</span><span class=sa>f</span><span class=s2>&#34;&#34;&#34;
+</span></span></span><span class=line><span class=cl><span class=s2>        </span><span class=se>\n</span><span class=s2>shape of dataset: </span><span class=si>{</span><span class=n>df</span><span class=o>.</span><span class=n>shape</span><span class=si>}</span><span class=se>\n</span><span class=s2>size: </span><span class=si>{</span><span class=n>df</span><span class=o>.</span><span class=n>size</span><span class=si>}</span><span class=s2>
+</span></span></span><span class=line><span class=cl><span class=s2>        </span><span class=se>\n</span><span class=s2>Number of unique data types: </span><span class=si>{</span><span class=n>df</span><span class=o>.</span><span class=n>dtypes</span><span class=o>.</span><span class=n>nunique</span><span class=p>()</span><span class=si>}</span><span class=s2>
+</span></span></span><span class=line><span class=cl><span class=s2>        </span><span class=se>\n\t</span><span class=si>{</span><span class=n>df</span><span class=o>.</span><span class=n>dtypes</span><span class=si>}</span><span class=s2>
+</span></span></span><span class=line><span class=cl><span class=s2>        </span><span class=se>\n</span><span class=s2>Number of numerical columns: </span><span class=si>{</span><span class=nb>len</span><span class=p>(</span><span class=n>df</span><span class=o>.</span><span class=n>select_dtypes</span><span class=p>(</span><span class=n>np</span><span class=o>.</span><span class=n>number</span><span class=p>)</span><span class=o>.</span><span class=n>columns</span><span class=p>)</span><span class=si>}</span><span class=s2>
+</span></span></span><span class=line><span class=cl><span class=s2>        </span><span class=se>\n</span><span class=s2>Non-numerical columns: </span><span class=si>{</span><span class=n>df</span><span class=o>.</span><span class=n>shape</span><span class=p>[</span><span class=mi>1</span><span class=p>]</span> <span class=o>-</span> <span class=nb>len</span><span class=p>(</span><span class=n>df</span><span class=o>.</span><span class=n>select_dtypes</span><span class=p>(</span><span class=n>np</span><span class=o>.</span><span class=n>number</span><span class=p>)</span><span class=o>.</span><span class=n>columns</span><span class=p>)</span><span class=si>}</span><span class=s2>
+</span></span></span><span class=line><span class=cl><span class=s2>        </span><span class=se>\n</span><span class=s2>Missing values per column:</span><span class=se>\n\t</span><span class=si>{</span><span class=n>df</span><span class=o>.</span><span class=n>isnull</span><span class=p>()</span><span class=o>.</span><span class=n>sum</span><span class=p>()</span><span class=si>}</span><span class=s2>
+</span></span></span><span class=line><span class=cl><span class=s2>        </span><span class=se>\n</span><span class=s2>Duplicates: </span><span class=si>{</span><span class=n>df</span><span class=o>.</span><span class=n>duplicated</span><span class=p>()</span><span class=o>.</span><span class=n>any</span><span class=p>()</span><span class=si>}</span><span class=s2>
+</span></span></span><span class=line><span class=cl><span class=s2>        </span><span class=se>\n</span><span class=s2>Column names: </span><span class=si>{</span><span class=nb>list</span><span class=p>(</span><span class=n>df</span><span class=o>.</span><span class=n>columns</span><span class=p>)</span><span class=si>}</span><span class=s2>
+</span></span></span><span class=line><span class=cl><span class=s2>    &#34;&#34;&#34;</span><span class=p>)</span>
+</span></span><span class=line><span class=cl>    
+</span></span><span class=line><span class=cl><span class=n>get_stats</span><span class=p>(</span><span class=n>data</span><span class=p>)</span>
+</span></span></code></pre></td></tr></table></div></div><table border=1 class=dataframe><thead><tr style=text-align:right><th></th><th>ID</th><th>country_code</th><th>region</th><th>age</th><th>FQ1</th><th>FQ2</th><th>FQ3</th><th>FQ4</th><th>FQ5</th><th>FQ6</th><th>...</th><th>FQ27</th><th>FQ28</th><th>FQ29</th><th>FQ30</th><th>FQ31</th><th>FQ32</th><th>FQ33</th><th>FQ34</th><th>FQ37</th><th>Target</th></tr></thead><tbody><tr><th>0</th><td>ID_000J8GTZ</td><td>1</td><td>6</td><td>35.0</td><td>2</td><td>NaN</td><td>NaN</td><td>2</td><td>NaN</td><td>NaN</td><td>...</td><td>NaN</td><td>NaN</td><td>1.0</td><td>NaN</td><td>NaN</td><td>NaN</td><td>1.0</td><td>1.0</td><td>0</td><td>0</td></tr><tr><th>1</th><td>ID_000QLXZM</td><td>32</td><td>7</td><td>70.0</td><td>2</td><td>NaN</td><td>NaN</td><td>2</td><td>NaN</td><td>NaN</td><td>...</td><td>NaN</td><td>NaN</td><td>2.0</td><td>NaN</td><td>NaN</td><td>NaN</td><td>1.0</td><td>2.0</td><td>0</td><td>0</td></tr><tr><th>2</th><td>ID_001728I2</td><td>71</td><td>7</td><td>22.0</td><td>2</td><td>1.0</td><td>NaN</td><td>2</td><td>NaN</td><td>NaN</td><td>...</td><td>NaN</td><td>NaN</td><td>2.0</td><td>NaN</td><td>NaN</td><td>NaN</td><td>2.0</td><td>1.0</td><td>1</td><td>0</td></tr></tbody></table><p>3 rows × 42 columns</p><pre><code>shape of dataset: (108446, 42)
 size: 4554732
         
 Number of unique data types: 3
@@ -411,332 +161,17 @@ dtype: int64
 Duplicates: False
         
 Column names: ['ID', 'country_code', 'region', 'age', 'FQ1', 'FQ2', 'FQ3', 'FQ4', 'FQ5', 'FQ6', 'FQ7', 'FQ8', 'FQ9', 'FQ10', 'FQ11', 'FQ12', 'FQ13', 'FQ14', 'FQ15', 'FQ16', 'FQ17', 'FQ18', 'FQ19', 'FQ20', 'FQ21', 'FQ22', 'FQ23', 'FQ24', 'FQ35', 'FQ36', 'FQ25', 'FQ26', 'FQ27', 'FQ28', 'FQ29', 'FQ30', 'FQ31', 'FQ32', 'FQ33', 'FQ34', 'FQ37', 'Target']
-</code></pre>
-<p>After familiarising yourself with the dataset, you can then do some data preparation; data imputation, correcting column names and data types, removing duplicates etc&mldr;<br>
-For our case we see that there are no duplicates but you may find duplicates by subseting columns, say investigating if there are duplicates in the first 10 columns as follows:</p>
-<div class=highlight><div class=chroma>
-<table class=lntable><tr><td class=lntd>
-<pre tabindex=0 class=chroma><code><span class=lnt>1
-</span></code></pre></td>
-<td class=lntd>
-<pre tabindex=0 class=chroma><code class=language-python data-lang=python><span class=n>data</span><span class=p>[</span><span class=n>data</span><span class=o>.</span><span class=n>duplicated</span><span class=p>(</span><span class=n>subset</span><span class=o>=</span><span class=nb>list</span><span class=p>(</span><span class=n>data</span><span class=o>.</span><span class=n>columns</span><span class=p>[</span><span class=mi>1</span><span class=p>:</span><span class=mi>12</span><span class=p>]))]</span>
-</code></pre></td></tr></table>
-</div>
-</div><table border=1 class=dataframe>
-<thead>
-<tr style=text-align:right>
-<th></th>
-<th>ID</th>
-<th>country_code</th>
-<th>region</th>
-<th>age</th>
-<th>FQ1</th>
-<th>FQ2</th>
-<th>FQ3</th>
-<th>FQ4</th>
-<th>FQ5</th>
-<th>FQ6</th>
-<th>...</th>
-<th>FQ27</th>
-<th>FQ28</th>
-<th>FQ29</th>
-<th>FQ30</th>
-<th>FQ31</th>
-<th>FQ32</th>
-<th>FQ33</th>
-<th>FQ34</th>
-<th>FQ37</th>
-<th>Target</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<th>3354</th>
-<td>ID_14YEHJ8Y</td>
-<td>4</td>
-<td>0</td>
-<td>25.0</td>
-<td>2</td>
-<td>NaN</td>
-<td>NaN</td>
-<td>2</td>
-<td>NaN</td>
-<td>NaN</td>
-<td>...</td>
-<td>NaN</td>
-<td>NaN</td>
-<td>2.0</td>
-<td>NaN</td>
-<td>NaN</td>
-<td>NaN</td>
-<td>2.0</td>
-<td>2.0</td>
-<td>1</td>
-<td>0</td>
-</tr>
-<tr>
-<th>4133</th>
-<td>ID_1DZ64UE0</td>
-<td>13</td>
-<td>0</td>
-<td>38.0</td>
-<td>1</td>
-<td>NaN</td>
-<td>NaN</td>
-<td>2</td>
-<td>NaN</td>
-<td>NaN</td>
-<td>...</td>
-<td>NaN</td>
-<td>NaN</td>
-<td>2.0</td>
-<td>NaN</td>
-<td>NaN</td>
-<td>2.0</td>
-<td>1.0</td>
-<td>1.0</td>
-<td>1</td>
-<td>0</td>
-</tr>
-<tr>
-<th>4328</th>
-<td>ID_1G9BR3SF</td>
-<td>79</td>
-<td>0</td>
-<td>60.0</td>
-<td>2</td>
-<td>NaN</td>
-<td>NaN</td>
-<td>2</td>
-<td>NaN</td>
-<td>2.0</td>
-<td>...</td>
-<td>NaN</td>
-<td>NaN</td>
-<td>NaN</td>
-<td>NaN</td>
-<td>NaN</td>
-<td>2.0</td>
-<td>1.0</td>
-<td>2.0</td>
-<td>0</td>
-<td>0</td>
-</tr>
-<tr>
-<th>5766</th>
-<td>ID_1X42EWSA</td>
-<td>10</td>
-<td>0</td>
-<td>30.0</td>
-<td>1</td>
-<td>NaN</td>
-<td>NaN</td>
-<td>2</td>
-<td>NaN</td>
-<td>1.0</td>
-<td>...</td>
-<td>NaN</td>
-<td>NaN</td>
-<td>NaN</td>
-<td>NaN</td>
-<td>NaN</td>
-<td>NaN</td>
-<td>1.0</td>
-<td>NaN</td>
-<td>1</td>
-<td>0</td>
-</tr>
-<tr>
-<th>6152</th>
-<td>ID_21OECVBW</td>
-<td>133</td>
-<td>3</td>
-<td>55.0</td>
-<td>2</td>
-<td>1.0</td>
-<td>NaN</td>
-<td>2</td>
-<td>NaN</td>
-<td>1.0</td>
-<td>...</td>
-<td>NaN</td>
-<td>NaN</td>
-<td>1.0</td>
-<td>NaN</td>
-<td>NaN</td>
-<td>NaN</td>
-<td>1.0</td>
-<td>2.0</td>
-<td>0</td>
-<td>0</td>
-</tr>
-<tr>
-<th>...</th>
-<td>...</td>
-<td>...</td>
-<td>...</td>
-<td>...</td>
-<td>...</td>
-<td>...</td>
-<td>...</td>
-<td>...</td>
-<td>...</td>
-<td>...</td>
-<td>...</td>
-<td>...</td>
-<td>...</td>
-<td>...</td>
-<td>...</td>
-<td>...</td>
-<td>...</td>
-<td>...</td>
-<td>...</td>
-<td>...</td>
-<td>...</td>
-</tr>
-<tr>
-<th>107939</th>
-<td>ID_ZUKB8ZC6</td>
-<td>60</td>
-<td>4</td>
-<td>37.0</td>
-<td>2</td>
-<td>NaN</td>
-<td>NaN</td>
-<td>2</td>
-<td>NaN</td>
-<td>NaN</td>
-<td>...</td>
-<td>NaN</td>
-<td>NaN</td>
-<td>NaN</td>
-<td>NaN</td>
-<td>NaN</td>
-<td>NaN</td>
-<td>1.0</td>
-<td>NaN</td>
-<td>1</td>
-<td>1</td>
-</tr>
-<tr>
-<th>107988</th>
-<td>ID_ZUZ6QUHK</td>
-<td>60</td>
-<td>0</td>
-<td>60.0</td>
-<td>1</td>
-<td>NaN</td>
-<td>NaN</td>
-<td>2</td>
-<td>NaN</td>
-<td>NaN</td>
-<td>...</td>
-<td>NaN</td>
-<td>NaN</td>
-<td>2.0</td>
-<td>NaN</td>
-<td>NaN</td>
-<td>NaN</td>
-<td>2.0</td>
-<td>1.0</td>
-<td>1</td>
-<td>0</td>
-</tr>
-<tr>
-<th>107994</th>
-<td>ID_ZV2EK93X</td>
-<td>45</td>
-<td>4</td>
-<td>49.0</td>
-<td>2</td>
-<td>NaN</td>
-<td>NaN</td>
-<td>2</td>
-<td>NaN</td>
-<td>1.0</td>
-<td>...</td>
-<td>NaN</td>
-<td>NaN</td>
-<td>2.0</td>
-<td>NaN</td>
-<td>NaN</td>
-<td>2.0</td>
-<td>1.0</td>
-<td>1.0</td>
-<td>1</td>
-<td>0</td>
-</tr>
-<tr>
-<th>108313</th>
-<td>ID_ZYKSG3XG</td>
-<td>131</td>
-<td>1</td>
-<td>46.0</td>
-<td>1</td>
-<td>1.0</td>
-<td>NaN</td>
-<td>2</td>
-<td>NaN</td>
-<td>NaN</td>
-<td>...</td>
-<td>NaN</td>
-<td>NaN</td>
-<td>2.0</td>
-<td>NaN</td>
-<td>NaN</td>
-<td>NaN</td>
-<td>1.0</td>
-<td>1.0</td>
-<td>0</td>
-<td>0</td>
-</tr>
-<tr>
-<th>108379</th>
-<td>ID_ZZ7M49OG</td>
-<td>45</td>
-<td>3</td>
-<td>53.0</td>
-<td>1</td>
-<td>1.0</td>
-<td>NaN</td>
-<td>2</td>
-<td>NaN</td>
-<td>1.0</td>
-<td>...</td>
-<td>NaN</td>
-<td>NaN</td>
-<td>2.0</td>
-<td>NaN</td>
-<td>NaN</td>
-<td>2.0</td>
-<td>1.0</td>
-<td>1.0</td>
-<td>1</td>
-<td>1</td>
-</tr>
-</tbody>
-</table>
-<p>645 rows × 42 columns</p>
-<p>That way we find that there are 645 duplicate rows in the dataset. You can use this convention to flag columns that say, shouldn&rsquo;t have any repetitions as a requirement.</p>
-<h3 id=2-univariate-analysis><strong>2. Univariate Analysis</strong></h3>
-<p>Univariate; analysis of one variable. Here we investigate trends per single column of interest. Keyword here is uni/one/single. We take a column of interest and investigate patterns in it before going to the next.<br>
-For example we may want to know how the target variable in our sample dataset above is distributed, or the youngest and oldest customer and age group thresholds(definite age groups as seen in histogram bars).<br>
-We do analysis column by column.</p>
-<div class=highlight><div class=chroma>
-<table class=lntable><tr><td class=lntd>
-<pre tabindex=0 class=chroma><code><span class=lnt>1
+</code></pre><p>After familiarising yourself with the dataset, you can then do some data preparation; data imputation, correcting column names and data types, removing duplicates etc&mldr;<br>For our case we see that there are no duplicates but you may find duplicates by subseting columns, say investigating if there are duplicates in the first 10 columns as follows:</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt>1
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-python data-lang=python><span class=line><span class=cl><span class=n>data</span><span class=p>[</span><span class=n>data</span><span class=o>.</span><span class=n>duplicated</span><span class=p>(</span><span class=n>subset</span><span class=o>=</span><span class=nb>list</span><span class=p>(</span><span class=n>data</span><span class=o>.</span><span class=n>columns</span><span class=p>[</span><span class=mi>1</span><span class=p>:</span><span class=mi>12</span><span class=p>]))]</span>
+</span></span></code></pre></td></tr></table></div></div><table border=1 class=dataframe><thead><tr style=text-align:right><th></th><th>ID</th><th>country_code</th><th>region</th><th>age</th><th>FQ1</th><th>FQ2</th><th>FQ3</th><th>FQ4</th><th>FQ5</th><th>FQ6</th><th>...</th><th>FQ27</th><th>FQ28</th><th>FQ29</th><th>FQ30</th><th>FQ31</th><th>FQ32</th><th>FQ33</th><th>FQ34</th><th>FQ37</th><th>Target</th></tr></thead><tbody><tr><th>3354</th><td>ID_14YEHJ8Y</td><td>4</td><td>0</td><td>25.0</td><td>2</td><td>NaN</td><td>NaN</td><td>2</td><td>NaN</td><td>NaN</td><td>...</td><td>NaN</td><td>NaN</td><td>2.0</td><td>NaN</td><td>NaN</td><td>NaN</td><td>2.0</td><td>2.0</td><td>1</td><td>0</td></tr><tr><th>4133</th><td>ID_1DZ64UE0</td><td>13</td><td>0</td><td>38.0</td><td>1</td><td>NaN</td><td>NaN</td><td>2</td><td>NaN</td><td>NaN</td><td>...</td><td>NaN</td><td>NaN</td><td>2.0</td><td>NaN</td><td>NaN</td><td>2.0</td><td>1.0</td><td>1.0</td><td>1</td><td>0</td></tr><tr><th>4328</th><td>ID_1G9BR3SF</td><td>79</td><td>0</td><td>60.0</td><td>2</td><td>NaN</td><td>NaN</td><td>2</td><td>NaN</td><td>2.0</td><td>...</td><td>NaN</td><td>NaN</td><td>NaN</td><td>NaN</td><td>NaN</td><td>2.0</td><td>1.0</td><td>2.0</td><td>0</td><td>0</td></tr><tr><th>5766</th><td>ID_1X42EWSA</td><td>10</td><td>0</td><td>30.0</td><td>1</td><td>NaN</td><td>NaN</td><td>2</td><td>NaN</td><td>1.0</td><td>...</td><td>NaN</td><td>NaN</td><td>NaN</td><td>NaN</td><td>NaN</td><td>NaN</td><td>1.0</td><td>NaN</td><td>1</td><td>0</td></tr><tr><th>6152</th><td>ID_21OECVBW</td><td>133</td><td>3</td><td>55.0</td><td>2</td><td>1.0</td><td>NaN</td><td>2</td><td>NaN</td><td>1.0</td><td>...</td><td>NaN</td><td>NaN</td><td>1.0</td><td>NaN</td><td>NaN</td><td>NaN</td><td>1.0</td><td>2.0</td><td>0</td><td>0</td></tr><tr><th>...</th><td>...</td><td>...</td><td>...</td><td>...</td><td>...</td><td>...</td><td>...</td><td>...</td><td>...</td><td>...</td><td>...</td><td>...</td><td>...</td><td>...</td><td>...</td><td>...</td><td>...</td><td>...</td><td>...</td><td>...</td><td>...</td></tr><tr><th>107939</th><td>ID_ZUKB8ZC6</td><td>60</td><td>4</td><td>37.0</td><td>2</td><td>NaN</td><td>NaN</td><td>2</td><td>NaN</td><td>NaN</td><td>...</td><td>NaN</td><td>NaN</td><td>NaN</td><td>NaN</td><td>NaN</td><td>NaN</td><td>1.0</td><td>NaN</td><td>1</td><td>1</td></tr><tr><th>107988</th><td>ID_ZUZ6QUHK</td><td>60</td><td>0</td><td>60.0</td><td>1</td><td>NaN</td><td>NaN</td><td>2</td><td>NaN</td><td>NaN</td><td>...</td><td>NaN</td><td>NaN</td><td>2.0</td><td>NaN</td><td>NaN</td><td>NaN</td><td>2.0</td><td>1.0</td><td>1</td><td>0</td></tr><tr><th>107994</th><td>ID_ZV2EK93X</td><td>45</td><td>4</td><td>49.0</td><td>2</td><td>NaN</td><td>NaN</td><td>2</td><td>NaN</td><td>1.0</td><td>...</td><td>NaN</td><td>NaN</td><td>2.0</td><td>NaN</td><td>NaN</td><td>2.0</td><td>1.0</td><td>1.0</td><td>1</td><td>0</td></tr><tr><th>108313</th><td>ID_ZYKSG3XG</td><td>131</td><td>1</td><td>46.0</td><td>1</td><td>1.0</td><td>NaN</td><td>2</td><td>NaN</td><td>NaN</td><td>...</td><td>NaN</td><td>NaN</td><td>2.0</td><td>NaN</td><td>NaN</td><td>NaN</td><td>1.0</td><td>1.0</td><td>0</td><td>0</td></tr><tr><th>108379</th><td>ID_ZZ7M49OG</td><td>45</td><td>3</td><td>53.0</td><td>1</td><td>1.0</td><td>NaN</td><td>2</td><td>NaN</td><td>1.0</td><td>...</td><td>NaN</td><td>NaN</td><td>2.0</td><td>NaN</td><td>NaN</td><td>2.0</td><td>1.0</td><td>1.0</td><td>1</td><td>1</td></tr></tbody></table><p>645 rows × 42 columns</p><p>That way we find that there are 645 duplicate rows in the dataset. You can use this convention to flag columns that say, shouldn&rsquo;t have any repetitions as a requirement.</p><h3 id=2-univariate-analysis><strong>2. Univariate Analysis</strong></h3><p>Univariate; analysis of one variable. Here we investigate trends per single column of interest. Keyword here is uni/one/single. We take a column of interest and investigate patterns in it before going to the next.<br>For example we may want to know how the target variable in our sample dataset above is distributed, or the youngest and oldest customer and age group thresholds(definite age groups as seen in histogram bars).<br>We do analysis column by column.</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt>1
 </span><span class=lnt>2
 </span><span class=lnt>3
 </span><span class=lnt>4
-</span></code></pre></td>
-<td class=lntd>
-<pre tabindex=0 class=chroma><code class=language-python data-lang=python><span class=c1># Distribution of target variable</span>
-<span class=nb>print</span><span class=p>(</span><span class=n>data</span><span class=o>.</span><span class=n>Target</span><span class=o>.</span><span class=n>value_counts</span><span class=p>())</span>
-<span class=n>plt</span><span class=o>.</span><span class=n>figure</span><span class=p>(</span><span class=n>figsize</span><span class=o>=</span><span class=p>(</span><span class=mi>10</span><span class=p>,</span><span class=mi>5</span><span class=p>))</span>
-<span class=n>sns</span><span class=o>.</span><span class=n>countplot</span><span class=p>(</span><span class=n>x</span><span class=o>=</span><span class=n>data</span><span class=o>.</span><span class=n>Target</span><span class=p>)</span>
-</code></pre></td></tr></table>
-</div>
-</div><pre><code>0    78735
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-python data-lang=python><span class=line><span class=cl><span class=c1># Distribution of target variable</span>
+</span></span><span class=line><span class=cl><span class=nb>print</span><span class=p>(</span><span class=n>data</span><span class=o>.</span><span class=n>Target</span><span class=o>.</span><span class=n>value_counts</span><span class=p>())</span>
+</span></span><span class=line><span class=cl><span class=n>plt</span><span class=o>.</span><span class=n>figure</span><span class=p>(</span><span class=n>figsize</span><span class=o>=</span><span class=p>(</span><span class=mi>10</span><span class=p>,</span><span class=mi>5</span><span class=p>))</span>
+</span></span><span class=line><span class=cl><span class=n>sns</span><span class=o>.</span><span class=n>countplot</span><span class=p>(</span><span class=n>x</span><span class=o>=</span><span class=n>data</span><span class=o>.</span><span class=n>Target</span><span class=p>)</span>
+</span></span></code></pre></td></tr></table></div></div><pre><code>0    78735
 1    29711
 Name: Target, dtype: int64
 
@@ -745,61 +180,27 @@ Name: Target, dtype: int64
 
 
 &lt;AxesSubplot:xlabel='Target', ylabel='count'&gt;
-</code></pre>
-<p align=center>
-<img src=/img/blog/EDA_best_files/EDA_best_8_2.png alt=png width=600 height=350>
-</p>
-<div class=highlight><div class=chroma>
-<table class=lntable><tr><td class=lntd>
-<pre tabindex=0 class=chroma><code><span class=lnt>1
+</code></pre><p align=center><img src=/img/blog/EDA_best_files/EDA_best_8_2.png alt=png width=600 height=350></p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt>1
 </span><span class=lnt>2
 </span><span class=lnt>3
-</span></code></pre></td>
-<td class=lntd>
-<pre tabindex=0 class=chroma><code class=language-python data-lang=python><span class=c1># age into 6 groups</span>
-<span class=n>plt</span><span class=o>.</span><span class=n>figure</span><span class=p>(</span><span class=n>figsize</span><span class=o>=</span><span class=p>(</span><span class=mi>10</span><span class=p>,</span><span class=mi>5</span><span class=p>))</span>
-<span class=n>plt</span><span class=o>.</span><span class=n>hist</span><span class=p>(</span><span class=n>x</span><span class=o>=</span><span class=n>data</span><span class=o>.</span><span class=n>age</span><span class=p>,</span> <span class=n>bins</span><span class=o>=</span><span class=mi>6</span><span class=p>)</span>
-</code></pre></td></tr></table>
-</div>
-</div><pre><code>(array([30748., 30169., 22129., 17240.,  6919.,   919.]),
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-python data-lang=python><span class=line><span class=cl><span class=c1># age into 6 groups</span>
+</span></span><span class=line><span class=cl><span class=n>plt</span><span class=o>.</span><span class=n>figure</span><span class=p>(</span><span class=n>figsize</span><span class=o>=</span><span class=p>(</span><span class=mi>10</span><span class=p>,</span><span class=mi>5</span><span class=p>))</span>
+</span></span><span class=line><span class=cl><span class=n>plt</span><span class=o>.</span><span class=n>hist</span><span class=p>(</span><span class=n>x</span><span class=o>=</span><span class=n>data</span><span class=o>.</span><span class=n>age</span><span class=p>,</span> <span class=n>bins</span><span class=o>=</span><span class=mi>6</span><span class=p>)</span>
+</span></span></code></pre></td></tr></table></div></div><pre><code>(array([30748., 30169., 22129., 17240.,  6919.,   919.]),
  array([15., 29., 43., 57., 71., 85., 99.]),
  &lt;BarContainer object of 6 artists&gt;)
-</code></pre>
-<p align=center>
-<img src=/img/blog/EDA_best_files/EDA_best_9_1.png alt=png width=600 height=350>
-</p>
-<p>This information from the age column can be used to create a categorical variable as a feature engineering practice.</p>
-<h3 id=3-bivariate-analysis><strong>3. Bivariate Analysis</strong></h3>
-<p>You guessed it! Here we do analysis of two variables. We try to determine the relationship between them.<br>
-One type of plot that I never miss to use under bivariate analysis is the boxplot, especially in helping one to detect and remove outliers. It also helps one to visually see quartiles and their ranges.</p>
-<div class=highlight><div class=chroma>
-<table class=lntable><tr><td class=lntd>
-<pre tabindex=0 class=chroma><code><span class=lnt>1
+</code></pre><p align=center><img src=/img/blog/EDA_best_files/EDA_best_9_1.png alt=png width=600 height=350></p><p>This information from the age column can be used to create a categorical variable as a feature engineering practice.</p><h3 id=3-bivariate-analysis><strong>3. Bivariate Analysis</strong></h3><p>You guessed it! Here we do analysis of two variables. We try to determine the relationship between them.<br>One type of plot that I never miss to use under bivariate analysis is the boxplot, especially in helping one to detect and remove outliers. It also helps one to visually see quartiles and their ranges.</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt>1
 </span><span class=lnt>2
-</span></code></pre></td>
-<td class=lntd>
-<pre tabindex=0 class=chroma><code class=language-python data-lang=python><span class=c1># Boxplot</span>
-<span class=n>sns</span><span class=o>.</span><span class=n>boxplot</span><span class=p>(</span><span class=n>y</span><span class=o>=</span><span class=s1>&#39;age&#39;</span><span class=p>,</span> <span class=n>x</span><span class=o>=</span><span class=s1>&#39;Target&#39;</span><span class=p>,</span> <span class=n>data</span><span class=o>=</span><span class=n>data</span><span class=p>)</span>
-</code></pre></td></tr></table>
-</div>
-</div><pre><code>&lt;AxesSubplot:xlabel='Target', ylabel='age'&gt;
-</code></pre>
-<p align=center>
-<img src=/img/blog/EDA_best_files/EDA_best_12_1.png alt=png width=600 height=350>
-</p>
-<div class=highlight><div class=chroma>
-<table class=lntable><tr><td class=lntd>
-<pre tabindex=0 class=chroma><code><span class=lnt>1
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-python data-lang=python><span class=line><span class=cl><span class=c1># Boxplot</span>
+</span></span><span class=line><span class=cl><span class=n>sns</span><span class=o>.</span><span class=n>boxplot</span><span class=p>(</span><span class=n>y</span><span class=o>=</span><span class=s1>&#39;age&#39;</span><span class=p>,</span> <span class=n>x</span><span class=o>=</span><span class=s1>&#39;Target&#39;</span><span class=p>,</span> <span class=n>data</span><span class=o>=</span><span class=n>data</span><span class=p>)</span>
+</span></span></code></pre></td></tr></table></div></div><pre><code>&lt;AxesSubplot:xlabel='Target', ylabel='age'&gt;
+</code></pre><p align=center><img src=/img/blog/EDA_best_files/EDA_best_12_1.png alt=png width=600 height=350></p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt>1
 </span><span class=lnt>2
 </span><span class=lnt>3
-</span></code></pre></td>
-<td class=lntd>
-<pre tabindex=0 class=chroma><code class=language-python data-lang=python><span class=c1># Investigating correlation of country code and region</span>
-<span class=nb>print</span><span class=p>(</span><span class=n>data</span><span class=p>[[</span><span class=s1>&#39;country_code&#39;</span><span class=p>,</span> <span class=s1>&#39;region&#39;</span><span class=p>]]</span><span class=o>.</span><span class=n>corr</span><span class=p>())</span>
-<span class=n>sns</span><span class=o>.</span><span class=n>heatmap</span><span class=p>(</span><span class=n>data</span><span class=p>[[</span><span class=s1>&#39;country_code&#39;</span><span class=p>,</span> <span class=s1>&#39;region&#39;</span><span class=p>]]</span><span class=o>.</span><span class=n>corr</span><span class=p>())</span>
-</code></pre></td></tr></table>
-</div>
-</div><pre><code>              country_code    region
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-python data-lang=python><span class=line><span class=cl><span class=c1># Investigating correlation of country code and region</span>
+</span></span><span class=line><span class=cl><span class=nb>print</span><span class=p>(</span><span class=n>data</span><span class=p>[[</span><span class=s1>&#39;country_code&#39;</span><span class=p>,</span> <span class=s1>&#39;region&#39;</span><span class=p>]]</span><span class=o>.</span><span class=n>corr</span><span class=p>())</span>
+</span></span><span class=line><span class=cl><span class=n>sns</span><span class=o>.</span><span class=n>heatmap</span><span class=p>(</span><span class=n>data</span><span class=p>[[</span><span class=s1>&#39;country_code&#39;</span><span class=p>,</span> <span class=s1>&#39;region&#39;</span><span class=p>]]</span><span class=o>.</span><span class=n>corr</span><span class=p>())</span>
+</span></span></code></pre></td></tr></table></div></div><pre><code>              country_code    region
 country_code      1.000000  0.002045
 region            0.002045  1.000000
 
@@ -808,161 +209,52 @@ region            0.002045  1.000000
 
 
 &lt;AxesSubplot:&gt;
-</code></pre>
-<p align=center>
-<img src=/img/blog/EDA_best_files/EDA_best_13_2.png alt=png width=500 height=250>
-</p>
-<div class=highlight><div class=chroma>
-<table class=lntable><tr><td class=lntd>
-<pre tabindex=0 class=chroma><code><span class=lnt>1
+</code></pre><p align=center><img src=/img/blog/EDA_best_files/EDA_best_13_2.png alt=png width=500 height=250></p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt>1
 </span><span class=lnt>2
-</span></code></pre></td>
-<td class=lntd>
-<pre tabindex=0 class=chroma><code class=language-python data-lang=python><span class=c1># Two variable regression joint plot</span>
-<span class=n>sns</span><span class=o>.</span><span class=n>jointplot</span><span class=p>(</span><span class=n>x</span><span class=o>=</span><span class=s1>&#39;FQ28&#39;</span><span class=p>,</span> <span class=n>y</span><span class=o>=</span><span class=s1>&#39;FQ29&#39;</span><span class=p>,</span> <span class=n>data</span><span class=o>=</span><span class=n>data</span><span class=p>,</span> <span class=n>kind</span><span class=o>=</span><span class=s1>&#39;reg&#39;</span><span class=p>)</span>
-</code></pre></td></tr></table>
-</div>
-</div><pre><code>&lt;seaborn.axisgrid.JointGrid at 0x7f48697e3400&gt;
-</code></pre>
-<p align=center>
-<img src=/img/blog/EDA_best_files/EDA_best_14_1.png alt=png width=600 height=350>
-</p>
-<div class=highlight><div class=chroma>
-<table class=lntable><tr><td class=lntd>
-<pre tabindex=0 class=chroma><code><span class=lnt>1
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-python data-lang=python><span class=line><span class=cl><span class=c1># Two variable regression joint plot</span>
+</span></span><span class=line><span class=cl><span class=n>sns</span><span class=o>.</span><span class=n>jointplot</span><span class=p>(</span><span class=n>x</span><span class=o>=</span><span class=s1>&#39;FQ28&#39;</span><span class=p>,</span> <span class=n>y</span><span class=o>=</span><span class=s1>&#39;FQ29&#39;</span><span class=p>,</span> <span class=n>data</span><span class=o>=</span><span class=n>data</span><span class=p>,</span> <span class=n>kind</span><span class=o>=</span><span class=s1>&#39;reg&#39;</span><span class=p>)</span>
+</span></span></code></pre></td></tr></table></div></div><pre><code>&lt;seaborn.axisgrid.JointGrid at 0x7f48697e3400&gt;
+</code></pre><p align=center><img src=/img/blog/EDA_best_files/EDA_best_14_1.png alt=png width=600 height=350></p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt>1
 </span><span class=lnt>2
 </span><span class=lnt>3
-</span></code></pre></td>
-<td class=lntd>
-<pre tabindex=0 class=chroma><code class=language-python data-lang=python><span class=c1># add an imaginary continuous variable to show scatterplot between two variables</span>
-<span class=n>data</span><span class=p>[</span><span class=s1>&#39;img&#39;</span><span class=p>]</span> <span class=o>=</span> <span class=p>(</span><span class=n>data</span><span class=o>.</span><span class=n>age</span> <span class=o>/</span> <span class=n>data</span><span class=o>.</span><span class=n>country_code</span><span class=p>)</span> <span class=o>+</span> <span class=n>data</span><span class=o>.</span><span class=n>region</span>
-<span class=n>plt</span><span class=o>.</span><span class=n>scatter</span><span class=p>(</span><span class=n>x</span><span class=o>=</span><span class=n>data</span><span class=o>.</span><span class=n>img</span><span class=p>,</span> <span class=n>y</span><span class=o>=</span><span class=n>data</span><span class=o>.</span><span class=n>age</span><span class=p>)</span>
-</code></pre></td></tr></table>
-</div>
-</div><pre><code>&lt;matplotlib.collections.PathCollection at 0x7f48684f0370&gt;
-</code></pre>
-<p align=center>
-<img src=/img/blog/EDA_best_files/EDA_best_15_1.png alt=png width=600 height=350>
-</p>
-<h3 id=4-multivariate-analysis><strong>4. Multivariate Analysis</strong></h3>
-<p>This involves observation and analysis of more than two variables at a time. We can also add onto bivariate analysis observations at this step by including the hue parameter to take care of a third distingushing feature between the two.</p>
-<div class=highlight><div class=chroma>
-<table class=lntable><tr><td class=lntd>
-<pre tabindex=0 class=chroma><code><span class=lnt>1
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-python data-lang=python><span class=line><span class=cl><span class=c1># add an imaginary continuous variable to show scatterplot between two variables</span>
+</span></span><span class=line><span class=cl><span class=n>data</span><span class=p>[</span><span class=s1>&#39;img&#39;</span><span class=p>]</span> <span class=o>=</span> <span class=p>(</span><span class=n>data</span><span class=o>.</span><span class=n>age</span> <span class=o>/</span> <span class=n>data</span><span class=o>.</span><span class=n>country_code</span><span class=p>)</span> <span class=o>+</span> <span class=n>data</span><span class=o>.</span><span class=n>region</span>
+</span></span><span class=line><span class=cl><span class=n>plt</span><span class=o>.</span><span class=n>scatter</span><span class=p>(</span><span class=n>x</span><span class=o>=</span><span class=n>data</span><span class=o>.</span><span class=n>img</span><span class=p>,</span> <span class=n>y</span><span class=o>=</span><span class=n>data</span><span class=o>.</span><span class=n>age</span><span class=p>)</span>
+</span></span></code></pre></td></tr></table></div></div><pre><code>&lt;matplotlib.collections.PathCollection at 0x7f48684f0370&gt;
+</code></pre><p align=center><img src=/img/blog/EDA_best_files/EDA_best_15_1.png alt=png width=600 height=350></p><h3 id=4-multivariate-analysis><strong>4. Multivariate Analysis</strong></h3><p>This involves observation and analysis of more than two variables at a time. We can also add onto bivariate analysis observations at this step by including the hue parameter to take care of a third distingushing feature between the two.</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt>1
 </span><span class=lnt>2
-</span></code></pre></td>
-<td class=lntd>
-<pre tabindex=0 class=chroma><code class=language-python data-lang=python><span class=c1># Adding hue to the plot above</span>
-<span class=n>plt</span><span class=o>.</span><span class=n>scatter</span><span class=p>(</span><span class=n>x</span><span class=o>=</span><span class=n>data</span><span class=o>.</span><span class=n>img</span><span class=p>,</span> <span class=n>y</span><span class=o>=</span><span class=n>data</span><span class=o>.</span><span class=n>age</span><span class=p>,</span> <span class=n>c</span><span class=o>=</span><span class=n>data</span><span class=o>.</span><span class=n>Target</span><span class=p>,</span> <span class=n>cmap</span><span class=o>=</span><span class=s1>&#39;viridis&#39;</span><span class=p>)</span>
-</code></pre></td></tr></table>
-</div>
-</div><pre><code>&lt;matplotlib.collections.PathCollection at 0x7f48681d6520&gt;
-</code></pre>
-<p align=center>
-<img src=/img/blog/EDA_best_files/EDA_best_17_1.png alt=png width=600 height=350>
-</p>
-<div class=highlight><div class=chroma>
-<table class=lntable><tr><td class=lntd>
-<pre tabindex=0 class=chroma><code><span class=lnt>1
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-python data-lang=python><span class=line><span class=cl><span class=c1># Adding hue to the plot above</span>
+</span></span><span class=line><span class=cl><span class=n>plt</span><span class=o>.</span><span class=n>scatter</span><span class=p>(</span><span class=n>x</span><span class=o>=</span><span class=n>data</span><span class=o>.</span><span class=n>img</span><span class=p>,</span> <span class=n>y</span><span class=o>=</span><span class=n>data</span><span class=o>.</span><span class=n>age</span><span class=p>,</span> <span class=n>c</span><span class=o>=</span><span class=n>data</span><span class=o>.</span><span class=n>Target</span><span class=p>,</span> <span class=n>cmap</span><span class=o>=</span><span class=s1>&#39;viridis&#39;</span><span class=p>)</span>
+</span></span></code></pre></td></tr></table></div></div><pre><code>&lt;matplotlib.collections.PathCollection at 0x7f48681d6520&gt;
+</code></pre><p align=center><img src=/img/blog/EDA_best_files/EDA_best_17_1.png alt=png width=600 height=350></p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt>1
 </span><span class=lnt>2
-</span></code></pre></td>
-<td class=lntd>
-<pre tabindex=0 class=chroma><code class=language-python data-lang=python><span class=c1># Observing variable quartiles separated by variable FQ1</span>
-<span class=n>sns</span><span class=o>.</span><span class=n>violinplot</span><span class=p>(</span><span class=n>x</span><span class=o>=</span><span class=s1>&#39;region&#39;</span><span class=p>,</span> <span class=n>y</span><span class=o>=</span><span class=s1>&#39;age&#39;</span><span class=p>,</span> <span class=n>hue</span><span class=o>=</span><span class=s1>&#39;FQ1&#39;</span><span class=p>,</span> <span class=n>data</span><span class=o>=</span><span class=n>data</span><span class=p>)</span>
-</code></pre></td></tr></table>
-</div>
-</div><pre><code>&lt;AxesSubplot:xlabel='region', ylabel='age'&gt;
-</code></pre>
-<p align=center>
-<img src=/img/blog/EDA_best_files/EDA_best_18_1.png alt=png width=600 height=350>
-</p>
-<p>To finish off multivariate analysis, there is one, many in one, plot that carries a lot of information from all the variables; the pairplot.<br>
-For ease of readibility we&rsquo;ll include only the first few columns together with the target variable since our dataset has a lot of variables:</p>
-<div class=highlight><div class=chroma>
-<table class=lntable><tr><td class=lntd>
-<pre tabindex=0 class=chroma><code><span class=lnt>1
-</span></code></pre></td>
-<td class=lntd>
-<pre tabindex=0 class=chroma><code class=language-python data-lang=python><span class=n>sns</span><span class=o>.</span><span class=n>pairplot</span><span class=p>(</span><span class=n>data</span><span class=p>[</span><span class=nb>list</span><span class=p>(</span><span class=n>data</span><span class=o>.</span><span class=n>columns</span><span class=p>[:</span><span class=mi>10</span><span class=p>])</span><span class=o>+</span><span class=p>[</span><span class=s1>&#39;Target&#39;</span><span class=p>]],</span> <span class=n>hue</span><span class=o>=</span><span class=s1>&#39;Target&#39;</span><span class=p>)</span>
-</code></pre></td></tr></table>
-</div>
-</div><pre><code>&lt;seaborn.axisgrid.PairGrid at 0x7f4861c7c160&gt;
-</code></pre>
-<p align=center>
-<img src=/img/blog/EDA_best_files/EDA_best_20_1.png alt=png width=750 height=550>
-</p>
-<p>Most of the plots inside the pairplot don&rsquo;t tell a lot of information in our case because these many variables are categorical. You should try it with a more receptive dataset.</p>
-<p>These are the steps for exhaustive data analysis. We went through each giving a few examples. This guide does not cover everything, but it outlays a good procedure to follow for exhaustive EDA. It is good practice to go into details and make as many beatiful visualizations at each step, cheers!</p>
-</div>
-<div class=post-copyright>
-<p class=copyright-item>
-<span class=item-title>Author</span>
-<span class=item-content>Vincent N.</span>
-</p>
-<p class=copyright-item>
-<span class=item-title>LastMod</span>
-<span class=item-content>
-2022-01-31
-<a href=/commit/308d92b471f4c5c2d8aef2c68813b2a9f1eccb5b title="fix plot sizes">(308d92b)</a>
-</span>
-</p>
-</div>
-<footer class=post-footer>
-<div class=post-tags>
-<a href=/tags/eda/>EDA</a>
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-python data-lang=python><span class=line><span class=cl><span class=c1># Observing variable quartiles separated by variable FQ1</span>
+</span></span><span class=line><span class=cl><span class=n>sns</span><span class=o>.</span><span class=n>violinplot</span><span class=p>(</span><span class=n>x</span><span class=o>=</span><span class=s1>&#39;region&#39;</span><span class=p>,</span> <span class=n>y</span><span class=o>=</span><span class=s1>&#39;age&#39;</span><span class=p>,</span> <span class=n>hue</span><span class=o>=</span><span class=s1>&#39;FQ1&#39;</span><span class=p>,</span> <span class=n>data</span><span class=o>=</span><span class=n>data</span><span class=p>)</span>
+</span></span></code></pre></td></tr></table></div></div><pre><code>&lt;AxesSubplot:xlabel='region', ylabel='age'&gt;
+</code></pre><p align=center><img src=/img/blog/EDA_best_files/EDA_best_18_1.png alt=png width=600 height=350></p><p>To finish off multivariate analysis, there is one, many in one, plot that carries a lot of information from all the variables; the pairplot.<br>For ease of readibility we&rsquo;ll include only the first few columns together with the target variable since our dataset has a lot of variables:</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt>1
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-python data-lang=python><span class=line><span class=cl><span class=n>sns</span><span class=o>.</span><span class=n>pairplot</span><span class=p>(</span><span class=n>data</span><span class=p>[</span><span class=nb>list</span><span class=p>(</span><span class=n>data</span><span class=o>.</span><span class=n>columns</span><span class=p>[:</span><span class=mi>10</span><span class=p>])</span><span class=o>+</span><span class=p>[</span><span class=s1>&#39;Target&#39;</span><span class=p>]],</span> <span class=n>hue</span><span class=o>=</span><span class=s1>&#39;Target&#39;</span><span class=p>)</span>
+</span></span></code></pre></td></tr></table></div></div><pre><code>&lt;seaborn.axisgrid.PairGrid at 0x7f4861c7c160&gt;
+</code></pre><p align=center><img src=/img/blog/EDA_best_files/EDA_best_20_1.png alt=png width=750 height=550></p><p>Most of the plots inside the pairplot don&rsquo;t tell a lot of information in our case because these many variables are categorical. You should try it with a more receptive dataset.</p><p>These are the steps for exhaustive data analysis. We went through each giving a few examples. This guide does not cover everything, but it outlays a good procedure to follow for exhaustive EDA. It is good practice to go into details and make as many beatiful visualizations at each step, cheers!</p></div><div class=post-copyright><p class=copyright-item><span class=item-title>Author</span>
+<span class=item-content>Vincent N.</span></p><p class=copyright-item><span class=item-title>LastMod</span>
+<span class=item-content>2022-01-31
+<a href=/commit/308d92b471f4c5c2d8aef2c68813b2a9f1eccb5b title="fix plot sizes">(308d92b)</a></span></p></div><footer class=post-footer><div class=post-tags><a href=/tags/eda/>EDA</a>
 <a href=/tags/pandas/>pandas</a>
-<a href=/tags/plots/>plots</a>
-</div>
-<nav class=post-nav>
-<a class=prev href=/post/linux-essentials-want-to-learn-linux-start-with-file-system-operations/>
-<i class="iconfont icon-left"></i>
+<a href=/tags/plots/>plots</a></div><nav class=post-nav><a class=prev href=/post/linux-essentials-want-to-learn-linux-start-with-file-system-operations/><i class="iconfont icon-left"></i>
 <span class="prev-text nav-default">Linux Essentials; Want to Learn Linux? Start With File System Operations</span>
-<span class="prev-text nav-mobile">Prev</span>
-</a>
-<a class=next href=/post/datastand-a-python-package-for-data-explorers/>
-<span class="next-text nav-default">Datastand, a Python Package for Data Explorers</span>
+<span class="prev-text nav-mobile">Prev</span></a>
+<a class=next href=/post/datastand-a-python-package-for-data-explorers/><span class="next-text nav-default">Datastand, a Python Package for Data Explorers</span>
 <span class="next-text nav-mobile">Next</span>
-<i class="iconfont icon-right"></i>
-</a>
-</nav>
-</footer>
-</article>
-</div>
-<script src=https://utteranc.es/client.js repo=lyraxvincent/lyraxvincent.github.io issue-term=pathname theme=github-light crossorigin=anonymous async></script>
-<noscript>Please enable JavaScript to view the <a href=https://github.com/utterance>comments powered by utterances.</a></noscript>
-</div>
-</main>
-<footer id=footer class=footer>
-<div class=social-links>
-<a href=mailto:njongevincent@gmail.com class="iconfont icon-email" title=email></a>
+<i class="iconfont icon-right"></i></a></nav></footer></article></div><script src=https://utteranc.es/client.js repo=lyraxvincent/lyraxvincent.github.io issue-term=pathname theme=github-light crossorigin=anonymous async></script><noscript>Please enable JavaScript to view the <a href=https://github.com/utterance>comments powered by utterances.</a></noscript></div></main><footer id=footer class=footer><div class=social-links><a href=mailto:njongevincent@gmail.com class="iconfont icon-email" title=email></a>
 <a href=https://stackoverflow.com/users/11856808/lyrax class="iconfont icon-stack-overflow" title=stack-overflow></a>
 <a href=https://twitter.com/lyraxvincent class="iconfont icon-twitter" title=twitter></a>
 <a href=https://www.linkedin.com/in/vincent-njonge-528070178/ class="iconfont icon-linkedin" title=linkedin></a>
 <a href=https://github.com/lyraxvincent class="iconfont icon-github" title=github></a>
-<a href=https://lyraxvincent.github.io/index.xml type=application/rss+xml class="iconfont icon-rss" title=rss></a>
-</div>
-<div class=copyright>
-<span class=power-by>
-Powered by <a class=hexo-link href=https://gohugo.io>Hugo</a>
-</span>
+<a href=https://lyraxvincent.github.io/index.xml type=application/rss+xml class="iconfont icon-rss" title=rss></a></div><div class=copyright><span class=power-by>Powered by <a class=hexo-link href=https://gohugo.io>Hugo</a></span>
 <span class=division>|</span>
-<span class=theme-info>
-Theme -
-<a class=theme-link href=https://github.com/olOwOlo/hugo-theme-even>Even</a>
-</span>
-<span class=copyright-year>
-&copy;
-2022<span class=heart><i class="iconfont icon-heart"></i></span><span>Vincent N.</span>
-</span>
-</div>
-</footer>
-<div class=back-to-top id=back-to-top>
-<i class="iconfont icon-up"></i>
-</div>
-</div>
-<script src=https://cdn.jsdelivr.net/npm/jquery@3.2.1/dist/jquery.min.js integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin=anonymous></script>
+<span class=theme-info>Theme -
+<a class=theme-link href=https://github.com/olOwOlo/hugo-theme-even>Even</a></span>
+<span class=copyright-year>&copy;
+2022<span class=heart><i class="iconfont icon-heart"></i></span><span>Vincent N.</span></span></div></footer><div class=back-to-top id=back-to-top><i class="iconfont icon-up"></i></div></div><script src=https://cdn.jsdelivr.net/npm/jquery@3.2.1/dist/jquery.min.js integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin=anonymous></script>
 <script src=https://cdn.jsdelivr.net/npm/slideout@1.0.1/dist/slideout.min.js integrity="sha256-t+zJ/g8/KXIJMjSVQdnibt4dlaDxc9zXr/9oNPeWqdg=" crossorigin=anonymous></script>
 <script src=https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.js integrity="sha256-XVLffZaxoWfGUEbdzuLi7pwaUJv1cecsQJQqGLe7axY=" crossorigin=anonymous></script>
-<script type=text/javascript src=/js/main.min.c99b103c33d1539acf3025e1913697534542c4a5aa5af0ccc20475ed2863603b.js></script>
-</body>
-</html>
+<script type=text/javascript src=/js/main.min.64437849d125a2d603b3e71d6de5225d641a32d17168a58106e0b61852079683.js></script></body></html>
