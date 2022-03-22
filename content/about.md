@@ -2,14 +2,6 @@
 comment: false
 ---
 
-######
-<h1 align="right">
-<u>
-
-[[BLOG](https://lyraxvincent.github.io/)]
-
-</u>
-</h1>
 
 # **Hi** <img src="/img/about/hi.gif" width="50"/>
 Welcome to my online portfolio and blog.
