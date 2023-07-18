@@ -56,6 +56,8 @@ My knowledge is built around:
 
 ## **Certifications** <img src="/img/about/certification.gif" width="60"/>
 
+-----
+
 - <a href="/img/about/certificate-feature-engineering-for-time-series-forecasting.pdf" target="_blank"> Feature Engineering for Time Series Forecasting </a>
 - <a href="/img/about/certificate-data-science.pdf" target="_blank"> Data Science </a>
 - <a href="/img/about/certificate-data-analysis.pdf" target="_blank"> Data Analysis with Python </a>
@@ -150,10 +152,3 @@ I also made a guide to showcase how datastand works and help you get started [he
 Find technical articles written by me on the posts page [here.](https://lyraxvincent.github.io/post/)
 
 -----
-
-
-<h2 align="center">
-
-[View my [<u>**BLOG**</u>]](https://lyraxvincent.github.io/)
-
-</h2>
