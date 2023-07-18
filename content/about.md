@@ -54,7 +54,7 @@ My knowledge is built around:
 - ...(everything data really.)
 
 
-## **Certifications**
+## **Certifications** <img src="/img/about/certification.gif" width="60"/>
 
 - <a href="/img/about/certificate-feature-engineering-for-time-series-forecasting.pdf" target="_blank"> Feature Engineering for Time Series Forecasting </a>
 - <a href="/img/about/certificate-data-science.pdf" target="_blank"> Data Science </a>
