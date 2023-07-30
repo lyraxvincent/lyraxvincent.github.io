@@ -3,7 +3,7 @@ comment: false
 ---
 
 
-# **Hi** <img src="/img/about/hi.gif" width="50"/>
+## **Hi** <img src="/img/about/hi.gif" width="50"/>
 Welcome to my online portfolio and blog.
 
 I'm Vincent, a result-oriented data scientist and machine learning engineer with a data-driven mindset and attention to details. Ready to work and willing to learn and meet new challenges in a diverse and fast-paced working environment that appreciates my skills and offers avenues for growth.
