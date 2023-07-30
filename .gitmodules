@@ -2,3 +2,8 @@
 	path = themes/even
 	url = https://github.com/lyraxvincent/hugo-theme-even.git
 	branch = main
+
+[submodule "themes/hugo-blog-awesome"]
+	path = themes/hugo-blog-awesome
+	url = https://github.com/hugo-sid/hugo-blog-awesome.git
+	branch = main
