@@ -175,10 +175,10 @@ copyright = ""            # default: author.name ↓        # 默认为下面配
     issueTerm = "pathname"
 
   [params.gitalk]           # Gitalk is a comment system based on GitHub issues. see https://github.com/gitalk/gitalk
-    #owner = ""              # Your GitHub ID
-    #repo = ""               # The repo to store comments
-    #clientId = ""           # Your client ID
-    #clientSecret = ""       # Your client secret
+    owner = "lyraxvincent"              # Your GitHub ID
+    repo = "lyraxvincent.github.io"               # The repo to store comments
+    clientId = "2edb7041533719d24b0e"           # Your client ID
+    clientSecret = "4aa3c3eb8721e29480375935fa01a5d26f4e46f3"       # Your client secret
 
   [params.flowchartDiagrams]# see https://blog.olowolo.com/example-site/post/js-flowchart-diagrams/
     enable = false

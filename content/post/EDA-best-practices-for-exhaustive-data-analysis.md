@@ -10,15 +10,15 @@ author: "Vincent N."
 
 <p align="center">
     <img src="/img/blog/luke-chesser-JKUTrJ4vK00-unsplash.jpg" alt="jpg" width="600" height="350"/>
- 
+
 </p>
 
 ## **Introduction**
 
-EDA, short for Exploratory Data Analysis, or as I like to call it, **Data Reveal Party** 😊 (because it is fun playing around 
-and getting your hands dirty with datasets) is one of the most important steps towards a successful data project. You get to 
-uncover hidden data insights that only this process can unearth. It is therefore good practice to make sure you exhaust on it 
-by investigating and looking at the dataset from every possible angle. In this article we are going to look at the steps to 
+EDA, short for Exploratory Data Analysis, or as I like to call it, **Data Reveal Party** 😊 (because it is fun playing around
+and getting your hands dirty with datasets) is one of the most important steps towards a successful data project. You get to
+uncover hidden data insights that only this process can unearth. It is therefore good practice to make sure you exhaust on it
+by investigating and looking at the dataset from every possible angle. In this article we are going to look at the steps to
 follow to accomplish this when doing EDA.
 
 ## **EDA Steps**
@@ -34,7 +34,7 @@ Here you investigate the structure of your dataset before doing any visualizatio
 - presence of duplicate values
 - column names - correct naming of column names to one word for ease of calling columns from the dataframe object
 
-This is just to familiarise yourself with the dataset.  
+This is just to familiarise yourself with the dataset.
 Let's wrap all these steps in a single python function:
 
 
@@ -52,7 +52,7 @@ sns.set_style("darkgrid")
 data = pd.read_csv("../data/ix-mobile-banking.csv")
 
 def get_stats(df):
-    
+
     display(df.head(3))
     print(f"""
         \nshape of dataset: {df.shape}\nsize: {df.size}
@@ -64,7 +64,7 @@ def get_stats(df):
         \nDuplicates: {df.duplicated().any()}
         \nColumn names: {list(df.columns)}
     """)
-    
+
 get_stats(data)
 ```
 
@@ -174,13 +174,13 @@ get_stats(data)
 <p>3 rows × 42 columns</p>
 
 
-    
-            
+
+
     shape of dataset: (108446, 42)
     size: 4554732
-            
+
     Number of unique data types: 3
-            
+
     	ID               object
     country_code      int64
     region            int64
@@ -224,11 +224,11 @@ get_stats(data)
     FQ37              int64
     Target            int64
     dtype: object
-            
+
     Number of numerical columns: 41
-            
+
     Non-numerical columns: 1
-            
+
     Missing values per column:
     	ID                   0
     country_code         0
@@ -273,14 +273,14 @@ get_stats(data)
     FQ37                 0
     Target               0
     dtype: int64
-            
+
     Duplicates: False
-            
+
     Column names: ['ID', 'country_code', 'region', 'age', 'FQ1', 'FQ2', 'FQ3', 'FQ4', 'FQ5', 'FQ6', 'FQ7', 'FQ8', 'FQ9', 'FQ10', 'FQ11', 'FQ12', 'FQ13', 'FQ14', 'FQ15', 'FQ16', 'FQ17', 'FQ18', 'FQ19', 'FQ20', 'FQ21', 'FQ22', 'FQ23', 'FQ24', 'FQ35', 'FQ36', 'FQ25', 'FQ26', 'FQ27', 'FQ28', 'FQ29', 'FQ30', 'FQ31', 'FQ32', 'FQ33', 'FQ34', 'FQ37', 'Target']
-        
 
 
-After familiarising yourself with the dataset, you can then do some data preparation; data imputation, correcting column names and data types, removing duplicates etc...  
+
+After familiarising yourself with the dataset, you can then do some data preparation; data imputation, correcting column names and data types, removing duplicates etc...
 For our case we see that there are no duplicates but you may find duplicates by subseting columns, say investigating if there are duplicates in the first 10 columns as follows:
 
 
@@ -592,8 +592,8 @@ data[data.duplicated(subset=list(data.columns[1:12]))]
 That way we find that there are 645 duplicate rows in the dataset. You can use this convention to flag columns that say, shouldn't have any repetitions as a requirement.
 
 ### **2. Univariate Analysis**
-Univariate; analysis of one variable. Here we investigate trends per single column of interest. Keyword here is uni/one/single. We take a column of interest and investigate patterns in it before going to the next.  
-For example we may want to know how the target variable in our sample dataset above is distributed, or the youngest and oldest customer and age group thresholds(definite age groups as seen in histogram bars).  
+Univariate; analysis of one variable. Here we investigate trends per single column of interest. Keyword here is uni/one/single. We take a column of interest and investigate patterns in it before going to the next.
+For example we may want to know how the target variable in our sample dataset above is distributed, or the youngest and oldest customer and age group thresholds(definite age groups as seen in histogram bars).
 We do analysis column by column.
 
 
@@ -618,7 +618,7 @@ sns.countplot(x=data.Target)
 
 <p align="center">
     <img src="/img/blog/EDA_best_files/EDA_best_8_2.png" alt="png" width="600" height="350"/>
- 
+
 </p>
 
 
@@ -640,14 +640,14 @@ plt.hist(x=data.age, bins=6)
 
 <p align="center">
     <img src="/img/blog/EDA_best_files/EDA_best_9_1.png" alt="png" width="600" height="350"/>
- 
+
 </p>
 
 
 This information from the age column can be used to create a categorical variable as a feature engineering practice.
 
 ### **3. Bivariate Analysis**
-You guessed it! Here we do analysis of two variables. We try to determine the relationship between them.  
+You guessed it! Here we do analysis of two variables. We try to determine the relationship between them.
 One type of plot that I never miss to use under bivariate analysis is the boxplot, especially in helping one to detect and remove outliers. It also helps one to visually see quartiles and their ranges.
 
 
@@ -665,7 +665,7 @@ sns.boxplot(y='age', x='Target', data=data)
 
 <p align="center">
     <img src="/img/blog/EDA_best_files/EDA_best_12_1.png" alt="png" width="600" height="350"/>
- 
+
 </p>
 
 
@@ -690,7 +690,7 @@ sns.heatmap(data[['country_code', 'region']].corr())
 
 <p align="center">
     <img src="/img/blog/EDA_best_files/EDA_best_13_2.png" alt="png" width="500" height="250"/>
- 
+
 </p>
 
 
@@ -709,7 +709,7 @@ sns.jointplot(x='FQ28', y='FQ29', data=data, kind='reg')
 
 <p align="center">
     <img src="/img/blog/EDA_best_files/EDA_best_14_1.png" alt="png" width="600" height="350"/>
- 
+
 </p>
 
 
@@ -729,7 +729,7 @@ plt.scatter(x=data.img, y=data.age)
 
 <p align="center">
     <img src="/img/blog/EDA_best_files/EDA_best_15_1.png" alt="png" width="600" height="350"/>
- 
+
 </p>
 
 
@@ -751,7 +751,7 @@ plt.scatter(x=data.img, y=data.age, c=data.Target, cmap='viridis')
 
 <p align="center">
     <img src="/img/blog/EDA_best_files/EDA_best_17_1.png" alt="png" width="600" height="350"/>
- 
+
 </p>
 
 
@@ -770,11 +770,11 @@ sns.violinplot(x='region', y='age', hue='FQ1', data=data)
 
 <p align="center">
     <img src="/img/blog/EDA_best_files/EDA_best_18_1.png" alt="png" width="600" height="350"/>
- 
+
 </p>
 
 
-To finish off multivariate analysis, there is one, many in one, plot that carries a lot of information from all the variables; the pairplot.  
+To finish off multivariate analysis, there is one, many in one, plot that carries a lot of information from all the variables; the pairplot.
 For ease of readibility we'll include only the first few columns together with the target variable since our dataset has a lot of variables:
 
 
@@ -791,7 +791,7 @@ sns.pairplot(data[list(data.columns[:10])+['Target']], hue='Target')
 
 <p align="center">
     <img src="/img/blog/EDA_best_files/EDA_best_20_1.png" alt="png" width="750" height="550"/>
- 
+
 </p>
 
 
