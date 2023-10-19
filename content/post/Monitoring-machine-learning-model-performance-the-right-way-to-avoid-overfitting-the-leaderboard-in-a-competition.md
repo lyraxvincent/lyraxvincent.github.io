@@ -13,7 +13,7 @@ categories: ["Machine Learning"]
     <img src="/img/blog/charles-deluvio-unsplash.jpg", alt="jpg" width="600" height="350"/>
     <br>
     Photo by <a href="https://unsplash.com/@charlesdeluvio?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Charles Deluvio</a> on <a href="https://unsplash.com/s/photos/machine-learning?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Unsplash</a>
-  
+
 </p>
 
 ## **Introduction**
@@ -22,11 +22,11 @@ There are several explanations of what overfitting or underfitting is, whatever 
 - An overfitting model/algorithm is too complex for the task or dataset at hand while
 - An underfitting model is too simple for the task
 
-If overfitting has ever cost you downward jumps on a machine learning competition, you might agree with me that the experience was somewhat humiliating especially if you went from top 3 downwards, when you had better and stronger non-overfitting submissions that you didn't select to be scored on. This is what happens when you rely too much on public leaderboard placement instead of trusting your local cross validation, or local CV for short. 
+If overfitting has ever cost you downward jumps on a machine learning competition, you might agree with me that the experience was somewhat humiliating especially if you went from top 3 downwards, when you had better and stronger non-overfitting submissions that you didn't select to be scored on. This is what happens when you rely too much on public leaderboard placement instead of trusting your local cross validation, or local CV for short.
 I understand evaluating algorithms and tracking their performance can be tiresome sometimes but what is the point of building models in the first place if you're not going to make sure they are efficient for the work they are intended to perform? In this article, we are going to define a simple method to monitor your machine learning model performance to avoid such cases.
 
 ## **Sample problem**
-We're going to use a dataset from a competition on [zindi.](https://zindi.africa/hackathons/airqo-air-sensor-calibration-challenge) The competition entails predicting air quality to help in air quality monitor calibration.  
+We're going to use a dataset from a competition on [zindi.](https://zindi.africa/hackathons/airqo-air-sensor-calibration-challenge) The competition entails predicting air quality to help in air quality monitor calibration.
 Let us make the necessary imports and have a look at a preview of the dataset:
 
 
@@ -200,7 +200,7 @@ data.head()
 
 
 ### **Feature Engineering**
-Normally to get good results, you must consider feature engineering. I was lucky to participate in this hackathon and after vigorous data exploration, I came up with some good features.  
+Normally to get good results, you must consider feature engineering. I was lucky to participate in this hackathon and after vigorous data exploration, I came up with some good features.
 Let’s define a feature engineering function to handle feature generation:
 
 
@@ -216,7 +216,7 @@ all_data.humidity.fillna(all_data.humidity.mean(), inplace=True); all_data.temp.
 def feat_eng(df):
     le = LabelEncoder()
     kmeans = KMeans(n_clusters=3)
-    
+
     # date features
     df['creation_year'] = pd.to_datetime(df.created_at).dt.year
     df['creation_month'] = pd.to_datetime(df.created_at).dt.month
@@ -226,55 +226,55 @@ def feat_eng(df):
     df['days_todate'] = pd.to_datetime(pd.Timestamp.now().date()).tz_localize(tz=pytz.UTC) - pd.to_datetime(df.created_at.dt.tz_convert(tz=pytz.UTC))
     df.days_todate = df.days_todate.apply(lambda x: int(str(x).split(' days')[0])) # remove string 'days'
     df['years_todate'] = df.days_todate.apply(lambda x: int(np.round(x/364)))
-    
+
     # time difference(number of hours to next recording)
     timediff = df.sort_values('created_at').created_at.diff(); timediff.fillna(pd.Timedelta(seconds=0), inplace=True)
     timediff = timediff.apply(lambda val: str(val).split('days')[-1].split(':')[0])
     df['timediff'] = 0
     df.sort_values('created_at', inplace=True)
     df['timediff'] = timediff.astype(int); df.sort_index(inplace=True)
-    
+
     # label encoded features
     df['site_le'] = le.fit_transform(df.site)
     df['creation_year_le'] = le.fit_transform(df.creation_year)
-    
-    
+
+
     # kmeans features
     kmeans.fit(df[['lat', 'long']])
     df['latlong_cluster'] = kmeans.labels_
-    
+
     kmeans.fit(df[['landform_90m', 'landform_270m']])
     landform_labels = kmeans.labels_
     df['landforms_cluster'] = landform_labels
-    
+
     kmeans.fit(pd.concat([pd.Series(landform_labels), pd.Series(df['greenness'].values)], axis=1))
     df['landforms_greenness_clusters'] = kmeans.labels_
-    
+
     kmeans.fit(df[['altitude', 'greenness', 'population']])
     df['altgreenpop_cluster'] = kmeans.labels_
-    
+
     kmeans.fit(df[['site_le', 'humidity', 'temp', 'lat', 'long', 'altitude', 'landform_90m',
                    'landform_270m', 'population', 'dist_major_road']])
     df['master_cluster'] = kmeans.labels_
-    
+
     # dewpoint
     df['dewpoint'] = 0
     for i, _ in tqdm(enumerate(df.temp)):
         temp = df.loc[i, 'temp']
         humidity = df.loc[i, 'humidity']
         df.loc[i, 'dewpoint'] = temp - ((1 - humidity)/5)
-        
-    
+
+
     # temperature and humidity categories
     # temp
     conditions = [
         (df['temp'] <= 20),
         (df['temp'] > 20) & (df['temp'] <= 25),
         (df['temp'] > 25)]
-    
+
     values = ['2', '3', '1']
     df['temp_cat'] = np.select(conditions, values).astype(int)
-    
+
     # temp
     conditions = [
     (df['humidity'] <= 0.5),
@@ -283,22 +283,22 @@ def feat_eng(df):
 
     values = ['1', '2', '3']
     df['humidity_cat'] = np.select(conditions, values).astype(int)
-    
+
     # combination features
     df['humixtemp'] = df.humidity * df.temp
     df['humixtemp2'] = (df.humidity*100) / df.temp
     df['altxhumi'] = df.altitude * df.humidity
     df['altxtemp'] = df.altitude * df.temp
-    
+
     # differences between pm2_5:s2_pm2_5, pm10:s2_pm10 and between pm2_5's:pm10's
     df['pm2_5_diff'] = np.abs(df.pm2_5 - df.s2_pm2_5)
     df['pm10_diff'] = np.abs(df.pm10 - df.s2_pm10)
     df['pm10xpm25'] = np.abs(df.pm10 - df.pm2_5)
     df['s2_pm10xpm25'] = np.abs(df.s2_pm10 - df.s2_pm2_5)
-    
+
     df['pm_total_diffs'] = df.pm2_5_diff + df.pm10_diff + df.pm10xpm25 + df.s2_pm10xpm25
     df['pm_diffs_mean'] = (df.pm2_5_diff + df.pm10_diff + df.pm10xpm25 + df.s2_pm10xpm25)/4
-    
+
     # humixtemp categories
     conditions = [
     (df['humixtemp'] <= 8),
@@ -307,7 +307,7 @@ def feat_eng(df):
 
     values = ['2', '1', '3']
     df['humixtemp_cat'] = np.select(conditions, values).astype(int)
-    
+
     # altxhumi categories
     conditions = [
     (df['altxhumi'] <= 600),
@@ -315,7 +315,7 @@ def feat_eng(df):
     (df['altxhumi'] > 900)]
     values = ['3', '1', '2']
     df['altxhumi_cat'] = np.select(conditions, values).astype(int)
-    
+
     # altxtemp categories
     conditions = [
     (df['altxtemp'] <= 25000),
@@ -323,7 +323,7 @@ def feat_eng(df):
     (df['altxtemp'] > 31000)]
     values = ['3', '1', '2']
     df['altxtemp_cat'] = np.select(conditions, values).astype(int)
-    
+
     # pca feature
     pca = PCA(n_components=1, random_state=101)
     vals = pca.fit_transform(df[['pm2_5', 'pm10', 's2_pm2_5', 's2_pm10',
@@ -339,7 +339,7 @@ def feat_eng(df):
        'pm_total_diffs', 'pm_diffs_mean', 'humixtemp_cat', 'altxhumi_cat',
        'altxtemp_cat']])
     df['component'] = pd.Series(vals.reshape(vals.shape[0],))
-    
+
     # component categories
     # altxtemp categories
     conditions = [
@@ -348,11 +348,10 @@ def feat_eng(df):
     (df['component'] > 5000)]
     values = ['2', '1', '3']
     df['component_cat'] = np.select(conditions, values).astype(int)
-    
+
     return df
 ```
 
-That was one hell of a process! You can imagine the extensive exploratory data analysis (EDA) I did to come up with such a piece!  
 Let us see how many more features we add to our initial dataset:
 
 
@@ -379,7 +378,7 @@ print(f"We created {data.shape[1] - initial_columns} more features!")
 33 more features! No one should beat our place in the leaderboard now if we combine our excellent feature engineering with performance monitoring to make sure we trust our local CV.
 
 ### **Modeling: Monitoring model performance**
-This is now where we start to define model performance steps.  
+This is now where we start to define model performance steps.
 Let's declare objects first. We'll be using the able **CatBoost** algorithm wrapped in **KFold** cross validation spanning 10 folds for our modeling.
 
 
@@ -406,7 +405,7 @@ First, define two variables:
 - out of folds predictions (those predictions made on the holdout set during the resampling procedure)
 - errors (the errors recorded in every fold - for these we’ll calculate the mean error) The error metric for this competition was root mean squared error (RMSE).
 
-The second variable is not too important, and must not be used, but I like to include it to strengthen my belief that the model performance across folds is reliable compared to the out of fold score if it does not deviate so much.  
+The second variable is not too important, and must not be used, but I like to include it to strengthen my belief that the model performance across folds is reliable compared to the out of fold score if it does not deviate so much.
 We’ll use both in comparison to gauge our model performance. Naturally they should not be far from each other.
 
 
@@ -415,7 +414,7 @@ oofs_preds = np.zeros(len(data))
 errors = []
 ```
 
-Second, define your cross validation strategy. In this case, we’re using KFold with 10 folds.  
+Second, define your cross validation strategy. In this case, we’re using KFold with 10 folds.
 This is where we populate these variables with values from our model training. In this loop, the two variables we created above get updated as the model trains and predicts on each fold.
 
 
@@ -427,17 +426,17 @@ NFOLDS = 10
 fold = KFold(n_splits=NFOLDS)
 
 for train_index, test_index in fold.split(X, y):
-    
+
     X_train, X_test = X.iloc[train_index], X.iloc[test_index]
     y_train, y_test = y.iloc[train_index], y.iloc[test_index]
-    
+
     cat  = CatBoostRegressor(verbose=False, random_seed=101, use_best_model=True, loss_function='RMSE', n_estimators=1500, learning_rate=0.05)
     cat.fit(X_train, y_train, eval_set=[(X_train, y_train), (X_test, y_test)])
     preds = cat.predict(X_test)
-    
+
     # update out of folds predictions
     oofs_preds[test_index] = preds
-    
+
     # update errors
     print(f"RMSE: {np.sqrt(mean_squared_error(y_test, preds))}")
     errors.append(np.sqrt(mean_squared_error(y_test, preds)))
@@ -458,7 +457,7 @@ for train_index, test_index in fold.split(X, y):
 
 
 Now comes time to compare between the two variables:
-We obtain the RMSE in out of folds predictions and we average errors across folds then compare.  
+We obtain the RMSE in out of folds predictions and we average errors across folds then compare.
 **REMEMBER:** The difference between these values should be minimal. Otherwise, you could be overfitting.
 
 
