@@ -15,7 +15,7 @@ author: "Vincent N."
 
 ## **Introduction**
 
-EDA, short for Exploratory Data Analysis, or as I like to call it, **Data Reveal Party** 😊 (because it is fun playing around
+EDA, short for Exploratory Data Analysis, or as I like to call it, **Data Reveal Party** 😊 (because it's fun playing around
 and getting your hands dirty with datasets) is one of the most important steps towards a successful data project. You get to
 uncover hidden data insights that only this process can unearth. It is therefore good practice to make sure you exhaust on it
 by investigating and looking at the dataset from every possible angle. In this article we are going to look at the steps to
